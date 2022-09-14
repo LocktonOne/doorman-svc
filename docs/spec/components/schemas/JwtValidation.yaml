@@ -1,0 +1,14 @@
+allOf:
+  - $ref: "#/components/schemas/JwtValidationKey"
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        required:
+          - eth_address
+        type: object
+        properties:
+          eth_address:
+            type: string
+        

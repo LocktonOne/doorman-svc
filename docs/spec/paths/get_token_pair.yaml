@@ -1,0 +1,37 @@
+get:
+  tags:
+    - JWT
+  summary: Get JWT pair
+  operationId: jwtPair
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          $ref: '#/components/schemas/JwtClaims'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/JwtPair'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - errors
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: "#/components/schemas/JwtPairError"
+    '500':
+      $ref: "#/components/responses/InternalError"

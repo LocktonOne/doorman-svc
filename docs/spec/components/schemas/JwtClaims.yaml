@@ -1,0 +1,17 @@
+allOf:
+  - $ref: "#/components/schemas/JwtClaimsKey"
+  - type: object
+    required:
+      - attributes
+    properties: 
+      attributes:
+        type: object
+        required:
+        - purpose
+        - eth_address
+        properties:
+          purpose:
+            type: object
+            $ref: "#/components/schemas/Purpose"
+          eth_address:
+            type: string

@@ -1,0 +1,33 @@
+get:
+  tags:
+    - JWT
+  summary: Validate token
+  operationId: validateToken
+  security:
+    - bearerAuth: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          $ref: '#/components/schemas/JwtValidation'
+  responses:
+    '200':
+      description: Success
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - errors
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ValidateJwtError"
+    '401':
+      $ref: "#/components/responses/Unauthorized"
+    '500':
+      $ref: "#/components/responses/InternalError"

@@ -1,0 +1,25 @@
+get:
+  tags:
+    - JWT
+  summary: Refresh token endpoint
+  description: Use Bearer authorization for making request
+  operationId: refreshToken    
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/JwtPair'
+    '400':
+      description: Bad Request
+    '401':
+      $ref: "#/components/responses/Unauthorized"
+    '500':
+      $ref: "#/components/responses/InternalError"
