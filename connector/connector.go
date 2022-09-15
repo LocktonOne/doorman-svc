@@ -59,7 +59,7 @@ func (c Connector) ValidateJwt(token string, address string) (bool, error) {
 		return false, err
 	}
 
-	req.Header.Set("Bearer", token)
+	req.Header.Set("Authorization", "Bearer "+token)
 
 	response, err := client.Do(req)
 	if err != nil {
