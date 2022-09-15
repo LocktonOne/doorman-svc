@@ -88,7 +88,7 @@ func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, e
 	if err != nil {
 		return resources.JwtPairResponse{}, err
 	}
-	if response.Status != "200" {
+	if response.Status != "200 OK" {
 		return resources.JwtPairResponse{}, errors.New("bad status")
 	}
 	defer response.Body.Close()
