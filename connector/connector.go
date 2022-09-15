@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"gitlab.com/tokene/doorman/internal/service/helpers"
 	"gitlab.com/tokene/doorman/resources"
 )
 
@@ -99,4 +100,7 @@ func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, e
 	}
 
 	return request, nil
+}
+func (c Connector) GetAuthToken(r *http.Request) (string, error) {
+	return helpers.Authenticate(r)
 }
