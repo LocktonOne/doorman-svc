@@ -20,8 +20,8 @@ func NewConnector(serviceUrl string) ConnectorI {
 	}
 }
 
-func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPairResponse, error) {
-	postBody, _ := json.Marshal(claims)
+func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
+	postBody, _ := json.Marshal(NewClaimsModel(address, purpose))
 	responseBody := bytes.NewBuffer(postBody)
 
 	resp, err := http.Post(c.ServiceUrl+"/get_token_pair", "application/json", responseBody)
@@ -40,12 +40,15 @@ func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPai
 	return request, nil
 }
 
-func (c Connector) ValidateJwt(token string) (bool, error) {
+func (c Connector) ValidateJwt(token string, address string) (bool, error) {
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
+	postBody, _ := json.Marshal(NewJwtValidationModel(address))
 
 	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
+	req.Body.Read(postBody)
+
 	if err != nil {
 		return false, err
 	}

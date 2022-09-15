@@ -1,6 +1,8 @@
 package connector
 
-import "gitlab.com/tokene/doorman/resources"
+import (
+	"gitlab.com/tokene/doorman/resources"
+)
 
 func NewClaimsModel(address string, purpose string) resources.JwtClaims {
 	model := resources.JwtClaims{
@@ -11,6 +13,13 @@ func NewClaimsModel(address string, purpose string) resources.JwtClaims {
 				Type: purpose,
 			},
 		},
+	}
+	return model
+}
+func NewJwtValidationModel(address string) resources.JwtValidation {
+	model := resources.JwtValidation{
+		Key:        resources.Key{Type: "validate_token"},
+		Attributes: resources.JwtValidationAttributes{EthAddress: address},
 	}
 	return model
 }

@@ -5,7 +5,7 @@ import (
 )
 
 type ConnectorI interface {
-	GenerateJwtPair(model resources.JwtClaims) (resources.JwtPairResponse, error)
-	ValidateJwt(token string) (bool, error)
+	GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error)
+	ValidateJwt(token string, address string) (bool, error)
 	RefreshJwt(refreshToken string) (resources.JwtPairResponse, error)
 }
