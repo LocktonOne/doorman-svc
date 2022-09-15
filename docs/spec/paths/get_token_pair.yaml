@@ -1,4 +1,4 @@
-get:
+post:
   tags:
     - JWT
   summary: Get JWT pair
