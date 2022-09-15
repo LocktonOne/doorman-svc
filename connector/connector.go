@@ -21,7 +21,11 @@ func NewConnector(serviceUrl string) ConnectorI {
 }
 
 func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
-	postBody, _ := json.Marshal(NewClaimsModel(address, purpose))
+	postBody, err := json.Marshal(NewClaimsModel(address, purpose))
+	if err != nil {
+		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to marshal")
+	}
+
 	responseBody := bytes.NewBuffer(postBody)
 
 	resp, err := http.Post(c.ServiceUrl+"/get_token_pair", "application/json", responseBody)
@@ -44,10 +48,12 @@ func (c Connector) ValidateJwt(token string, address string) (bool, error) {
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
-	postBody, _ := json.Marshal(NewJwtValidationModel(address))
+	postBody, err := json.Marshal(NewJwtValidationModel(address))
+	if err != nil {
+		return false, errors.Wrap(err, "failed to marshal")
+	}
 
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
-	req.Body.Read(postBody)
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", bytes.NewBuffer(postBody))
 
 	if err != nil {
 		return false, err
