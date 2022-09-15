@@ -20,7 +20,7 @@ func NewConnector(serviceUrl string) ConnectorI {
 	}
 }
 
-func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPair, error) {
+func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPairResponse, error) {
 	postBody, _ := json.Marshal(claims)
 	responseBody := bytes.NewBuffer(postBody)
 
@@ -31,9 +31,9 @@ func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPai
 	}
 	defer resp.Body.Close()
 
-	var request resources.JwtPair
+	var request resources.JwtPairResponse
 	if err := json.NewDecoder(resp.Body).Decode(&request); err != nil {
-		return resources.JwtPair{}, errors.Wrap(err, "failed to unmarshal")
+		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to unmarshal")
 	}
 
 	return request, nil
@@ -41,6 +41,6 @@ func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPai
 func (c Connector) ValidateJwt(token string) (bool, error) {
 	return false, nil
 }
-func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPair, error) {
+func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
 	return resources.JwtPair{}, nil
 }
