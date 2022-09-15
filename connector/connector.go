@@ -76,7 +76,7 @@ func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, e
 		Timeout: time.Second * 10,
 	}
 
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/refresh_token", nil)
 
 	if err != nil {
 		return resources.JwtPairResponse{}, err
