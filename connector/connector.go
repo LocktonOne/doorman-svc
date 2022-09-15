@@ -28,16 +28,16 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 
 	responseBody := bytes.NewBuffer(postBody)
 
-	resp, err := http.Post(c.ServiceUrl+"/get_token_pair", "application/json", responseBody)
+	response, err := http.Post(c.ServiceUrl+"/get_token_pair", "application/json", responseBody)
 
-	if err != nil || resp.StatusCode != http.StatusOK {
+	if err != nil || response.StatusCode != http.StatusOK {
 		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to request")
 	}
 
-	defer resp.Body.Close()
+	defer response.Body.Close()
 
 	var request resources.JwtPairResponse
-	if err := json.NewDecoder(resp.Body).Decode(&request); err != nil {
+	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
 		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to unmarshal")
 	}
 
@@ -72,5 +72,31 @@ func (c Connector) ValidateJwt(token string, address string) (bool, error) {
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
-	return resources.JwtPairResponse{}, nil
+	client := &http.Client{
+		Timeout: time.Second * 10,
+	}
+
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
+
+	if err != nil {
+		return resources.JwtPairResponse{}, err
+	}
+
+	req.Header.Set("Authorization", "Bearer "+refreshToken)
+
+	response, err := client.Do(req)
+	if err != nil {
+		return resources.JwtPairResponse{}, err
+	}
+	if response.Status != "200" {
+		return resources.JwtPairResponse{}, errors.New("bad status")
+	}
+	defer response.Body.Close()
+
+	var request resources.JwtPairResponse
+	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
+		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to unmarshal")
+	}
+
+	return request, nil
 }
