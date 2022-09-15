@@ -3,8 +3,8 @@ package connector
 import (
 	"bytes"
 	"encoding/json"
-	"log"
 	"net/http"
+	"time"
 
 	"github.com/pkg/errors"
 	"gitlab.com/tokene/doorman/resources"
@@ -26,9 +26,10 @@ func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPai
 
 	resp, err := http.Post(c.ServiceUrl+"/get_token_pair", "application/json", responseBody)
 
-	if err != nil {
-		log.Fatalf("An Error Occured %v", err)
+	if err != nil || resp.StatusCode != http.StatusOK {
+		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to request")
 	}
+
 	defer resp.Body.Close()
 
 	var request resources.JwtPairResponse
@@ -38,9 +39,29 @@ func (c Connector) GenerateJwtPair(claims resources.JwtClaims) (resources.JwtPai
 
 	return request, nil
 }
+
 func (c Connector) ValidateJwt(token string) (bool, error) {
-	return false, nil
+	client := &http.Client{
+		Timeout: time.Second * 10,
+	}
+
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
+	if err != nil {
+		return false, err
+	}
+
+	req.Header.Set("Bearer", token)
+
+	response, err := client.Do(req)
+	if err != nil {
+		return false, err
+	}
+
+	defer response.Body.Close()
+
+	return response.StatusCode == http.StatusOK, nil
 }
+
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
 	return resources.JwtPairResponse{}, nil
 }
