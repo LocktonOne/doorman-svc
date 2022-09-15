@@ -42,5 +42,5 @@ func (c Connector) ValidateJwt(token string) (bool, error) {
 	return false, nil
 }
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
-	return resources.JwtPair{}, nil
+	return resources.JwtPairResponse{}, nil
 }
