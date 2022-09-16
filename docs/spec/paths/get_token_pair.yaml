@@ -3,6 +3,7 @@ post:
     - JWT
   summary: Get JWT pair
   operationId: jwtPair
+  description: Return JWT pair for authorization
   requestBody:
     content:
       application/json:

@@ -1,0 +1,15 @@
+allOf:
+  - $ref: "#/components/schemas/CheckResourcePermissionKey"
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        required:
+          - owner
+        type: object
+        properties:
+          owner:
+            type: string
+            description: Address of owner information 
+        

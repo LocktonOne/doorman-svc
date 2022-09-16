@@ -2,18 +2,19 @@ post:
   tags:
     - JWT
   summary: Validate token
+  description: If token valid returns jwt owner eth Address
   operationId: validateToken
   security:
     - bearerAuth: []
-  requestBody:
-    content:
-      application/json:
-        schema:
-          type: object
-          $ref: '#/components/schemas/JwtValidation'
+  
   responses:
     '200':
       description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/JwtValidation'
     '400':
       description: Bad Request
       content:

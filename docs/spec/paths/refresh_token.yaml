@@ -2,7 +2,7 @@ post:
   tags:
     - JWT
   summary: Refresh token endpoint
-  description: Use Bearer authorization for making request
+  description: Use Bearer authorization for making request. Returns new pair of JWT
   operationId: refreshToken    
   security:
     - bearerAuth: []
