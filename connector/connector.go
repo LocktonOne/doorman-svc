@@ -45,31 +45,30 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 	return request, nil
 }
 
-func (c Connector) ValidateJwt(token string, address string) (bool, error) {
+func (c Connector) ValidateJwt(token string) (string, error) {
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
-	postBody, err := json.Marshal(NewJwtValidationModel(address))
-	if err != nil {
-		return false, errors.Wrap(err, "failed to marshal")
-	}
 
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", bytes.NewBuffer(postBody))
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
 
 	if err != nil {
-		return false, err
+		return "", err
 	}
 
 	req.Header.Set("Authorization", "Bearer "+token)
 
 	response, err := client.Do(req)
 	if err != nil {
-		return false, err
+		return "", err
 	}
 
 	defer response.Body.Close()
-
-	return response.StatusCode == http.StatusOK, nil
+	var request resources.JwtValidationResponse
+	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
+		return "", errors.Wrap(err, "failed to unmarshal")
+	}
+	return request.Data.Attributes.EthAddress, nil
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {

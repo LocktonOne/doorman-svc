@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/pkg/errors"
@@ -44,8 +45,8 @@ func (c ConnectorMockKyc) GenerateJwtPair(address string, purpose string) (resou
 	return request, nil
 }
 
-func (c ConnectorMockKyc) ValidateJwt(token string, address string) (bool, error) {
-	return true, nil
+func (c ConnectorMockKyc) ValidateJwt(token string) (string, error) {
+	return strings.ToLower("0x750Bd531CEA1f68418DDF2373193CfbD86A69058"), nil
 }
 
 func (c ConnectorMockKyc) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
