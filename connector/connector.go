@@ -104,12 +104,28 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
 }
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
+	client := &http.Client{
+		Timeout: time.Second * 10,
+	}
+
 	postBody, err := json.Marshal(NewCheckPermissionModel(owner))
 	if err != nil {
 		return false, errors.Wrap(err, "failed to marshal")
 	}
+
 	req, err := http.NewRequest("POST", c.ServiceUrl+"/check_permission", bytes.NewBuffer(postBody))
-	if req.Response.Status != "200 OK" {
+	if err != nil {
+		return false, err
+	}
+
+	req.Header.Set("Authorization", "Bearer "+token)
+
+	response, err := client.Do(req)
+	if err != nil {
+		return true, err
+	}
+
+	if response.Status != "200 OK" {
 		return false, nil
 	}
 
