@@ -13,6 +13,7 @@ import (
 
 type standardClaims struct {
 	Address string `json:"address"`
+	Purpose string `jsom:"purpose"`
 	jwt.StandardClaims
 }
 type refreshTokenClaims struct {
@@ -24,6 +25,7 @@ func GenerateJWT(user_claims resources.JwtClaimsAttributes, cfg *config.ServiceC
 	expirationTime := time.Now().Add(cfg.TokenExpireTime)
 	claims := &standardClaims{
 		Address: strings.ToLower(user_claims.EthAddress),
+		Purpose: user_claims.Purpose.Type,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expirationTime.Unix(),
 		},
@@ -94,7 +96,26 @@ func RetrieveToken(tokenString string, r *http.Request) (string, error) {
 	}
 	return TokenUserAddress, nil
 }
+func GetTokenPurpose(tokenString string, r *http.Request) (string, error) {
+	tokenClaims := jwt.MapClaims{}
 
+	token, err := jwt.ParseWithClaims(tokenString, &tokenClaims, func(token *jwt.Token) (interface{}, error) {
+		return []byte(ServiceConfig(r).TokenKey), nil
+	})
+
+	if err != nil {
+		return "", err
+	}
+
+	if !token.Valid {
+		return "", errors.New("token is invalid")
+	}
+	purpose, ok := tokenClaims["Purpose"].(string)
+	if !ok {
+		return "", errors.New("cannot find purpose")
+	}
+	return purpose, nil
+}
 func getBearerToken(r *http.Request) (string, error) {
 	authHeader := r.Header.Get("Authorization")
 	authHeaderSplit := strings.Split(authHeader, "Bearer ")
