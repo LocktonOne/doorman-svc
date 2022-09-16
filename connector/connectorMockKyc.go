@@ -81,3 +81,6 @@ func (c ConnectorMockKyc) RefreshJwt(refreshToken string) (resources.JwtPairResp
 func (c ConnectorMockKyc) GetAuthToken(r *http.Request) (string, error) {
 	return "token", nil
 }
+func (c ConnectorMockKyc) CheckPermission(owner string, token string) (bool, error) {
+	return true, nil
+}

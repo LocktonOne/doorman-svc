@@ -103,3 +103,15 @@ func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, e
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
 }
+func (c Connector) CheckPermission(owner string, token string) (bool, error) {
+	postBody, err := json.Marshal(NewCheckPermissionModel(owner))
+	if err != nil {
+		return false, errors.Wrap(err, "failed to marshal")
+	}
+	req, err := http.NewRequest("POST", c.ServiceUrl+"/check_permission", bytes.NewBuffer(postBody))
+	if req.Response.Status != "200 OK" {
+		return false, nil
+	}
+
+	return true, nil
+}
