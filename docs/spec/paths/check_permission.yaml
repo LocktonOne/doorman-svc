@@ -13,7 +13,7 @@ post:
   security:
     - bearerAuth: []
   responses:
-    '200':
+    '204':
       description: Success
     '400':
       description: Bad Request
