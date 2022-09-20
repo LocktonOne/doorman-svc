@@ -68,14 +68,7 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 
 func (c Connector) ValidateJwt(token string) (string, error) {
 	model := &resources.JwtValidationResponse{}
-	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, model, http.StatusOK)
-	if err != nil {
-		return "", err
-	}
-	if (*model).Data.Attributes.EthAddress == "" {
-		return "", errors.New("failed to validate")
-	}
-	return (*model).Data.Attributes.EthAddress, nil
+	return (*model).Data.Attributes.EthAddress, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, model, http.StatusOK)
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
