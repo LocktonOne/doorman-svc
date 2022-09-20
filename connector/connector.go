@@ -83,8 +83,9 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), http.StatusNoContent)
-	if response != nil {
-		defer response.Body.Close()
+	if err != nil {
+		return false, err
 	}
-	return err == nil, err
+	response.Body.Close()
+	return true, nil
 }
