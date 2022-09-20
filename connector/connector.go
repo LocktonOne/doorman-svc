@@ -3,6 +3,7 @@ package connector
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"time"
 
@@ -41,6 +42,12 @@ func (c Connector) DoAuthRequest(method string, url string, token string, body [
 
 	return response, nil
 }
+func (c Connector) ParseModel(body io.Reader, model interface{}) error {
+	if err := json.NewDecoder(body).Decode(model); err != nil {
+		return errors.Wrap(err, "failed to unmarshal")
+	}
+	return nil
+}
 func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
 
 	postBody, err := json.Marshal(NewClaimsModel(address, purpose))
@@ -54,12 +61,8 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 	}
 	defer response.Body.Close()
 
-	var request resources.JwtPairResponse
-	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to unmarshal")
-	}
-
-	return request, nil
+	model := &resources.JwtPairResponse{}
+	return *model, c.ParseModel(response.Body, model)
 }
 
 func (c Connector) ValidateJwt(token string) (string, error) {
@@ -69,12 +72,8 @@ func (c Connector) ValidateJwt(token string) (string, error) {
 	}
 	defer response.Body.Close()
 
-	var request resources.JwtValidationResponse
-	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
-		return "", errors.Wrap(err, "failed to unmarshal")
-	}
-
-	return request.Data.Attributes.EthAddress, nil
+	model := &resources.JwtValidationResponse{}
+	return *&model.Data.Attributes.EthAddress, c.ParseModel(response.Body, model)
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
@@ -84,12 +83,8 @@ func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, e
 	}
 	defer response.Body.Close()
 
-	var request resources.JwtPairResponse
-	if err := json.NewDecoder(response.Body).Decode(&request); err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to unmarshal")
-	}
-
-	return request, nil
+	model := &resources.JwtPairResponse{}
+	return *model, c.ParseModel(response.Body, model)
 }
 
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
