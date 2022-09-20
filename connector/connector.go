@@ -25,10 +25,7 @@ func NewConnector(serviceUrl string) ConnectorI {
 	}
 }
 func (c Connector) DoAuthRequest(method string, url string, token string, body []byte) (*http.Response, error) {
-	var postBody *bytes.Buffer = nil
-	if body != nil {
-		postBody = bytes.NewBuffer(body)
-	}
+	postBody := bytes.NewBuffer(body)
 
 	req, err := http.NewRequest(method, url, postBody)
 	if err != nil {
