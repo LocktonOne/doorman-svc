@@ -3,7 +3,6 @@ package connector
 import (
 	"bytes"
 	"encoding/json"
-	"io"
 	"net/http"
 	"time"
 
@@ -25,7 +24,7 @@ func NewConnector(serviceUrl string) ConnectorI {
 		},
 	}
 }
-func (c Connector) DoAuthRequest(method string, url string, token string, body interface{}, parseResponseModel interface{}) (*http.Response, error) {
+func (c Connector) DoAuthRequest(method string, url string, token string, body interface{}) (*http.Response, error) {
 	postBody, err := json.Marshal(body)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to marshal")
@@ -42,52 +41,42 @@ func (c Connector) DoAuthRequest(method string, url string, token string, body i
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to send request")
 	}
-
-	return response, c.ParseModel(response.Body, parseResponseModel)
+	return response, nil
 }
-func (c Connector) ParseModel(body io.Reader, model interface{}) error {
-	if model == nil {
-		return nil
+func (c Connector) DoAuthRequestWithDecode(method string, url string, token string, body interface{}, decodeModel interface{}) error {
+	response, err := c.DoAuthRequest(method, url, token, body)
+	if err != nil {
+		return err
 	}
-	if err := json.NewDecoder(body).Decode(model); err != nil {
-		return errors.Wrap(err, "failed to unmarshal")
-	}
-	return nil
-}
-func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
-	model := &resources.JwtPairResponse{}
-
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), model)
 	defer response.Body.Close()
 
-	return *model, err
+	if err := json.NewDecoder(response.Body).Decode(decodeModel); err != nil {
+		return errors.Wrap(err, "failed to unmarshal")
+	}
+
+	return nil
+}
+
+func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
+	model := &resources.JwtPairResponse{}
+	return *model, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), model)
 }
 
 func (c Connector) ValidateJwt(token string) (string, error) {
 	model := &resources.JwtValidationResponse{}
-
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/validate_token", token, nil, model)
-	defer response.Body.Close()
-
-	return *&model.Data.Attributes.EthAddress, err
+	return *&model.Data.Attributes.EthAddress, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, model)
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
 	model := &resources.JwtPairResponse{}
-
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, model)
-	defer response.Body.Close()
-
-	return *model, err
+	return *model, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, model)
 }
-
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
 }
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), nil)
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner))
 	defer response.Body.Close()
-
 	return response.StatusCode == http.StatusNoContent, err
 }
