@@ -10,7 +10,7 @@ import (
 
 type DoormanConfiger interface {
 	DoormanConfig() *DoormanConfig
-	DormanConnector() connector.ConnectorI
+	DoormanConnector() connector.ConnectorI
 }
 
 type DoormanConfig struct {
@@ -40,6 +40,6 @@ func (c *doormanConfig) DoormanConfig() *DoormanConfig {
 		return &config
 	}).(*DoormanConfig)
 }
-func (c *doormanConfig) DormanConnector() connector.ConnectorI {
+func (c *doormanConfig) DoormanConnector() connector.ConnectorI {
 	return connector.NewConnector(c.DoormanConfig().ServiceUrl)
 }
