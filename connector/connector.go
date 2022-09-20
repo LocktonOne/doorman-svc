@@ -25,10 +25,13 @@ func NewConnector(serviceUrl string) ConnectorI {
 		},
 	}
 }
-func (c Connector) DoAuthRequest(method string, url string, token string, body []byte, parseResponseModel interface{}) (*http.Response, error) {
-	postBody := bytes.NewBuffer(body)
+func (c Connector) DoAuthRequest(method string, url string, token string, body interface{}, parseResponseModel interface{}) (*http.Response, error) {
+	postBody, err := json.Marshal(body)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to marshal")
+	}
 
-	req, err := http.NewRequest(method, url, postBody)
+	req, err := http.NewRequest(method, url, bytes.NewBuffer(postBody))
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to make request")
 	}
@@ -54,12 +57,7 @@ func (c Connector) ParseModel(body io.Reader, model interface{}) error {
 func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
 	model := &resources.JwtPairResponse{}
 
-	postBody, err := json.Marshal(NewClaimsModel(address, purpose))
-	if err != nil {
-		return *model, errors.Wrap(err, "failed to marshal")
-	}
-
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/get_token_pair", "", postBody, model)
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), model)
 	if err != nil {
 		return *model, err
 	}
@@ -97,12 +95,7 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 }
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
-	postBody, err := json.Marshal(NewCheckPermissionModel(owner))
-	if err != nil {
-		return false, errors.Wrap(err, "failed to marshal")
-	}
-
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, postBody, nil)
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), nil)
 	if err != nil {
 		return false, err
 	}
