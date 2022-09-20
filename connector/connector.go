@@ -43,6 +43,9 @@ func (c Connector) DoAuthRequest(method string, url string, token string, body [
 	return response, c.ParseModel(response.Body, parseResponseModel)
 }
 func (c Connector) ParseModel(body io.Reader, model interface{}) error {
+	if model == nil {
+		return nil
+	}
 	if err := json.NewDecoder(body).Decode(model); err != nil {
 		return errors.Wrap(err, "failed to unmarshal")
 	}
