@@ -24,7 +24,26 @@ func NewConnector(serviceUrl string) ConnectorI {
 		},
 	}
 }
+func (c Connector) DoAuthRequest(method string, url string, token string, body []byte) (*http.Response, error) {
+	var postBody *bytes.Buffer = nil
+	if body != nil {
+		postBody = bytes.NewBuffer(body)
+	}
 
+	req, err := http.NewRequest(method, url, postBody)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to make request")
+	}
+
+	req.Header.Set("Authorization", "Bearer "+token)
+
+	response, err := c.Client.Do(req)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to send request")
+	}
+
+	return response, nil
+}
 func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
 
 	postBody, err := json.Marshal(NewClaimsModel(address, purpose))
@@ -32,16 +51,10 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to marshal")
 	}
 
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/get_token_pair", bytes.NewBuffer(postBody))
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/get_token_pair", "", postBody)
 	if err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to make request")
+		return resources.JwtPairResponse{}, err
 	}
-
-	response, err := c.Client.Do(req)
-	if err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to request")
-	}
-
 	defer response.Body.Close()
 
 	var request resources.JwtPairResponse
@@ -53,17 +66,9 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 }
 
 func (c Connector) ValidateJwt(token string) (string, error) {
-
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/validate_token", nil)
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/validate_token", token, nil)
 	if err != nil {
-		return "", errors.Wrap(err, "failed to make request")
-	}
-
-	req.Header.Set("Authorization", "Bearer "+token)
-
-	response, err := c.Client.Do(req)
-	if err != nil {
-		return "", errors.Wrap(err, "failed to make request")
+		return "", err
 	}
 	defer response.Body.Close()
 
@@ -76,19 +81,10 @@ func (c Connector) ValidateJwt(token string) (string, error) {
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
-
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/refresh_token", nil)
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil)
 	if err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to create request")
+		return resources.JwtPairResponse{}, err
 	}
-
-	req.Header.Set("Authorization", "Bearer "+refreshToken)
-
-	response, err := c.Client.Do(req)
-	if err != nil {
-		return resources.JwtPairResponse{}, errors.Wrap(err, "failed to make request")
-	}
-
 	defer response.Body.Close()
 
 	var request resources.JwtPairResponse
@@ -104,25 +100,16 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 }
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
-
 	postBody, err := json.Marshal(NewCheckPermissionModel(owner))
 	if err != nil {
 		return false, errors.Wrap(err, "failed to marshal")
 	}
 
-	req, err := http.NewRequest("POST", c.ServiceUrl+"/check_permission", bytes.NewBuffer(postBody))
+	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, postBody)
 	if err != nil {
-		return false, errors.Wrap(err, "failed to create request")
+		return false, err
 	}
-
-	req.Header.Set("Authorization", "Bearer "+token)
-
-	response, err := c.Client.Do(req)
-	if err != nil {
-		return false, errors.Wrap(err, "failed to make request")
-	}
-
 	defer response.Body.Close()
 
-	return response.Status == "204 No Content", nil
+	return response.StatusCode == http.StatusNoContent, nil
 }
