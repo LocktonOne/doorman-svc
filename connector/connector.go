@@ -62,19 +62,20 @@ func (c Connector) DoAuthRequestWithDecode(method string, url string, token stri
 }
 
 func (c Connector) GenerateJwtPair(address string, purpose string) (resources.JwtPairResponse, error) {
-	model := &resources.JwtPairResponse{}
-	return *model, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), model, http.StatusOK)
+	model := resources.JwtPairResponse{}
+	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), &model, http.StatusOK)
+	return model, err
 }
 
 func (c Connector) ValidateJwt(token string) (string, error) {
-	model := &resources.JwtValidationResponse{}
-	return (*model).Data.Attributes.EthAddress, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, model, http.StatusOK)
+	model := resources.JwtValidationResponse{}
+	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, &model, http.StatusOK)
+	return model.Data.Attributes.EthAddress, err
 }
-
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
-	model := &resources.JwtPairResponse{}
-
-	return *model, c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, model, http.StatusOK)
+	model := resources.JwtPairResponse{}
+	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, &model, http.StatusOK)
+	return model, err
 }
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
@@ -82,6 +83,8 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), http.StatusNoContent)
-	defer response.Body.Close()
-	return response.StatusCode == http.StatusNoContent, err
+	if response != nil {
+		defer response.Body.Close()
+	}
+	return err == nil, err
 }
