@@ -58,36 +58,27 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 	model := &resources.JwtPairResponse{}
 
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/get_token_pair", "", NewClaimsModel(address, purpose), model)
-	if err != nil {
-		return *model, err
-	}
 	defer response.Body.Close()
 
-	return *model, nil
+	return *model, err
 }
 
 func (c Connector) ValidateJwt(token string) (string, error) {
 	model := &resources.JwtValidationResponse{}
 
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/validate_token", token, nil, model)
-	if err != nil {
-		return "", err
-	}
 	defer response.Body.Close()
 
-	return *&model.Data.Attributes.EthAddress, nil
+	return *&model.Data.Attributes.EthAddress, err
 }
 
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
 	model := &resources.JwtPairResponse{}
 
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, model)
-	if err != nil {
-		return *model, err
-	}
 	defer response.Body.Close()
 
-	return *model, nil
+	return *model, err
 }
 
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
@@ -96,10 +87,7 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), nil)
-	if err != nil {
-		return false, err
-	}
 	defer response.Body.Close()
 
-	return response.StatusCode == http.StatusNoContent, nil
+	return response.StatusCode == http.StatusNoContent, err
 }
