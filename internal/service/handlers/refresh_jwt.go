@@ -30,7 +30,7 @@ func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 	sessionToken, sessioExp, err := helpers.GenerateJWT(
 		resources.JwtClaimsAttributes{
 			EthAddress: address,
-			Purpose:    resources.Purpose{Type: string(resources.SESSION_JWT)},
+			Purpose:    resources.Purpose{Type: "session"},
 		}, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)
@@ -41,7 +41,6 @@ func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 	refreshToken, refreshExp, err := helpers.GenerateRefreshToken(
 		resources.JwtClaimsAttributes{
 			EthAddress: address,
-			Purpose:    resources.Purpose{Type: string(resources.SESSION_JWT)},
 		}, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)
