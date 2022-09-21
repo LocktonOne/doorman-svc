@@ -12,4 +12,5 @@ type ConnectorI interface {
 	RefreshJwt(refreshToken string) (resources.JwtPairResponse, error)
 	GetAuthToken(r *http.Request) (string, error)
 	CheckPermission(owner string, token string) (bool, error)
+	CheckPurpose(token string) (string, error)
 }

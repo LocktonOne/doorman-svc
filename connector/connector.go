@@ -89,3 +89,11 @@ func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 	response.Body.Close()
 	return true, nil
 }
+func (c Connector) CheckPurpose(token string) (string, error) {
+	model := resources.Purpose{}
+	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/check_permission", token, nil, &model, http.StatusNoContent)
+	if err != nil {
+		return "", err
+	}
+	return model.Type, nil
+}
