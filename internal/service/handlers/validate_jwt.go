@@ -19,12 +19,13 @@ func ValidateJWT(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	address, err := helpers.RetrieveToken(token, r)
+	address, err := helpers.RetrieveTokenUserAddress(token, r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to retrieve token")
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}
+
 	result := resources.JwtValidationResponse{
 		Data: resources.JwtValidation{
 			Key: resources.Key{Type: resources.VALIDATE_TOKEN},

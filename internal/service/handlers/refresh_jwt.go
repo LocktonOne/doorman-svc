@@ -19,7 +19,7 @@ func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	address, err := helpers.RetrieveToken(token, r)
+	address, err := helpers.RetrieveTokenUserAddress(token, r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to retrieve refresh token")
 		ape.RenderErr(w, problems.BadRequest(err)...)

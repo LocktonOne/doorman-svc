@@ -19,28 +19,25 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		ape.RenderErr(w, problems.BadRequest(err)...)
 		return
 	}
+
 	token, err := helpers.Authenticate(r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to get token")
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}
-	_, err = helpers.GetTokenPurpose(token, r)
-	if err != nil {
-		logger.WithError(err).Debug("failed to purpose")
-		ape.RenderErr(w, problems.Unauthorized())
-		return
-	}
-	address, err := helpers.RetrieveToken(token, r)
+	_, address, err := helpers.RetrieveJwtToken(token, r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to retrieve token")
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}
+
 	if address != strings.ToLower(req.Owner) && !helpers.NodeAdmins(r).CheckAdmin(common.HexToAddress(address)) {
 		logger.WithError(err).Debug("user has no rights to get resource")
 		ape.RenderErr(w, problems.Forbidden())
 		return
 	}
+
 	w.WriteHeader(http.StatusNoContent)
 }

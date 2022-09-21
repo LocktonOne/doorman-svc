@@ -45,7 +45,6 @@ func GenerateJwtPair(w http.ResponseWriter, r *http.Request) {
 		ape.RenderErr(w, problems.InternalError())
 		return
 	}
-
 	refreshToken, refreshExp, err := helpers.GenerateRefreshToken(request, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)

@@ -54,21 +54,7 @@ func GenerateRefreshToken(user_claims resources.JwtClaimsAttributes, cfg *config
 	return refreshTokenString, expirationTime.Unix(), nil
 }
 
-func parseStandardJWT(tokenString string, r *http.Request) (*standardClaims, error) {
-	claims := &standardClaims{}
-	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(ServiceConfig(r).TokenKey), nil
-	})
-	if err != nil {
-		return claims, err
-	}
-	if !token.Valid {
-		return claims, errors.New("invalid token")
-	}
-	return claims, nil
-}
-
-func RetrieveToken(tokenString string, r *http.Request) (string, error) {
+func RetrieveTokenClaims(tokenString string, r *http.Request) (jwt.MapClaims, error) {
 	tokenClaims := jwt.MapClaims{}
 
 	token, err := jwt.ParseWithClaims(tokenString, &tokenClaims, func(token *jwt.Token) (interface{}, error) {
@@ -76,45 +62,55 @@ func RetrieveToken(tokenString string, r *http.Request) (string, error) {
 	})
 
 	if err != nil {
-		return "", err
+		return tokenClaims, err
+	}
+	if !token.Valid {
+		return tokenClaims, errors.New("token is invalid")
 	}
 
-	if !token.Valid {
-		return "", errors.New("token is invalid")
-	}
 	expiresAt, ok := tokenClaims["exp"].(float64) // It was parsed to tokenClaims as float64
+
 	if !ok {
-		return "", errors.New("can't parse expiresAt")
+		return tokenClaims, errors.New("can't parse expiresAt")
 	}
 	if int64(expiresAt) < time.Now().Unix() { //Token is expired
-		return "", errors.New("token is expired")
+		return tokenClaims, errors.New("token is expired")
+	}
+
+	return tokenClaims, nil
+}
+
+func RetrieveTokenUserAddress(tokenString string, r *http.Request) (string, error) {
+	tokenClaims, err := RetrieveTokenClaims(tokenString, r)
+	if err != nil {
+		return "", err
 	}
 
 	TokenUserAddress, ok := tokenClaims["address"].(string)
 	if !ok {
 		return "", errors.New("can't parse address")
 	}
+
 	return TokenUserAddress, nil
 }
-func GetTokenPurpose(tokenString string, r *http.Request) (string, error) {
-	tokenClaims := jwt.MapClaims{}
 
-	token, err := jwt.ParseWithClaims(tokenString, &tokenClaims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(ServiceConfig(r).TokenKey), nil
-	})
-
+func RetrieveJwtToken(tokenString string, r *http.Request) (string, string, error) {
+	tokenClaims, err := RetrieveTokenClaims(tokenString, r)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 
-	if !token.Valid {
-		return "", errors.New("token is invalid")
+	TokenUserAddress, err := RetrieveTokenUserAddress(tokenString, r)
+	if err != nil {
+		return "", "", errors.New("can't parse address")
 	}
+
 	purpose, ok := tokenClaims["Purpose"].(string)
 	if !ok {
-		return "", errors.New("cannot find purpose")
+		return "", "", errors.New("cannot parse purpose")
 	}
-	return purpose, nil
+
+	return purpose, TokenUserAddress, nil
 }
 func getBearerToken(r *http.Request) (string, error) {
 	authHeader := r.Header.Get("Authorization")
