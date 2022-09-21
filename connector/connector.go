@@ -91,7 +91,7 @@ func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 }
 func (c Connector) CheckPurpose(token string) (string, error) {
 	model := resources.Purpose{}
-	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/check_permission", token, nil, &model, http.StatusNoContent)
+	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/check_permission", token, nil, &model, http.StatusOK)
 	if err != nil {
 		return "", err
 	}
