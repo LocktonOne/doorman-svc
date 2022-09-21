@@ -29,6 +29,7 @@ func (s *service) router(cfg config.Config) chi.Router {
 		r.Post("/refresh_token", handlers.RefreshJwt)
 		r.Post("/get_token_pair", handlers.GenerateJwtPair)
 		r.Post("/check_permission", handlers.CheckResourcePermission)
+		r.Post("/check_purpose", handlers.CheckPurpose)
 	})
 
 	return r
