@@ -1,0 +1,22 @@
+post:
+  tags:
+    - JWT
+  summary: Check Resourse purpose
+  description: Use Bearer authorization for making request. Check purpose of jwt.
+  operationId: checkPurpose   
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/Purpose'
+    '400':
+      description: Bad Request
+    '401':
+      $ref: "#/components/responses/Unauthorized"
+    '500':
+      $ref: "#/components/responses/InternalError"
