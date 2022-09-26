@@ -81,13 +81,13 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
 }
 
-func (c Connector) CheckPermission(owner string, token string) (bool, error) {
+func (c Connector) CheckPermission(owner string, token string) error {
 	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission?owner="+owner, token, nil, http.StatusNoContent)
 	if err != nil {
-		return false, err
+		return err
 	}
 	response.Body.Close()
-	return true, nil
+	return nil
 }
 func (c Connector) CheckPurpose(token string) (string, error) {
 	model := resources.Purpose{}
