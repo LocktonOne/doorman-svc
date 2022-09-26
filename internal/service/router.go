@@ -28,7 +28,7 @@ func (s *service) router(cfg config.Config) chi.Router {
 		r.Get("/validate_token", handlers.ValidateJWT)
 		r.Get("/refresh_token", handlers.RefreshJwt)
 		r.Post("/get_token_pair", handlers.GenerateJwtPair)
-		r.Get("/check_permission", handlers.CheckResourcePermission)
+		r.Get("/check_permission/{owner}", handlers.CheckResourcePermission)
 		r.Get("/check_purpose", handlers.CheckPurpose)
 	})
 
