@@ -82,7 +82,7 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 }
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
-	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission?owner="+owner, token, NewCheckPermissionModel(owner), http.StatusNoContent)
+	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission?owner="+owner, token, nil, http.StatusNoContent)
 	if err != nil {
 		return false, err
 	}
