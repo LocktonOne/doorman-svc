@@ -80,27 +80,29 @@ func RetrieveTokenClaims(tokenString string, r *http.Request) (jwt.MapClaims, er
 	return tokenClaims, nil
 }
 
-func RetrieveTokenUserAddress(tokenString string, r *http.Request) (string, error) {
+//Returns token
+func RetrieveToken(tokenString string, r *http.Request) (string, error) {
 	tokenClaims, err := RetrieveTokenClaims(tokenString, r)
 	if err != nil {
 		return "", err
 	}
 
-	TokenUserAddress, ok := tokenClaims["address"].(string)
+	address, ok := tokenClaims["address"].(string)
 	if !ok {
 		return "", errors.New("can't parse address")
 	}
 
-	return TokenUserAddress, nil
+	return address, nil
 }
 
-func RetrieveJwtToken(tokenString string, r *http.Request) (string, string, error) {
+/*Returns access token's purpose, address and error*/
+func RetrieveAccessToken(tokenString string, r *http.Request) (string, string, error) {
 	tokenClaims, err := RetrieveTokenClaims(tokenString, r)
 	if err != nil {
 		return "", "", err
 	}
 
-	TokenUserAddress, err := RetrieveTokenUserAddress(tokenString, r)
+	address, err := RetrieveToken(tokenString, r)
 	if err != nil {
 		return "", "", errors.New("can't parse address")
 	}
@@ -110,9 +112,9 @@ func RetrieveJwtToken(tokenString string, r *http.Request) (string, string, erro
 		return "", "", errors.New("cannot parse purpose")
 	}
 
-	return purpose, TokenUserAddress, nil
+	return purpose, address, nil
 }
-func getBearerToken(r *http.Request) (string, error) {
+func Authenticate(r *http.Request) (string, error) {
 	authHeader := r.Header.Get("Authorization")
 	authHeaderSplit := strings.Split(authHeader, "Bearer ")
 	if len(authHeaderSplit) != 2 {
@@ -121,11 +123,20 @@ func getBearerToken(r *http.Request) (string, error) {
 	return authHeaderSplit[1], nil
 }
 
-func Authenticate(r *http.Request) (string, error) {
-	sessToken, err := getBearerToken(r)
+func GetAccessTokenInfo(r *http.Request) (string, string, error) {
+	token, err := Authenticate(r)
 	if err != nil {
-		err = errors.Wrap(err, "session token not found")
+		return "", "", err
+	}
+	purpose, address, err := RetrieveAccessToken(token, r)
+	return purpose, address, err
+}
+
+func GetTokenInfo(r *http.Request) (string, error) {
+	token, err := Authenticate(r)
+	if err != nil {
 		return "", err
 	}
-	return sessToken, nil
+	address, err := RetrieveToken(token, r)
+	return address, err
 }

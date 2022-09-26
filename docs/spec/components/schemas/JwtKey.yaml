@@ -10,4 +10,4 @@ properties:
     type: string
     enum:
       - refresh_jwt
-      - session_jwt
+      - access_jwt

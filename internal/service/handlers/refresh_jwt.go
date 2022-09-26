@@ -12,14 +12,7 @@ import (
 func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 	logger := helpers.Log(r)
 
-	token, err := helpers.Authenticate(r)
-	if err != nil {
-		logger.WithError(err).Debug(err)
-		ape.RenderErr(w, problems.Unauthorized())
-		return
-	}
-
-	address, err := helpers.RetrieveTokenUserAddress(token, r)
+	address, err := helpers.GetTokenInfo(r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to retrieve refresh token")
 		ape.RenderErr(w, problems.BadRequest(err)...)
@@ -27,21 +20,19 @@ func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// success logic
-	sessionToken, sessioExp, err := helpers.GenerateJWT(
-		resources.JwtClaimsAttributes{
-			EthAddress: address,
-			Purpose:    resources.Purpose{Type: "session"},
-		}, helpers.ServiceConfig(r))
+	claims := resources.JwtClaimsAttributes{
+		EthAddress: address,
+		Purpose:    resources.Purpose{Type: "session"},
+	}
+
+	accessToken, sessioExp, err := helpers.GenerateJWT(claims, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)
 		ape.RenderErr(w, problems.InternalError())
 		return
 	}
 
-	refreshToken, refreshExp, err := helpers.GenerateRefreshToken(
-		resources.JwtClaimsAttributes{
-			EthAddress: address,
-		}, helpers.ServiceConfig(r))
+	refreshToken, refreshExp, err := helpers.GenerateRefreshToken(claims, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)
 		ape.RenderErr(w, problems.InternalError())
@@ -49,8 +40,9 @@ func RefreshJwt(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response := NewJwtPairResponseModel(
-		NewJwtModel(sessionToken, string(resources.SESSION_JWT), sessioExp),
+		NewJwtModel(accessToken, string(resources.ACCESS_JWT), sessioExp),
 		NewJwtModel(refreshToken, string(resources.REFRESH_JWT), refreshExp),
 	)
+
 	ape.Render(w, response)
 }

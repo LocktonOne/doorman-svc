@@ -12,16 +12,9 @@ import (
 func CheckPurpose(w http.ResponseWriter, r *http.Request) {
 	logger := helpers.Log(r)
 
-	token, err := helpers.Authenticate(r)
+	purpose, _, err := helpers.GetAccessTokenInfo(r)
 	if err != nil {
-		logger.WithError(err).Debug("failed to get token")
-		ape.RenderErr(w, problems.Unauthorized())
-		return
-	}
-
-	purpose, _, err := helpers.RetrieveJwtToken(token, r)
-	if err != nil {
-		logger.WithError(err).Debug("failed to retrieve token")
+		logger.WithError(err).Debug("failed to retrieve access token")
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}

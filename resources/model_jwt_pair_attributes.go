@@ -5,6 +5,6 @@
 package resources
 
 type JwtPairAttributes struct {
+	AccessToken  Jwt `json:"access_token"`
 	RefreshToken Jwt `json:"refresh_token"`
-	SessionToken Jwt `json:"session_token"`
 }

@@ -14,7 +14,10 @@ post:
         application/json:
           schema:
             type: object
-            $ref: '#/components/schemas/JwtValidation'
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/JwtValidation'
     '400':
       description: Bad Request
       content:

@@ -17,12 +17,12 @@ func NewJwtModel(token string, tokenType string, expTime int64) resources.Jwt {
 	}
 	return model
 }
-func NewJwtPairResponseModel(sessionToken resources.Jwt, refreshToken resources.Jwt) resources.JwtPairResponse {
+func NewJwtPairResponseModel(accessToken resources.Jwt, refreshToken resources.Jwt) resources.JwtPairResponse {
 	model := resources.JwtPairResponse{
 		Data: resources.JwtPair{
 			Key: resources.Key{Type: resources.JWT_PAIR},
 			Attributes: resources.JwtPairAttributes{
-				SessionToken: sessionToken,
+				AccessToken:  accessToken,
 				RefreshToken: refreshToken,
 			},
 		},
@@ -39,7 +39,7 @@ func GenerateJwtPair(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sessionToken, sessioExp, err := helpers.GenerateJWT(request, helpers.ServiceConfig(r))
+	accessToken, sessioExp, err := helpers.GenerateJWT(request, helpers.ServiceConfig(r))
 	if err != nil {
 		logger.WithError(err).Debug(err)
 		ape.RenderErr(w, problems.InternalError())
@@ -53,7 +53,7 @@ func GenerateJwtPair(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response := NewJwtPairResponseModel(
-		NewJwtModel(sessionToken, string(resources.SESSION_JWT), sessioExp),
+		NewJwtModel(accessToken, string(resources.ACCESS_JWT), sessioExp),
 		NewJwtModel(refreshToken, string(resources.REFRESH_JWT), refreshExp),
 	)
 	ape.Render(w, response)

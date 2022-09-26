@@ -20,15 +20,9 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	token, err := helpers.Authenticate(r)
+	_, address, err := helpers.GetAccessTokenInfo(r)
 	if err != nil {
-		logger.WithError(err).Debug("failed to get token")
-		ape.RenderErr(w, problems.Unauthorized())
-		return
-	}
-	_, address, err := helpers.RetrieveJwtToken(token, r)
-	if err != nil {
-		logger.WithError(err).Debug("failed to retrieve token")
+		logger.WithError(err).Debug("failed to retrieve access token")
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}

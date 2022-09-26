@@ -12,14 +12,7 @@ import (
 func ValidateJWT(w http.ResponseWriter, r *http.Request) {
 	logger := helpers.Log(r)
 
-	token, err := helpers.Authenticate(r)
-	if err != nil {
-		logger.WithError(err).Debug(err)
-		ape.RenderErr(w, problems.Unauthorized())
-		return
-	}
-
-	address, err := helpers.RetrieveTokenUserAddress(token, r)
+	address, err := helpers.GetTokenInfo(r)
 	if err != nil {
 		logger.WithError(err).Debug("failed to retrieve token")
 		ape.RenderErr(w, problems.Unauthorized())
@@ -34,5 +27,6 @@ func ValidateJWT(w http.ResponseWriter, r *http.Request) {
 			},
 		},
 	}
+
 	ape.Render(w, result)
 }
