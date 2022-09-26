@@ -1,0 +1,8 @@
+object: type
+required:
+  - type
+properties:
+  type:
+    type: string
+    enum: 
+      - jwt_claims
