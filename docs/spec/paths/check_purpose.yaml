@@ -1,4 +1,4 @@
-post:
+get:
   tags:
     - JWT
   summary: Check Resourse purpose

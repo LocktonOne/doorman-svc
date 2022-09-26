@@ -13,7 +13,7 @@ import (
 
 func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 	logger := helpers.Log(r)
-	req, err := requests.NewCheckResourcePermission(r)
+	owner, err := requests.NewCheckResourcePermission(r)
 	if err != nil {
 		logger.WithError(err).Debug(err)
 		ape.RenderErr(w, problems.BadRequest(err)...)
@@ -27,7 +27,7 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if address != strings.ToLower(req.Owner) && !helpers.NodeAdmins(r).CheckAdmin(common.HexToAddress(address)) {
+	if address != strings.ToLower(owner) && !helpers.NodeAdmins(r).CheckAdmin(common.HexToAddress(address)) {
 		logger.WithError(err).Debug("user has no rights to get resource")
 		ape.RenderErr(w, problems.Forbidden())
 		return

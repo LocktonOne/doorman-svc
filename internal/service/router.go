@@ -25,11 +25,11 @@ func (s *service) router(cfg config.Config) chi.Router {
 		),
 	)
 	r.Route("/doorman", func(r chi.Router) {
-		r.Post("/validate_token", handlers.ValidateJWT)
-		r.Post("/refresh_token", handlers.RefreshJwt)
+		r.Get("/validate_token", handlers.ValidateJWT)
+		r.Get("/refresh_token", handlers.RefreshJwt)
 		r.Post("/get_token_pair", handlers.GenerateJwtPair)
-		r.Post("/check_permission", handlers.CheckResourcePermission)
-		r.Post("/check_purpose", handlers.CheckPurpose)
+		r.Get("/check_permission", handlers.CheckResourcePermission)
+		r.Get("/check_purpose", handlers.CheckPurpose)
 	})
 
 	return r

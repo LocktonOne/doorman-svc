@@ -41,13 +41,13 @@ func GenerateJwtPair(w http.ResponseWriter, r *http.Request) {
 
 	accessToken, sessioExp, err := helpers.GenerateJWT(request, helpers.ServiceConfig(r))
 	if err != nil {
-		logger.WithError(err).Debug(err)
+		logger.WithError(err).Debug("cannot generate session token")
 		ape.RenderErr(w, problems.InternalError())
 		return
 	}
 	refreshToken, refreshExp, err := helpers.GenerateRefreshToken(request, helpers.ServiceConfig(r))
 	if err != nil {
-		logger.WithError(err).Debug(err)
+		logger.WithError(err).Debug("cannot generate refresh token")
 		ape.RenderErr(w, problems.InternalError())
 		return
 	}

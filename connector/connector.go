@@ -69,12 +69,12 @@ func (c Connector) GenerateJwtPair(address string, purpose string) (resources.Jw
 
 func (c Connector) ValidateJwt(token string) (string, error) {
 	model := resources.JwtValidationResponse{}
-	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/validate_token", token, nil, &model, http.StatusOK)
+	err := c.DoAuthRequestWithDecode("GET", c.ServiceUrl+"/validate_token", token, nil, &model, http.StatusOK)
 	return model.Data.Attributes.EthAddress, err
 }
 func (c Connector) RefreshJwt(refreshToken string) (resources.JwtPairResponse, error) {
 	model := resources.JwtPairResponse{}
-	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/refresh_token", refreshToken, nil, &model, http.StatusOK)
+	err := c.DoAuthRequestWithDecode("GET", c.ServiceUrl+"/refresh_token", refreshToken, nil, &model, http.StatusOK)
 	return model, err
 }
 func (c Connector) GetAuthToken(r *http.Request) (string, error) {
@@ -82,7 +82,7 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 }
 
 func (c Connector) CheckPermission(owner string, token string) (bool, error) {
-	response, err := c.DoAuthRequest("POST", c.ServiceUrl+"/check_permission", token, NewCheckPermissionModel(owner), http.StatusNoContent)
+	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission?owner="+owner, token, NewCheckPermissionModel(owner), http.StatusNoContent)
 	if err != nil {
 		return false, err
 	}
@@ -91,7 +91,7 @@ func (c Connector) CheckPermission(owner string, token string) (bool, error) {
 }
 func (c Connector) CheckPurpose(token string) (string, error) {
 	model := resources.Purpose{}
-	err := c.DoAuthRequestWithDecode("POST", c.ServiceUrl+"/check_purpose", token, nil, &model, http.StatusOK)
+	err := c.DoAuthRequestWithDecode("GET", c.ServiceUrl+"/check_purpose", token, nil, &model, http.StatusOK)
 	if err != nil {
 		return "", err
 	}
