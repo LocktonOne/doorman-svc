@@ -43,7 +43,7 @@ build-tag:
     - branches
   
 pages:
-  image: node:8
+  image: node:latest
   stage: pages
   only:
     - main
