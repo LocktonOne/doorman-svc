@@ -1,6 +1,6 @@
 stages:
   - build
-  - deploy
+  - pages
 
 variables:
   CONTAINER_RELEASE_IMAGE: $IMAGE_DOCKER:$CI_COMMIT_TAG
