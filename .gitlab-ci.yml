@@ -43,13 +43,17 @@ build-tag:
     - branches
   
 pages:
-  image: node:latest
-  stage: deploy
+  image: node:8
+  stage: pages
+  only:
+    - main
+    - fix/pages
   script:
-  - npm install -g redoc-cli
-  - redoc-cli build -o public/index.html docs/web_deploy/openapi.yaml
+    - cd docs
+    - npm install
+    - mkdir -p ../public
+    - npm run release-build
   artifacts:
     paths:
-    - public
-  only:
-  - main
+      - public
+
