@@ -43,11 +43,10 @@ build-tag:
     - branches
   
 pages:
-  image: node:latest
+  image: node:8
   stage: pages
   only:
     - main
-    - fix/pages
   script:
     - cd docs
     - npm install
