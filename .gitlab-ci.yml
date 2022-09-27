@@ -1,6 +1,6 @@
 stages:
   - build
-  - deploy
+  - pages
 
 variables:
   CONTAINER_RELEASE_IMAGE: $IMAGE_DOCKER:$CI_COMMIT_TAG
@@ -44,12 +44,15 @@ build-tag:
   
 pages:
   image: node:latest
-  stage: deploy
+  stage: pages
+  only:
+    - main
   script:
-  - npm install -g redoc-cli
-  - redoc-cli build -o public/index.html docs/web_deploy/openapi.yaml
+    - cd docs
+    - npm install
+    - mkdir -p ../public
+    - npm run release-build
   artifacts:
     paths:
-    - public
-  only:
-  - main
+      - public
+
