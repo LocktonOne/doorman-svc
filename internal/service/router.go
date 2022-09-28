@@ -24,7 +24,7 @@ func (s *service) router(cfg config.Config) chi.Router {
 			helpers.CtxNodeAdmins(gosdk.NewNodeAdminsMock(common.HexToAddress("0x750Bd531CEA1f68418DDF2373193CfbD86A69058"))),
 		),
 	)
-	r.Route("/doorman", func(r chi.Router) {
+	r.Route("/integrations/doorman", func(r chi.Router) {
 		r.Get("/validate_token", handlers.ValidateJWT)
 		r.Get("/refresh_token", handlers.RefreshJwt)
 		r.Post("/get_token_pair", handlers.GenerateJwtPair)
