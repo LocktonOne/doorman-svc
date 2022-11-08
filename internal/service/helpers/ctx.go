@@ -57,5 +57,6 @@ func NodeAdmins(r *http.Request) gosdk.NodeAdminsI {
 
 func CheckPermissionsByAddress(contractAddress, userAddress common.Address) (bool, error) {
 	//call some func for check permission
+
 	return true, nil
 }
