@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"github.com/ethereum/go-ethereum/common"
 	"net/http"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
 	"gitlab.com/tokene/doorman/internal/service/helpers"
@@ -27,10 +27,18 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if address != strings.ToLower(owner) && !helpers.NodeAdmins(r).CheckAdmin(common.HexToAddress(address)) {
-		logger.WithError(err).Debug("user has no rights to get resource")
-		ape.RenderErr(w, problems.Forbidden())
-		return
+	if address != strings.ToLower(owner) {
+		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address))
+		if err != nil {
+			logger.WithError(err).Debug("Internal error")
+			ape.RenderErr(w, problems.InternalError())
+			return
+		}
+		if !success {
+			logger.WithError(err).Debug("user has no rights to get resource")
+			ape.RenderErr(w, problems.Forbidden())
+			return
+		}
 	}
 
 	w.WriteHeader(http.StatusNoContent)

@@ -1,3 +1,5 @@
+config:
+  yaml:
 log:
   disable_sentry: true
 
@@ -10,6 +12,9 @@ cop:
   upstream: "http://..."
   service_name: doorman
   service_port: 80
+
+vault:
+  endpoint: ""
   
 service:
   token_expire_time: 1h or other value, see time.ParseDuration
