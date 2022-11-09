@@ -2,7 +2,9 @@ package helpers
 
 import (
 	"context"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"gitlab.com/tokene/doorman/contracts/MasterAccessManagement"
 	"net/http"
 
 	"gitlab.com/distributed_lab/logan/v3"
@@ -56,7 +58,14 @@ func NodeAdmins(r *http.Request) gosdk.NodeAdminsI {
 }
 
 func CheckPermissionsByAddress(contractAddress, userAddress common.Address) (bool, error) {
-	//call some func for check permission
-
+	contract, err := MasterAccessManagement.NewMain(contractAddress, nil)
+	if err != nil {
+		return false, err
+	}
+	_, err = contract.MainCaller.HasPermission(&bind.CallOpts{}, userAddress, "", "") //todo Add resource and permission
+	if err != nil {
+		return false, err
+	}
+	//return success, err
 	return true, nil
 }
