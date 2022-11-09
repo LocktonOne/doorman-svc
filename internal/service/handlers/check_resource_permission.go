@@ -28,7 +28,7 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if address != strings.ToLower(owner) {
-		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address))
+		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address), helpers.EthRPCConfig(r).Endpoint)
 		if err != nil {
 			logger.WithError(err).Debug("Internal error")
 			ape.RenderErr(w, problems.InternalError())

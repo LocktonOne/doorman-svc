@@ -15,7 +15,10 @@ cop:
 
 vault:
   endpoint: ""
-  
+
+eth_rpc:
+  endpoint: "http://localhost:8545"
+
 service:
   token_expire_time: 1h or other value, see time.ParseDuration
   token_key:  "something sha256'd, has to be a 64 char long hex string"

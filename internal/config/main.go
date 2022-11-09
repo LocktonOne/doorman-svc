@@ -13,6 +13,7 @@ type Config interface {
 	comfig.Listenerer
 	ServiceConfiger
 	VaultConfiger
+	EthRPCConfiger
 }
 
 type config struct {
@@ -22,6 +23,7 @@ type config struct {
 	getter kv.Getter
 	ServiceConfiger
 	VaultConfiger
+	EthRPCConfiger
 }
 
 func New(getter kv.Getter) Config {
@@ -32,5 +34,6 @@ func New(getter kv.Getter) Config {
 		Logger:          comfig.NewLogger(getter, comfig.LoggerOpts{}),
 		ServiceConfiger: NewServiceConfiger(getter),
 		VaultConfiger:   NewVaultConfiger(getter),
+		EthRPCConfiger:  NewEthRPCConfiger(getter),
 	}
 }

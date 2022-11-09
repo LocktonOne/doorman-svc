@@ -7,6 +7,7 @@ import (
 	"gitlab.com/tokene/doorman/contracts/MasterAccessManagement"
 	"net/http"
 
+	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/tokene/doorman/internal/config"
 	gosdk "gitlab.com/tokene/go-sdk"
@@ -19,6 +20,7 @@ const (
 	serviceConfigCtxKey
 	nodeAdminsCtxKey
 	regestryConfigCtxKey
+	ethrpcConfigCtxKey
 )
 
 func CtxLog(entry *logan.Entry) func(context.Context) context.Context {
@@ -57,8 +59,19 @@ func NodeAdmins(r *http.Request) gosdk.NodeAdminsI {
 	return r.Context().Value(nodeAdminsCtxKey).(gosdk.NodeAdminsI)
 }
 
-func CheckPermissionsByAddress(contractAddress, userAddress common.Address) (bool, error) {
-	contract, err := MasterAccessManagement.NewMain(contractAddress, nil)
+func CtxEthRPCConfig(entry *config.EthRPCConfig) func(context.Context) context.Context {
+	return func(ctx context.Context) context.Context {
+		return context.WithValue(ctx, ethrpcConfigCtxKey, entry)
+	}
+}
+
+func EthRPCConfig(r *http.Request) *config.EthRPCConfig {
+	return r.Context().Value(ethrpcConfigCtxKey).(*config.EthRPCConfig)
+}
+
+func CheckPermissionsByAddress(contractAddress, userAddress common.Address, coreEndpoint string) (bool, error) {
+	client, err := ethclient.Dial(coreEndpoint)
+	contract, err := MasterAccessManagement.NewMain(contractAddress, client)
 	if err != nil {
 		return false, err
 	}
