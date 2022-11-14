@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package ReviewableRequest
+package reviewable_request
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// MainMetaData contains all meta data concerning the Main contract.
-var MainMetaData = &bind.MetaData{
+// ReviewableRequestMetaData contains all meta data concerning the ReviewableRequest contract.
+var ReviewableRequestMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"RequestAccepted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"acceptData\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"rejectData\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"}],\"name\":\"RequestCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"RequestDropped\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"RequestRejected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRequestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"acceptData\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"rejectData\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"}],\"name\":\"RequestUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId_\",\"type\":\"uint256\"}],\"name\":\"acceptRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executor_\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"acceptData_\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"rejectData_\",\"type\":\"bytes\"},{\"internalType\":\"string\",\"name\":\"description_\",\"type\":\"string\"}],\"name\":\"createRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId_\",\"type\":\"uint256\"}],\"name\":\"dropRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getInjector\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_injector\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextRequestId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId_\",\"type\":\"uint256\"}],\"name\":\"rejectRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"requests\",\"outputs\":[{\"internalType\":\"enumIReviewableRequests.RequestStatus\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"acceptData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"rejectData\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"registryAddress_\",\"type\":\"address\"}],\"name\":\"setDependencies\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_injector\",\"type\":\"address\"}],\"name\":\"setInjector\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId_\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"executor_\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"acceptData_\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"rejectData_\",\"type\":\"bytes\"},{\"internalType\":\"string\",\"name\":\"description_\",\"type\":\"string\"}],\"name\":\"updateRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// MainABI is the input ABI used to generate the binding from.
-// Deprecated: Use MainMetaData.ABI instead.
-var MainABI = MainMetaData.ABI
+// ReviewableRequestABI is the input ABI used to generate the binding from.
+// Deprecated: Use ReviewableRequestMetaData.ABI instead.
+var ReviewableRequestABI = ReviewableRequestMetaData.ABI
 
-// Main is an auto generated Go binding around an Ethereum contract.
-type Main struct {
-	MainCaller     // Read-only binding to the contract
-	MainTransactor // Write-only binding to the contract
-	MainFilterer   // Log filterer for contract events
+// ReviewableRequest is an auto generated Go binding around an Ethereum contract.
+type ReviewableRequest struct {
+	ReviewableRequestCaller     // Read-only binding to the contract
+	ReviewableRequestTransactor // Write-only binding to the contract
+	ReviewableRequestFilterer   // Log filterer for contract events
 }
 
-// MainCaller is an auto generated read-only Go binding around an Ethereum contract.
-type MainCaller struct {
+// ReviewableRequestCaller is an auto generated read-only Go binding around an Ethereum contract.
+type ReviewableRequestCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type MainTransactor struct {
+// ReviewableRequestTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type ReviewableRequestTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type MainFilterer struct {
+// ReviewableRequestFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type ReviewableRequestFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainSession is an auto generated Go binding around an Ethereum contract,
+// ReviewableRequestSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type MainSession struct {
-	Contract     *Main             // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type ReviewableRequestSession struct {
+	Contract     *ReviewableRequest // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts      // Call options to use throughout this session
+	TransactOpts bind.TransactOpts  // Transaction auth options to use throughout this session
 }
 
-// MainCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// ReviewableRequestCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type MainCallerSession struct {
-	Contract *MainCaller   // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type ReviewableRequestCallerSession struct {
+	Contract *ReviewableRequestCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts            // Call options to use throughout this session
 }
 
-// MainTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// ReviewableRequestTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type MainTransactorSession struct {
-	Contract     *MainTransactor   // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type ReviewableRequestTransactorSession struct {
+	Contract     *ReviewableRequestTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts            // Transaction auth options to use throughout this session
 }
 
-// MainRaw is an auto generated low-level Go binding around an Ethereum contract.
-type MainRaw struct {
-	Contract *Main // Generic contract binding to access the raw methods on
+// ReviewableRequestRaw is an auto generated low-level Go binding around an Ethereum contract.
+type ReviewableRequestRaw struct {
+	Contract *ReviewableRequest // Generic contract binding to access the raw methods on
 }
 
-// MainCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type MainCallerRaw struct {
-	Contract *MainCaller // Generic read-only contract binding to access the raw methods on
+// ReviewableRequestCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type ReviewableRequestCallerRaw struct {
+	Contract *ReviewableRequestCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// MainTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type MainTransactorRaw struct {
-	Contract *MainTransactor // Generic write-only contract binding to access the raw methods on
+// ReviewableRequestTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type ReviewableRequestTransactorRaw struct {
+	Contract *ReviewableRequestTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewMain creates a new instance of Main, bound to a specific deployed contract.
-func NewMain(address common.Address, backend bind.ContractBackend) (*Main, error) {
-	contract, err := bindMain(address, backend, backend, backend)
+// NewReviewableRequest creates a new instance of ReviewableRequest, bound to a specific deployed contract.
+func NewReviewableRequest(address common.Address, backend bind.ContractBackend) (*ReviewableRequest, error) {
+	contract, err := bindReviewableRequest(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Main{MainCaller: MainCaller{contract: contract}, MainTransactor: MainTransactor{contract: contract}, MainFilterer: MainFilterer{contract: contract}}, nil
+	return &ReviewableRequest{ReviewableRequestCaller: ReviewableRequestCaller{contract: contract}, ReviewableRequestTransactor: ReviewableRequestTransactor{contract: contract}, ReviewableRequestFilterer: ReviewableRequestFilterer{contract: contract}}, nil
 }
 
-// NewMainCaller creates a new read-only instance of Main, bound to a specific deployed contract.
-func NewMainCaller(address common.Address, caller bind.ContractCaller) (*MainCaller, error) {
-	contract, err := bindMain(address, caller, nil, nil)
+// NewReviewableRequestCaller creates a new read-only instance of ReviewableRequest, bound to a specific deployed contract.
+func NewReviewableRequestCaller(address common.Address, caller bind.ContractCaller) (*ReviewableRequestCaller, error) {
+	contract, err := bindReviewableRequest(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainCaller{contract: contract}, nil
+	return &ReviewableRequestCaller{contract: contract}, nil
 }
 
-// NewMainTransactor creates a new write-only instance of Main, bound to a specific deployed contract.
-func NewMainTransactor(address common.Address, transactor bind.ContractTransactor) (*MainTransactor, error) {
-	contract, err := bindMain(address, nil, transactor, nil)
+// NewReviewableRequestTransactor creates a new write-only instance of ReviewableRequest, bound to a specific deployed contract.
+func NewReviewableRequestTransactor(address common.Address, transactor bind.ContractTransactor) (*ReviewableRequestTransactor, error) {
+	contract, err := bindReviewableRequest(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainTransactor{contract: contract}, nil
+	return &ReviewableRequestTransactor{contract: contract}, nil
 }
 
-// NewMainFilterer creates a new log filterer instance of Main, bound to a specific deployed contract.
-func NewMainFilterer(address common.Address, filterer bind.ContractFilterer) (*MainFilterer, error) {
-	contract, err := bindMain(address, nil, nil, filterer)
+// NewReviewableRequestFilterer creates a new log filterer instance of ReviewableRequest, bound to a specific deployed contract.
+func NewReviewableRequestFilterer(address common.Address, filterer bind.ContractFilterer) (*ReviewableRequestFilterer, error) {
+	contract, err := bindReviewableRequest(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &MainFilterer{contract: contract}, nil
+	return &ReviewableRequestFilterer{contract: contract}, nil
 }
 
-// bindMain binds a generic wrapper to an already deployed contract.
-func bindMain(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(MainABI))
+// bindReviewableRequest binds a generic wrapper to an already deployed contract.
+func bindReviewableRequest(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(ReviewableRequestABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindMain(address common.Address, caller bind.ContractCaller, transactor bin
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.MainCaller.contract.Call(opts, result, method, params...)
+func (_ReviewableRequest *ReviewableRequestRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _ReviewableRequest.Contract.ReviewableRequestCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transfer(opts)
+func (_ReviewableRequest *ReviewableRequestRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.ReviewableRequestTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transact(opts, method, params...)
+func (_ReviewableRequest *ReviewableRequestRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.ReviewableRequestTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.contract.Call(opts, result, method, params...)
+func (_ReviewableRequest *ReviewableRequestCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _ReviewableRequest.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transfer(opts)
+func (_ReviewableRequest *ReviewableRequestTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transact(opts, method, params...)
+func (_ReviewableRequest *ReviewableRequestTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.contract.Transact(opts, method, params...)
 }
 
 // GetInjector is a free data retrieval call binding the contract method 0x3e3b5b19.
 //
 // Solidity: function getInjector() view returns(address _injector)
-func (_Main *MainCaller) GetInjector(opts *bind.CallOpts) (common.Address, error) {
+func (_ReviewableRequest *ReviewableRequestCaller) GetInjector(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getInjector")
+	err := _ReviewableRequest.contract.Call(opts, &out, "getInjector")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -199,23 +199,23 @@ func (_Main *MainCaller) GetInjector(opts *bind.CallOpts) (common.Address, error
 // GetInjector is a free data retrieval call binding the contract method 0x3e3b5b19.
 //
 // Solidity: function getInjector() view returns(address _injector)
-func (_Main *MainSession) GetInjector() (common.Address, error) {
-	return _Main.Contract.GetInjector(&_Main.CallOpts)
+func (_ReviewableRequest *ReviewableRequestSession) GetInjector() (common.Address, error) {
+	return _ReviewableRequest.Contract.GetInjector(&_ReviewableRequest.CallOpts)
 }
 
 // GetInjector is a free data retrieval call binding the contract method 0x3e3b5b19.
 //
 // Solidity: function getInjector() view returns(address _injector)
-func (_Main *MainCallerSession) GetInjector() (common.Address, error) {
-	return _Main.Contract.GetInjector(&_Main.CallOpts)
+func (_ReviewableRequest *ReviewableRequestCallerSession) GetInjector() (common.Address, error) {
+	return _ReviewableRequest.Contract.GetInjector(&_ReviewableRequest.CallOpts)
 }
 
 // NextRequestId is a free data retrieval call binding the contract method 0x6a84a985.
 //
 // Solidity: function nextRequestId() view returns(uint256)
-func (_Main *MainCaller) NextRequestId(opts *bind.CallOpts) (*big.Int, error) {
+func (_ReviewableRequest *ReviewableRequestCaller) NextRequestId(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "nextRequestId")
+	err := _ReviewableRequest.contract.Call(opts, &out, "nextRequestId")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -230,21 +230,21 @@ func (_Main *MainCaller) NextRequestId(opts *bind.CallOpts) (*big.Int, error) {
 // NextRequestId is a free data retrieval call binding the contract method 0x6a84a985.
 //
 // Solidity: function nextRequestId() view returns(uint256)
-func (_Main *MainSession) NextRequestId() (*big.Int, error) {
-	return _Main.Contract.NextRequestId(&_Main.CallOpts)
+func (_ReviewableRequest *ReviewableRequestSession) NextRequestId() (*big.Int, error) {
+	return _ReviewableRequest.Contract.NextRequestId(&_ReviewableRequest.CallOpts)
 }
 
 // NextRequestId is a free data retrieval call binding the contract method 0x6a84a985.
 //
 // Solidity: function nextRequestId() view returns(uint256)
-func (_Main *MainCallerSession) NextRequestId() (*big.Int, error) {
-	return _Main.Contract.NextRequestId(&_Main.CallOpts)
+func (_ReviewableRequest *ReviewableRequestCallerSession) NextRequestId() (*big.Int, error) {
+	return _ReviewableRequest.Contract.NextRequestId(&_ReviewableRequest.CallOpts)
 }
 
 // Requests is a free data retrieval call binding the contract method 0x81d12c58.
 //
 // Solidity: function requests(uint256 ) view returns(uint8 status, address creator, address executor, bytes acceptData, bytes rejectData)
-func (_Main *MainCaller) Requests(opts *bind.CallOpts, arg0 *big.Int) (struct {
+func (_ReviewableRequest *ReviewableRequestCaller) Requests(opts *bind.CallOpts, arg0 *big.Int) (struct {
 	Status     uint8
 	Creator    common.Address
 	Executor   common.Address
@@ -252,7 +252,7 @@ func (_Main *MainCaller) Requests(opts *bind.CallOpts, arg0 *big.Int) (struct {
 	RejectData []byte
 }, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "requests", arg0)
+	err := _ReviewableRequest.contract.Call(opts, &out, "requests", arg0)
 
 	outstruct := new(struct {
 		Status     uint8
@@ -278,179 +278,179 @@ func (_Main *MainCaller) Requests(opts *bind.CallOpts, arg0 *big.Int) (struct {
 // Requests is a free data retrieval call binding the contract method 0x81d12c58.
 //
 // Solidity: function requests(uint256 ) view returns(uint8 status, address creator, address executor, bytes acceptData, bytes rejectData)
-func (_Main *MainSession) Requests(arg0 *big.Int) (struct {
+func (_ReviewableRequest *ReviewableRequestSession) Requests(arg0 *big.Int) (struct {
 	Status     uint8
 	Creator    common.Address
 	Executor   common.Address
 	AcceptData []byte
 	RejectData []byte
 }, error) {
-	return _Main.Contract.Requests(&_Main.CallOpts, arg0)
+	return _ReviewableRequest.Contract.Requests(&_ReviewableRequest.CallOpts, arg0)
 }
 
 // Requests is a free data retrieval call binding the contract method 0x81d12c58.
 //
 // Solidity: function requests(uint256 ) view returns(uint8 status, address creator, address executor, bytes acceptData, bytes rejectData)
-func (_Main *MainCallerSession) Requests(arg0 *big.Int) (struct {
+func (_ReviewableRequest *ReviewableRequestCallerSession) Requests(arg0 *big.Int) (struct {
 	Status     uint8
 	Creator    common.Address
 	Executor   common.Address
 	AcceptData []byte
 	RejectData []byte
 }, error) {
-	return _Main.Contract.Requests(&_Main.CallOpts, arg0)
+	return _ReviewableRequest.Contract.Requests(&_ReviewableRequest.CallOpts, arg0)
 }
 
 // AcceptRequest is a paid mutator transaction binding the contract method 0x4ba1f098.
 //
 // Solidity: function acceptRequest(uint256 requestId_) returns()
-func (_Main *MainTransactor) AcceptRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "acceptRequest", requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactor) AcceptRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "acceptRequest", requestId_)
 }
 
 // AcceptRequest is a paid mutator transaction binding the contract method 0x4ba1f098.
 //
 // Solidity: function acceptRequest(uint256 requestId_) returns()
-func (_Main *MainSession) AcceptRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.AcceptRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestSession) AcceptRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.AcceptRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // AcceptRequest is a paid mutator transaction binding the contract method 0x4ba1f098.
 //
 // Solidity: function acceptRequest(uint256 requestId_) returns()
-func (_Main *MainTransactorSession) AcceptRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.AcceptRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) AcceptRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.AcceptRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // CreateRequest is a paid mutator transaction binding the contract method 0x3b7a7ff0.
 //
 // Solidity: function createRequest(address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainTransactor) CreateRequest(opts *bind.TransactOpts, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "createRequest", executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestTransactor) CreateRequest(opts *bind.TransactOpts, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "createRequest", executor_, acceptData_, rejectData_, description_)
 }
 
 // CreateRequest is a paid mutator transaction binding the contract method 0x3b7a7ff0.
 //
 // Solidity: function createRequest(address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainSession) CreateRequest(executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.Contract.CreateRequest(&_Main.TransactOpts, executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestSession) CreateRequest(executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.CreateRequest(&_ReviewableRequest.TransactOpts, executor_, acceptData_, rejectData_, description_)
 }
 
 // CreateRequest is a paid mutator transaction binding the contract method 0x3b7a7ff0.
 //
 // Solidity: function createRequest(address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainTransactorSession) CreateRequest(executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.Contract.CreateRequest(&_Main.TransactOpts, executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) CreateRequest(executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.CreateRequest(&_ReviewableRequest.TransactOpts, executor_, acceptData_, rejectData_, description_)
 }
 
 // DropRequest is a paid mutator transaction binding the contract method 0x2938ad27.
 //
 // Solidity: function dropRequest(uint256 requestId_) returns()
-func (_Main *MainTransactor) DropRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "dropRequest", requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactor) DropRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "dropRequest", requestId_)
 }
 
 // DropRequest is a paid mutator transaction binding the contract method 0x2938ad27.
 //
 // Solidity: function dropRequest(uint256 requestId_) returns()
-func (_Main *MainSession) DropRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.DropRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestSession) DropRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.DropRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // DropRequest is a paid mutator transaction binding the contract method 0x2938ad27.
 //
 // Solidity: function dropRequest(uint256 requestId_) returns()
-func (_Main *MainTransactorSession) DropRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.DropRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) DropRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.DropRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // RejectRequest is a paid mutator transaction binding the contract method 0x2d7788db.
 //
 // Solidity: function rejectRequest(uint256 requestId_) returns()
-func (_Main *MainTransactor) RejectRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "rejectRequest", requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactor) RejectRequest(opts *bind.TransactOpts, requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "rejectRequest", requestId_)
 }
 
 // RejectRequest is a paid mutator transaction binding the contract method 0x2d7788db.
 //
 // Solidity: function rejectRequest(uint256 requestId_) returns()
-func (_Main *MainSession) RejectRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.RejectRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestSession) RejectRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.RejectRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // RejectRequest is a paid mutator transaction binding the contract method 0x2d7788db.
 //
 // Solidity: function rejectRequest(uint256 requestId_) returns()
-func (_Main *MainTransactorSession) RejectRequest(requestId_ *big.Int) (*types.Transaction, error) {
-	return _Main.Contract.RejectRequest(&_Main.TransactOpts, requestId_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) RejectRequest(requestId_ *big.Int) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.RejectRequest(&_ReviewableRequest.TransactOpts, requestId_)
 }
 
 // SetDependencies is a paid mutator transaction binding the contract method 0x8389cb18.
 //
 // Solidity: function setDependencies(address registryAddress_) returns()
-func (_Main *MainTransactor) SetDependencies(opts *bind.TransactOpts, registryAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "setDependencies", registryAddress_)
+func (_ReviewableRequest *ReviewableRequestTransactor) SetDependencies(opts *bind.TransactOpts, registryAddress_ common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "setDependencies", registryAddress_)
 }
 
 // SetDependencies is a paid mutator transaction binding the contract method 0x8389cb18.
 //
 // Solidity: function setDependencies(address registryAddress_) returns()
-func (_Main *MainSession) SetDependencies(registryAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.SetDependencies(&_Main.TransactOpts, registryAddress_)
+func (_ReviewableRequest *ReviewableRequestSession) SetDependencies(registryAddress_ common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.SetDependencies(&_ReviewableRequest.TransactOpts, registryAddress_)
 }
 
 // SetDependencies is a paid mutator transaction binding the contract method 0x8389cb18.
 //
 // Solidity: function setDependencies(address registryAddress_) returns()
-func (_Main *MainTransactorSession) SetDependencies(registryAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.SetDependencies(&_Main.TransactOpts, registryAddress_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) SetDependencies(registryAddress_ common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.SetDependencies(&_ReviewableRequest.TransactOpts, registryAddress_)
 }
 
 // SetInjector is a paid mutator transaction binding the contract method 0x8cb941cc.
 //
 // Solidity: function setInjector(address _injector) returns()
-func (_Main *MainTransactor) SetInjector(opts *bind.TransactOpts, _injector common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "setInjector", _injector)
+func (_ReviewableRequest *ReviewableRequestTransactor) SetInjector(opts *bind.TransactOpts, _injector common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "setInjector", _injector)
 }
 
 // SetInjector is a paid mutator transaction binding the contract method 0x8cb941cc.
 //
 // Solidity: function setInjector(address _injector) returns()
-func (_Main *MainSession) SetInjector(_injector common.Address) (*types.Transaction, error) {
-	return _Main.Contract.SetInjector(&_Main.TransactOpts, _injector)
+func (_ReviewableRequest *ReviewableRequestSession) SetInjector(_injector common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.SetInjector(&_ReviewableRequest.TransactOpts, _injector)
 }
 
 // SetInjector is a paid mutator transaction binding the contract method 0x8cb941cc.
 //
 // Solidity: function setInjector(address _injector) returns()
-func (_Main *MainTransactorSession) SetInjector(_injector common.Address) (*types.Transaction, error) {
-	return _Main.Contract.SetInjector(&_Main.TransactOpts, _injector)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) SetInjector(_injector common.Address) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.SetInjector(&_ReviewableRequest.TransactOpts, _injector)
 }
 
 // UpdateRequest is a paid mutator transaction binding the contract method 0xab29dc68.
 //
 // Solidity: function updateRequest(uint256 requestId_, address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainTransactor) UpdateRequest(opts *bind.TransactOpts, requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "updateRequest", requestId_, executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestTransactor) UpdateRequest(opts *bind.TransactOpts, requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.contract.Transact(opts, "updateRequest", requestId_, executor_, acceptData_, rejectData_, description_)
 }
 
 // UpdateRequest is a paid mutator transaction binding the contract method 0xab29dc68.
 //
 // Solidity: function updateRequest(uint256 requestId_, address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainSession) UpdateRequest(requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.Contract.UpdateRequest(&_Main.TransactOpts, requestId_, executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestSession) UpdateRequest(requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.UpdateRequest(&_ReviewableRequest.TransactOpts, requestId_, executor_, acceptData_, rejectData_, description_)
 }
 
 // UpdateRequest is a paid mutator transaction binding the contract method 0xab29dc68.
 //
 // Solidity: function updateRequest(uint256 requestId_, address executor_, bytes acceptData_, bytes rejectData_, string description_) returns()
-func (_Main *MainTransactorSession) UpdateRequest(requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
-	return _Main.Contract.UpdateRequest(&_Main.TransactOpts, requestId_, executor_, acceptData_, rejectData_, description_)
+func (_ReviewableRequest *ReviewableRequestTransactorSession) UpdateRequest(requestId_ *big.Int, executor_ common.Address, acceptData_ []byte, rejectData_ []byte, description_ string) (*types.Transaction, error) {
+	return _ReviewableRequest.Contract.UpdateRequest(&_ReviewableRequest.TransactOpts, requestId_, executor_, acceptData_, rejectData_, description_)
 }
 
-// MainRequestAcceptedIterator is returned from FilterRequestAccepted and is used to iterate over the raw logs and unpacked data for RequestAccepted events raised by the Main contract.
-type MainRequestAcceptedIterator struct {
-	Event *MainRequestAccepted // Event containing the contract specifics and raw log
+// ReviewableRequestRequestAcceptedIterator is returned from FilterRequestAccepted and is used to iterate over the raw logs and unpacked data for RequestAccepted events raised by the ReviewableRequest contract.
+type ReviewableRequestRequestAcceptedIterator struct {
+	Event *ReviewableRequestRequestAccepted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -464,7 +464,7 @@ type MainRequestAcceptedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRequestAcceptedIterator) Next() bool {
+func (it *ReviewableRequestRequestAcceptedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -473,7 +473,7 @@ func (it *MainRequestAcceptedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRequestAccepted)
+			it.Event = new(ReviewableRequestRequestAccepted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -488,7 +488,7 @@ func (it *MainRequestAcceptedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRequestAccepted)
+		it.Event = new(ReviewableRequestRequestAccepted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -504,19 +504,19 @@ func (it *MainRequestAcceptedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRequestAcceptedIterator) Error() error {
+func (it *ReviewableRequestRequestAcceptedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRequestAcceptedIterator) Close() error {
+func (it *ReviewableRequestRequestAcceptedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRequestAccepted represents a RequestAccepted event raised by the Main contract.
-type MainRequestAccepted struct {
+// ReviewableRequestRequestAccepted represents a RequestAccepted event raised by the ReviewableRequest contract.
+type ReviewableRequestRequestAccepted struct {
 	RequestId *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -524,21 +524,21 @@ type MainRequestAccepted struct {
 // FilterRequestAccepted is a free log retrieval operation binding the contract event 0xfb12b5b7f0394ce9e6aef75030196cd5bc5a07eacd25ab060968f67586901267.
 //
 // Solidity: event RequestAccepted(uint256 requestId)
-func (_Main *MainFilterer) FilterRequestAccepted(opts *bind.FilterOpts) (*MainRequestAcceptedIterator, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) FilterRequestAccepted(opts *bind.FilterOpts) (*ReviewableRequestRequestAcceptedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RequestAccepted")
+	logs, sub, err := _ReviewableRequest.contract.FilterLogs(opts, "RequestAccepted")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRequestAcceptedIterator{contract: _Main.contract, event: "RequestAccepted", logs: logs, sub: sub}, nil
+	return &ReviewableRequestRequestAcceptedIterator{contract: _ReviewableRequest.contract, event: "RequestAccepted", logs: logs, sub: sub}, nil
 }
 
 // WatchRequestAccepted is a free log subscription operation binding the contract event 0xfb12b5b7f0394ce9e6aef75030196cd5bc5a07eacd25ab060968f67586901267.
 //
 // Solidity: event RequestAccepted(uint256 requestId)
-func (_Main *MainFilterer) WatchRequestAccepted(opts *bind.WatchOpts, sink chan<- *MainRequestAccepted) (event.Subscription, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) WatchRequestAccepted(opts *bind.WatchOpts, sink chan<- *ReviewableRequestRequestAccepted) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RequestAccepted")
+	logs, sub, err := _ReviewableRequest.contract.WatchLogs(opts, "RequestAccepted")
 	if err != nil {
 		return nil, err
 	}
@@ -548,8 +548,8 @@ func (_Main *MainFilterer) WatchRequestAccepted(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRequestAccepted)
-				if err := _Main.contract.UnpackLog(event, "RequestAccepted", log); err != nil {
+				event := new(ReviewableRequestRequestAccepted)
+				if err := _ReviewableRequest.contract.UnpackLog(event, "RequestAccepted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -573,18 +573,18 @@ func (_Main *MainFilterer) WatchRequestAccepted(opts *bind.WatchOpts, sink chan<
 // ParseRequestAccepted is a log parse operation binding the contract event 0xfb12b5b7f0394ce9e6aef75030196cd5bc5a07eacd25ab060968f67586901267.
 //
 // Solidity: event RequestAccepted(uint256 requestId)
-func (_Main *MainFilterer) ParseRequestAccepted(log types.Log) (*MainRequestAccepted, error) {
-	event := new(MainRequestAccepted)
-	if err := _Main.contract.UnpackLog(event, "RequestAccepted", log); err != nil {
+func (_ReviewableRequest *ReviewableRequestFilterer) ParseRequestAccepted(log types.Log) (*ReviewableRequestRequestAccepted, error) {
+	event := new(ReviewableRequestRequestAccepted)
+	if err := _ReviewableRequest.contract.UnpackLog(event, "RequestAccepted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRequestCreatedIterator is returned from FilterRequestCreated and is used to iterate over the raw logs and unpacked data for RequestCreated events raised by the Main contract.
-type MainRequestCreatedIterator struct {
-	Event *MainRequestCreated // Event containing the contract specifics and raw log
+// ReviewableRequestRequestCreatedIterator is returned from FilterRequestCreated and is used to iterate over the raw logs and unpacked data for RequestCreated events raised by the ReviewableRequest contract.
+type ReviewableRequestRequestCreatedIterator struct {
+	Event *ReviewableRequestRequestCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -598,7 +598,7 @@ type MainRequestCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRequestCreatedIterator) Next() bool {
+func (it *ReviewableRequestRequestCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -607,7 +607,7 @@ func (it *MainRequestCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRequestCreated)
+			it.Event = new(ReviewableRequestRequestCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -622,7 +622,7 @@ func (it *MainRequestCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRequestCreated)
+		it.Event = new(ReviewableRequestRequestCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -638,19 +638,19 @@ func (it *MainRequestCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRequestCreatedIterator) Error() error {
+func (it *ReviewableRequestRequestCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRequestCreatedIterator) Close() error {
+func (it *ReviewableRequestRequestCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRequestCreated represents a RequestCreated event raised by the Main contract.
-type MainRequestCreated struct {
+// ReviewableRequestRequestCreated represents a RequestCreated event raised by the ReviewableRequest contract.
+type ReviewableRequestRequestCreated struct {
 	RequestId   *big.Int
 	Creator     common.Address
 	Executor    common.Address
@@ -663,21 +663,21 @@ type MainRequestCreated struct {
 // FilterRequestCreated is a free log retrieval operation binding the contract event 0xa1e746593d17a65b84771d8c234ca178a9e5500aa5ce58c2960b36c16975a40b.
 //
 // Solidity: event RequestCreated(uint256 requestId, address creator, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) FilterRequestCreated(opts *bind.FilterOpts) (*MainRequestCreatedIterator, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) FilterRequestCreated(opts *bind.FilterOpts) (*ReviewableRequestRequestCreatedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RequestCreated")
+	logs, sub, err := _ReviewableRequest.contract.FilterLogs(opts, "RequestCreated")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRequestCreatedIterator{contract: _Main.contract, event: "RequestCreated", logs: logs, sub: sub}, nil
+	return &ReviewableRequestRequestCreatedIterator{contract: _ReviewableRequest.contract, event: "RequestCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchRequestCreated is a free log subscription operation binding the contract event 0xa1e746593d17a65b84771d8c234ca178a9e5500aa5ce58c2960b36c16975a40b.
 //
 // Solidity: event RequestCreated(uint256 requestId, address creator, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) WatchRequestCreated(opts *bind.WatchOpts, sink chan<- *MainRequestCreated) (event.Subscription, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) WatchRequestCreated(opts *bind.WatchOpts, sink chan<- *ReviewableRequestRequestCreated) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RequestCreated")
+	logs, sub, err := _ReviewableRequest.contract.WatchLogs(opts, "RequestCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -687,8 +687,8 @@ func (_Main *MainFilterer) WatchRequestCreated(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRequestCreated)
-				if err := _Main.contract.UnpackLog(event, "RequestCreated", log); err != nil {
+				event := new(ReviewableRequestRequestCreated)
+				if err := _ReviewableRequest.contract.UnpackLog(event, "RequestCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -712,18 +712,18 @@ func (_Main *MainFilterer) WatchRequestCreated(opts *bind.WatchOpts, sink chan<-
 // ParseRequestCreated is a log parse operation binding the contract event 0xa1e746593d17a65b84771d8c234ca178a9e5500aa5ce58c2960b36c16975a40b.
 //
 // Solidity: event RequestCreated(uint256 requestId, address creator, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) ParseRequestCreated(log types.Log) (*MainRequestCreated, error) {
-	event := new(MainRequestCreated)
-	if err := _Main.contract.UnpackLog(event, "RequestCreated", log); err != nil {
+func (_ReviewableRequest *ReviewableRequestFilterer) ParseRequestCreated(log types.Log) (*ReviewableRequestRequestCreated, error) {
+	event := new(ReviewableRequestRequestCreated)
+	if err := _ReviewableRequest.contract.UnpackLog(event, "RequestCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRequestDroppedIterator is returned from FilterRequestDropped and is used to iterate over the raw logs and unpacked data for RequestDropped events raised by the Main contract.
-type MainRequestDroppedIterator struct {
-	Event *MainRequestDropped // Event containing the contract specifics and raw log
+// ReviewableRequestRequestDroppedIterator is returned from FilterRequestDropped and is used to iterate over the raw logs and unpacked data for RequestDropped events raised by the ReviewableRequest contract.
+type ReviewableRequestRequestDroppedIterator struct {
+	Event *ReviewableRequestRequestDropped // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -737,7 +737,7 @@ type MainRequestDroppedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRequestDroppedIterator) Next() bool {
+func (it *ReviewableRequestRequestDroppedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -746,7 +746,7 @@ func (it *MainRequestDroppedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRequestDropped)
+			it.Event = new(ReviewableRequestRequestDropped)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -761,7 +761,7 @@ func (it *MainRequestDroppedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRequestDropped)
+		it.Event = new(ReviewableRequestRequestDropped)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -777,19 +777,19 @@ func (it *MainRequestDroppedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRequestDroppedIterator) Error() error {
+func (it *ReviewableRequestRequestDroppedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRequestDroppedIterator) Close() error {
+func (it *ReviewableRequestRequestDroppedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRequestDropped represents a RequestDropped event raised by the Main contract.
-type MainRequestDropped struct {
+// ReviewableRequestRequestDropped represents a RequestDropped event raised by the ReviewableRequest contract.
+type ReviewableRequestRequestDropped struct {
 	RequestId *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -797,21 +797,21 @@ type MainRequestDropped struct {
 // FilterRequestDropped is a free log retrieval operation binding the contract event 0x51470b97eff85c6e931350460943bd60fb87a4cd33a5eae3b4c3b686ac28df8b.
 //
 // Solidity: event RequestDropped(uint256 requestId)
-func (_Main *MainFilterer) FilterRequestDropped(opts *bind.FilterOpts) (*MainRequestDroppedIterator, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) FilterRequestDropped(opts *bind.FilterOpts) (*ReviewableRequestRequestDroppedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RequestDropped")
+	logs, sub, err := _ReviewableRequest.contract.FilterLogs(opts, "RequestDropped")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRequestDroppedIterator{contract: _Main.contract, event: "RequestDropped", logs: logs, sub: sub}, nil
+	return &ReviewableRequestRequestDroppedIterator{contract: _ReviewableRequest.contract, event: "RequestDropped", logs: logs, sub: sub}, nil
 }
 
 // WatchRequestDropped is a free log subscription operation binding the contract event 0x51470b97eff85c6e931350460943bd60fb87a4cd33a5eae3b4c3b686ac28df8b.
 //
 // Solidity: event RequestDropped(uint256 requestId)
-func (_Main *MainFilterer) WatchRequestDropped(opts *bind.WatchOpts, sink chan<- *MainRequestDropped) (event.Subscription, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) WatchRequestDropped(opts *bind.WatchOpts, sink chan<- *ReviewableRequestRequestDropped) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RequestDropped")
+	logs, sub, err := _ReviewableRequest.contract.WatchLogs(opts, "RequestDropped")
 	if err != nil {
 		return nil, err
 	}
@@ -821,8 +821,8 @@ func (_Main *MainFilterer) WatchRequestDropped(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRequestDropped)
-				if err := _Main.contract.UnpackLog(event, "RequestDropped", log); err != nil {
+				event := new(ReviewableRequestRequestDropped)
+				if err := _ReviewableRequest.contract.UnpackLog(event, "RequestDropped", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -846,18 +846,18 @@ func (_Main *MainFilterer) WatchRequestDropped(opts *bind.WatchOpts, sink chan<-
 // ParseRequestDropped is a log parse operation binding the contract event 0x51470b97eff85c6e931350460943bd60fb87a4cd33a5eae3b4c3b686ac28df8b.
 //
 // Solidity: event RequestDropped(uint256 requestId)
-func (_Main *MainFilterer) ParseRequestDropped(log types.Log) (*MainRequestDropped, error) {
-	event := new(MainRequestDropped)
-	if err := _Main.contract.UnpackLog(event, "RequestDropped", log); err != nil {
+func (_ReviewableRequest *ReviewableRequestFilterer) ParseRequestDropped(log types.Log) (*ReviewableRequestRequestDropped, error) {
+	event := new(ReviewableRequestRequestDropped)
+	if err := _ReviewableRequest.contract.UnpackLog(event, "RequestDropped", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRequestRejectedIterator is returned from FilterRequestRejected and is used to iterate over the raw logs and unpacked data for RequestRejected events raised by the Main contract.
-type MainRequestRejectedIterator struct {
-	Event *MainRequestRejected // Event containing the contract specifics and raw log
+// ReviewableRequestRequestRejectedIterator is returned from FilterRequestRejected and is used to iterate over the raw logs and unpacked data for RequestRejected events raised by the ReviewableRequest contract.
+type ReviewableRequestRequestRejectedIterator struct {
+	Event *ReviewableRequestRequestRejected // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -871,7 +871,7 @@ type MainRequestRejectedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRequestRejectedIterator) Next() bool {
+func (it *ReviewableRequestRequestRejectedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -880,7 +880,7 @@ func (it *MainRequestRejectedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRequestRejected)
+			it.Event = new(ReviewableRequestRequestRejected)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -895,7 +895,7 @@ func (it *MainRequestRejectedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRequestRejected)
+		it.Event = new(ReviewableRequestRequestRejected)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -911,19 +911,19 @@ func (it *MainRequestRejectedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRequestRejectedIterator) Error() error {
+func (it *ReviewableRequestRequestRejectedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRequestRejectedIterator) Close() error {
+func (it *ReviewableRequestRequestRejectedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRequestRejected represents a RequestRejected event raised by the Main contract.
-type MainRequestRejected struct {
+// ReviewableRequestRequestRejected represents a RequestRejected event raised by the ReviewableRequest contract.
+type ReviewableRequestRequestRejected struct {
 	RequestId *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -931,21 +931,21 @@ type MainRequestRejected struct {
 // FilterRequestRejected is a free log retrieval operation binding the contract event 0x1fdac08e93f72ff55b24ebdf4152b7f56b98982fe9249639c1010cc52aebccd6.
 //
 // Solidity: event RequestRejected(uint256 requestId)
-func (_Main *MainFilterer) FilterRequestRejected(opts *bind.FilterOpts) (*MainRequestRejectedIterator, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) FilterRequestRejected(opts *bind.FilterOpts) (*ReviewableRequestRequestRejectedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RequestRejected")
+	logs, sub, err := _ReviewableRequest.contract.FilterLogs(opts, "RequestRejected")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRequestRejectedIterator{contract: _Main.contract, event: "RequestRejected", logs: logs, sub: sub}, nil
+	return &ReviewableRequestRequestRejectedIterator{contract: _ReviewableRequest.contract, event: "RequestRejected", logs: logs, sub: sub}, nil
 }
 
 // WatchRequestRejected is a free log subscription operation binding the contract event 0x1fdac08e93f72ff55b24ebdf4152b7f56b98982fe9249639c1010cc52aebccd6.
 //
 // Solidity: event RequestRejected(uint256 requestId)
-func (_Main *MainFilterer) WatchRequestRejected(opts *bind.WatchOpts, sink chan<- *MainRequestRejected) (event.Subscription, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) WatchRequestRejected(opts *bind.WatchOpts, sink chan<- *ReviewableRequestRequestRejected) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RequestRejected")
+	logs, sub, err := _ReviewableRequest.contract.WatchLogs(opts, "RequestRejected")
 	if err != nil {
 		return nil, err
 	}
@@ -955,8 +955,8 @@ func (_Main *MainFilterer) WatchRequestRejected(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRequestRejected)
-				if err := _Main.contract.UnpackLog(event, "RequestRejected", log); err != nil {
+				event := new(ReviewableRequestRequestRejected)
+				if err := _ReviewableRequest.contract.UnpackLog(event, "RequestRejected", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -980,18 +980,18 @@ func (_Main *MainFilterer) WatchRequestRejected(opts *bind.WatchOpts, sink chan<
 // ParseRequestRejected is a log parse operation binding the contract event 0x1fdac08e93f72ff55b24ebdf4152b7f56b98982fe9249639c1010cc52aebccd6.
 //
 // Solidity: event RequestRejected(uint256 requestId)
-func (_Main *MainFilterer) ParseRequestRejected(log types.Log) (*MainRequestRejected, error) {
-	event := new(MainRequestRejected)
-	if err := _Main.contract.UnpackLog(event, "RequestRejected", log); err != nil {
+func (_ReviewableRequest *ReviewableRequestFilterer) ParseRequestRejected(log types.Log) (*ReviewableRequestRequestRejected, error) {
+	event := new(ReviewableRequestRequestRejected)
+	if err := _ReviewableRequest.contract.UnpackLog(event, "RequestRejected", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRequestUpdatedIterator is returned from FilterRequestUpdated and is used to iterate over the raw logs and unpacked data for RequestUpdated events raised by the Main contract.
-type MainRequestUpdatedIterator struct {
-	Event *MainRequestUpdated // Event containing the contract specifics and raw log
+// ReviewableRequestRequestUpdatedIterator is returned from FilterRequestUpdated and is used to iterate over the raw logs and unpacked data for RequestUpdated events raised by the ReviewableRequest contract.
+type ReviewableRequestRequestUpdatedIterator struct {
+	Event *ReviewableRequestRequestUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1005,7 +1005,7 @@ type MainRequestUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRequestUpdatedIterator) Next() bool {
+func (it *ReviewableRequestRequestUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1014,7 +1014,7 @@ func (it *MainRequestUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRequestUpdated)
+			it.Event = new(ReviewableRequestRequestUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1029,7 +1029,7 @@ func (it *MainRequestUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRequestUpdated)
+		it.Event = new(ReviewableRequestRequestUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1045,19 +1045,19 @@ func (it *MainRequestUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRequestUpdatedIterator) Error() error {
+func (it *ReviewableRequestRequestUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRequestUpdatedIterator) Close() error {
+func (it *ReviewableRequestRequestUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRequestUpdated represents a RequestUpdated event raised by the Main contract.
-type MainRequestUpdated struct {
+// ReviewableRequestRequestUpdated represents a RequestUpdated event raised by the ReviewableRequest contract.
+type ReviewableRequestRequestUpdated struct {
 	RequestId    *big.Int
 	NewRequestId *big.Int
 	Executor     common.Address
@@ -1070,21 +1070,21 @@ type MainRequestUpdated struct {
 // FilterRequestUpdated is a free log retrieval operation binding the contract event 0x4cc21576703dec37e543715963bb2a4469a0e340e29e56e22821fbc8e0663f18.
 //
 // Solidity: event RequestUpdated(uint256 requestId, uint256 newRequestId, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) FilterRequestUpdated(opts *bind.FilterOpts) (*MainRequestUpdatedIterator, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) FilterRequestUpdated(opts *bind.FilterOpts) (*ReviewableRequestRequestUpdatedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RequestUpdated")
+	logs, sub, err := _ReviewableRequest.contract.FilterLogs(opts, "RequestUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRequestUpdatedIterator{contract: _Main.contract, event: "RequestUpdated", logs: logs, sub: sub}, nil
+	return &ReviewableRequestRequestUpdatedIterator{contract: _ReviewableRequest.contract, event: "RequestUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchRequestUpdated is a free log subscription operation binding the contract event 0x4cc21576703dec37e543715963bb2a4469a0e340e29e56e22821fbc8e0663f18.
 //
 // Solidity: event RequestUpdated(uint256 requestId, uint256 newRequestId, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) WatchRequestUpdated(opts *bind.WatchOpts, sink chan<- *MainRequestUpdated) (event.Subscription, error) {
+func (_ReviewableRequest *ReviewableRequestFilterer) WatchRequestUpdated(opts *bind.WatchOpts, sink chan<- *ReviewableRequestRequestUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RequestUpdated")
+	logs, sub, err := _ReviewableRequest.contract.WatchLogs(opts, "RequestUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -1094,8 +1094,8 @@ func (_Main *MainFilterer) WatchRequestUpdated(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRequestUpdated)
-				if err := _Main.contract.UnpackLog(event, "RequestUpdated", log); err != nil {
+				event := new(ReviewableRequestRequestUpdated)
+				if err := _ReviewableRequest.contract.UnpackLog(event, "RequestUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1119,9 +1119,9 @@ func (_Main *MainFilterer) WatchRequestUpdated(opts *bind.WatchOpts, sink chan<-
 // ParseRequestUpdated is a log parse operation binding the contract event 0x4cc21576703dec37e543715963bb2a4469a0e340e29e56e22821fbc8e0663f18.
 //
 // Solidity: event RequestUpdated(uint256 requestId, uint256 newRequestId, address executor, bytes acceptData, bytes rejectData, string description)
-func (_Main *MainFilterer) ParseRequestUpdated(log types.Log) (*MainRequestUpdated, error) {
-	event := new(MainRequestUpdated)
-	if err := _Main.contract.UnpackLog(event, "RequestUpdated", log); err != nil {
+func (_ReviewableRequest *ReviewableRequestFilterer) ParseRequestUpdated(log types.Log) (*ReviewableRequestRequestUpdated, error) {
+	event := new(ReviewableRequestRequestUpdated)
+	if err := _ReviewableRequest.contract.UnpackLog(event, "RequestUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

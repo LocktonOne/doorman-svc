@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package MasterAccessManagement
+package master_access_management
 
 import (
 	"errors"
@@ -34,113 +34,113 @@ type IRBACResourceWithPermissions struct {
 	Permissions []string
 }
 
-// MainMetaData contains all meta data concerning the Main contract.
-var MainMetaData = &bind.MetaData{
+// MasterAccessManagementMetaData contains all meta data concerning the MasterAccessManagement contract.
+var MasterAccessManagementMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"role\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string[]\",\"name\":\"permissionsToAdd\",\"type\":\"string[]\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"allowed\",\"type\":\"bool\"}],\"name\":\"AddedPermissions\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string[]\",\"name\":\"rolesToGrant\",\"type\":\"string[]\"}],\"name\":\"GrantedRoles\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"role\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string[]\",\"name\":\"permissionsToRemove\",\"type\":\"string[]\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"allowed\",\"type\":\"bool\"}],\"name\":\"RemovedPermissions\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string[]\",\"name\":\"rolesToRevoke\",\"type\":\"string[]\"}],\"name\":\"RevokedRoles\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ALL_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ALL_RESOURCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CONSTANTS_REGISTRY_RESOURCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CREATE_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DELETE_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EXECUTE_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MASTER_REGISTRY_RESOURCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MASTER_ROLE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RBAC_RESOURCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"READ_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"REVIEWABLE_REQUESTS_RESOURCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"UPDATE_PERMISSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"master_\",\"type\":\"address\"}],\"name\":\"__MasterAccessManagement_init\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"role\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"permissions\",\"type\":\"string[]\"}],\"internalType\":\"structIRBAC.ResourceWithPermissions[]\",\"name\":\"permissionsToAdd\",\"type\":\"tuple[]\"},{\"internalType\":\"bool\",\"name\":\"allowed\",\"type\":\"bool\"}],\"name\":\"addPermissionsToRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"role\",\"type\":\"string\"}],\"name\":\"getRolePermissions\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"permissions\",\"type\":\"string[]\"}],\"internalType\":\"structIRBAC.ResourceWithPermissions[]\",\"name\":\"allowed\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"permissions\",\"type\":\"string[]\"}],\"internalType\":\"structIRBAC.ResourceWithPermissions[]\",\"name\":\"disallowed\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"}],\"name\":\"getUserRoles\",\"outputs\":[{\"internalType\":\"string[]\",\"name\":\"roles\",\"type\":\"string[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"string[]\",\"name\":\"rolesToGrant\",\"type\":\"string[]\"}],\"name\":\"grantRoles\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasConstantsRegistryCreatePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasConstantsRegistryDeletePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasMasterContractsRegistryCreatePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasMasterContractsRegistryDeletePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasMasterContractsRegistryUpdatePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"permission\",\"type\":\"string\"}],\"name\":\"hasPermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasReviewableRequestsCreatePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasReviewableRequestsDeletePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"hasReviewableRequestsExecutePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"role\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"resource\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"permissions\",\"type\":\"string[]\"}],\"internalType\":\"structIRBAC.ResourceWithPermissions[]\",\"name\":\"permissionsToRemove\",\"type\":\"tuple[]\"},{\"internalType\":\"bool\",\"name\":\"allowed\",\"type\":\"bool\"}],\"name\":\"removePermissionsFromRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"string[]\",\"name\":\"rolesToRevoke\",\"type\":\"string[]\"}],\"name\":\"revokeRoles\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// MainABI is the input ABI used to generate the binding from.
-// Deprecated: Use MainMetaData.ABI instead.
-var MainABI = MainMetaData.ABI
+// MasterAccessManagementABI is the input ABI used to generate the binding from.
+// Deprecated: Use MasterAccessManagementMetaData.ABI instead.
+var MasterAccessManagementABI = MasterAccessManagementMetaData.ABI
 
-// Main is an auto generated Go binding around an Ethereum contract.
-type Main struct {
-	MainCaller     // Read-only binding to the contract
-	MainTransactor // Write-only binding to the contract
-	MainFilterer   // Log filterer for contract events
+// MasterAccessManagement is an auto generated Go binding around an Ethereum contract.
+type MasterAccessManagement struct {
+	MasterAccessManagementCaller     // Read-only binding to the contract
+	MasterAccessManagementTransactor // Write-only binding to the contract
+	MasterAccessManagementFilterer   // Log filterer for contract events
 }
 
-// MainCaller is an auto generated read-only Go binding around an Ethereum contract.
-type MainCaller struct {
+// MasterAccessManagementCaller is an auto generated read-only Go binding around an Ethereum contract.
+type MasterAccessManagementCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type MainTransactor struct {
+// MasterAccessManagementTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type MasterAccessManagementTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type MainFilterer struct {
+// MasterAccessManagementFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type MasterAccessManagementFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainSession is an auto generated Go binding around an Ethereum contract,
+// MasterAccessManagementSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type MainSession struct {
-	Contract     *Main             // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MasterAccessManagementSession struct {
+	Contract     *MasterAccessManagement // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts           // Call options to use throughout this session
+	TransactOpts bind.TransactOpts       // Transaction auth options to use throughout this session
 }
 
-// MainCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// MasterAccessManagementCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type MainCallerSession struct {
-	Contract *MainCaller   // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type MasterAccessManagementCallerSession struct {
+	Contract *MasterAccessManagementCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts                 // Call options to use throughout this session
 }
 
-// MainTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// MasterAccessManagementTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type MainTransactorSession struct {
-	Contract     *MainTransactor   // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MasterAccessManagementTransactorSession struct {
+	Contract     *MasterAccessManagementTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts                 // Transaction auth options to use throughout this session
 }
 
-// MainRaw is an auto generated low-level Go binding around an Ethereum contract.
-type MainRaw struct {
-	Contract *Main // Generic contract binding to access the raw methods on
+// MasterAccessManagementRaw is an auto generated low-level Go binding around an Ethereum contract.
+type MasterAccessManagementRaw struct {
+	Contract *MasterAccessManagement // Generic contract binding to access the raw methods on
 }
 
-// MainCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type MainCallerRaw struct {
-	Contract *MainCaller // Generic read-only contract binding to access the raw methods on
+// MasterAccessManagementCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type MasterAccessManagementCallerRaw struct {
+	Contract *MasterAccessManagementCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// MainTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type MainTransactorRaw struct {
-	Contract *MainTransactor // Generic write-only contract binding to access the raw methods on
+// MasterAccessManagementTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type MasterAccessManagementTransactorRaw struct {
+	Contract *MasterAccessManagementTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewMain creates a new instance of Main, bound to a specific deployed contract.
-func NewMain(address common.Address, backend bind.ContractBackend) (*Main, error) {
-	contract, err := bindMain(address, backend, backend, backend)
+// NewMasterAccessManagement creates a new instance of MasterAccessManagement, bound to a specific deployed contract.
+func NewMasterAccessManagement(address common.Address, backend bind.ContractBackend) (*MasterAccessManagement, error) {
+	contract, err := bindMasterAccessManagement(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Main{MainCaller: MainCaller{contract: contract}, MainTransactor: MainTransactor{contract: contract}, MainFilterer: MainFilterer{contract: contract}}, nil
+	return &MasterAccessManagement{MasterAccessManagementCaller: MasterAccessManagementCaller{contract: contract}, MasterAccessManagementTransactor: MasterAccessManagementTransactor{contract: contract}, MasterAccessManagementFilterer: MasterAccessManagementFilterer{contract: contract}}, nil
 }
 
-// NewMainCaller creates a new read-only instance of Main, bound to a specific deployed contract.
-func NewMainCaller(address common.Address, caller bind.ContractCaller) (*MainCaller, error) {
-	contract, err := bindMain(address, caller, nil, nil)
+// NewMasterAccessManagementCaller creates a new read-only instance of MasterAccessManagement, bound to a specific deployed contract.
+func NewMasterAccessManagementCaller(address common.Address, caller bind.ContractCaller) (*MasterAccessManagementCaller, error) {
+	contract, err := bindMasterAccessManagement(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainCaller{contract: contract}, nil
+	return &MasterAccessManagementCaller{contract: contract}, nil
 }
 
-// NewMainTransactor creates a new write-only instance of Main, bound to a specific deployed contract.
-func NewMainTransactor(address common.Address, transactor bind.ContractTransactor) (*MainTransactor, error) {
-	contract, err := bindMain(address, nil, transactor, nil)
+// NewMasterAccessManagementTransactor creates a new write-only instance of MasterAccessManagement, bound to a specific deployed contract.
+func NewMasterAccessManagementTransactor(address common.Address, transactor bind.ContractTransactor) (*MasterAccessManagementTransactor, error) {
+	contract, err := bindMasterAccessManagement(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainTransactor{contract: contract}, nil
+	return &MasterAccessManagementTransactor{contract: contract}, nil
 }
 
-// NewMainFilterer creates a new log filterer instance of Main, bound to a specific deployed contract.
-func NewMainFilterer(address common.Address, filterer bind.ContractFilterer) (*MainFilterer, error) {
-	contract, err := bindMain(address, nil, nil, filterer)
+// NewMasterAccessManagementFilterer creates a new log filterer instance of MasterAccessManagement, bound to a specific deployed contract.
+func NewMasterAccessManagementFilterer(address common.Address, filterer bind.ContractFilterer) (*MasterAccessManagementFilterer, error) {
+	contract, err := bindMasterAccessManagement(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &MainFilterer{contract: contract}, nil
+	return &MasterAccessManagementFilterer{contract: contract}, nil
 }
 
-// bindMain binds a generic wrapper to an already deployed contract.
-func bindMain(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(MainABI))
+// bindMasterAccessManagement binds a generic wrapper to an already deployed contract.
+func bindMasterAccessManagement(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(MasterAccessManagementABI))
 	if err != nil {
 		return nil, err
 	}
@@ -151,46 +151,46 @@ func bindMain(address common.Address, caller bind.ContractCaller, transactor bin
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.MainCaller.contract.Call(opts, result, method, params...)
+func (_MasterAccessManagement *MasterAccessManagementRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MasterAccessManagement.Contract.MasterAccessManagementCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transfer(opts)
+func (_MasterAccessManagement *MasterAccessManagementRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.MasterAccessManagementTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transact(opts, method, params...)
+func (_MasterAccessManagement *MasterAccessManagementRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.MasterAccessManagementTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.contract.Call(opts, result, method, params...)
+func (_MasterAccessManagement *MasterAccessManagementCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MasterAccessManagement.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transfer(opts)
+func (_MasterAccessManagement *MasterAccessManagementTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transact(opts, method, params...)
+func (_MasterAccessManagement *MasterAccessManagementTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.contract.Transact(opts, method, params...)
 }
 
 // ALLPERMISSION is a free data retrieval call binding the contract method 0xff846fb9.
 //
 // Solidity: function ALL_PERMISSION() view returns(string)
-func (_Main *MainCaller) ALLPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) ALLPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "ALL_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "ALL_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -205,23 +205,23 @@ func (_Main *MainCaller) ALLPERMISSION(opts *bind.CallOpts) (string, error) {
 // ALLPERMISSION is a free data retrieval call binding the contract method 0xff846fb9.
 //
 // Solidity: function ALL_PERMISSION() view returns(string)
-func (_Main *MainSession) ALLPERMISSION() (string, error) {
-	return _Main.Contract.ALLPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) ALLPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.ALLPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // ALLPERMISSION is a free data retrieval call binding the contract method 0xff846fb9.
 //
 // Solidity: function ALL_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) ALLPERMISSION() (string, error) {
-	return _Main.Contract.ALLPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) ALLPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.ALLPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // ALLRESOURCE is a free data retrieval call binding the contract method 0x4a9e12c5.
 //
 // Solidity: function ALL_RESOURCE() view returns(string)
-func (_Main *MainCaller) ALLRESOURCE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) ALLRESOURCE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "ALL_RESOURCE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "ALL_RESOURCE")
 
 	if err != nil {
 		return *new(string), err
@@ -236,23 +236,23 @@ func (_Main *MainCaller) ALLRESOURCE(opts *bind.CallOpts) (string, error) {
 // ALLRESOURCE is a free data retrieval call binding the contract method 0x4a9e12c5.
 //
 // Solidity: function ALL_RESOURCE() view returns(string)
-func (_Main *MainSession) ALLRESOURCE() (string, error) {
-	return _Main.Contract.ALLRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) ALLRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.ALLRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // ALLRESOURCE is a free data retrieval call binding the contract method 0x4a9e12c5.
 //
 // Solidity: function ALL_RESOURCE() view returns(string)
-func (_Main *MainCallerSession) ALLRESOURCE() (string, error) {
-	return _Main.Contract.ALLRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) ALLRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.ALLRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // CONSTANTSREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x6a5efd26.
 //
 // Solidity: function CONSTANTS_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainCaller) CONSTANTSREGISTRYRESOURCE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) CONSTANTSREGISTRYRESOURCE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "CONSTANTS_REGISTRY_RESOURCE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "CONSTANTS_REGISTRY_RESOURCE")
 
 	if err != nil {
 		return *new(string), err
@@ -267,23 +267,23 @@ func (_Main *MainCaller) CONSTANTSREGISTRYRESOURCE(opts *bind.CallOpts) (string,
 // CONSTANTSREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x6a5efd26.
 //
 // Solidity: function CONSTANTS_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainSession) CONSTANTSREGISTRYRESOURCE() (string, error) {
-	return _Main.Contract.CONSTANTSREGISTRYRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) CONSTANTSREGISTRYRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.CONSTANTSREGISTRYRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // CONSTANTSREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x6a5efd26.
 //
 // Solidity: function CONSTANTS_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainCallerSession) CONSTANTSREGISTRYRESOURCE() (string, error) {
-	return _Main.Contract.CONSTANTSREGISTRYRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) CONSTANTSREGISTRYRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.CONSTANTSREGISTRYRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // CREATEPERMISSION is a free data retrieval call binding the contract method 0xb3e657fb.
 //
 // Solidity: function CREATE_PERMISSION() view returns(string)
-func (_Main *MainCaller) CREATEPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) CREATEPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "CREATE_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "CREATE_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -298,23 +298,23 @@ func (_Main *MainCaller) CREATEPERMISSION(opts *bind.CallOpts) (string, error) {
 // CREATEPERMISSION is a free data retrieval call binding the contract method 0xb3e657fb.
 //
 // Solidity: function CREATE_PERMISSION() view returns(string)
-func (_Main *MainSession) CREATEPERMISSION() (string, error) {
-	return _Main.Contract.CREATEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) CREATEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.CREATEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // CREATEPERMISSION is a free data retrieval call binding the contract method 0xb3e657fb.
 //
 // Solidity: function CREATE_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) CREATEPERMISSION() (string, error) {
-	return _Main.Contract.CREATEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) CREATEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.CREATEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // DELETEPERMISSION is a free data retrieval call binding the contract method 0xb832a5a2.
 //
 // Solidity: function DELETE_PERMISSION() view returns(string)
-func (_Main *MainCaller) DELETEPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) DELETEPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "DELETE_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "DELETE_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -329,23 +329,23 @@ func (_Main *MainCaller) DELETEPERMISSION(opts *bind.CallOpts) (string, error) {
 // DELETEPERMISSION is a free data retrieval call binding the contract method 0xb832a5a2.
 //
 // Solidity: function DELETE_PERMISSION() view returns(string)
-func (_Main *MainSession) DELETEPERMISSION() (string, error) {
-	return _Main.Contract.DELETEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) DELETEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.DELETEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // DELETEPERMISSION is a free data retrieval call binding the contract method 0xb832a5a2.
 //
 // Solidity: function DELETE_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) DELETEPERMISSION() (string, error) {
-	return _Main.Contract.DELETEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) DELETEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.DELETEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // EXECUTEPERMISSION is a free data retrieval call binding the contract method 0xbcfa4784.
 //
 // Solidity: function EXECUTE_PERMISSION() view returns(string)
-func (_Main *MainCaller) EXECUTEPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) EXECUTEPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "EXECUTE_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "EXECUTE_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -360,23 +360,23 @@ func (_Main *MainCaller) EXECUTEPERMISSION(opts *bind.CallOpts) (string, error) 
 // EXECUTEPERMISSION is a free data retrieval call binding the contract method 0xbcfa4784.
 //
 // Solidity: function EXECUTE_PERMISSION() view returns(string)
-func (_Main *MainSession) EXECUTEPERMISSION() (string, error) {
-	return _Main.Contract.EXECUTEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) EXECUTEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.EXECUTEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // EXECUTEPERMISSION is a free data retrieval call binding the contract method 0xbcfa4784.
 //
 // Solidity: function EXECUTE_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) EXECUTEPERMISSION() (string, error) {
-	return _Main.Contract.EXECUTEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) EXECUTEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.EXECUTEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // MASTERREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x5db2bad0.
 //
 // Solidity: function MASTER_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainCaller) MASTERREGISTRYRESOURCE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) MASTERREGISTRYRESOURCE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "MASTER_REGISTRY_RESOURCE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "MASTER_REGISTRY_RESOURCE")
 
 	if err != nil {
 		return *new(string), err
@@ -391,23 +391,23 @@ func (_Main *MainCaller) MASTERREGISTRYRESOURCE(opts *bind.CallOpts) (string, er
 // MASTERREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x5db2bad0.
 //
 // Solidity: function MASTER_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainSession) MASTERREGISTRYRESOURCE() (string, error) {
-	return _Main.Contract.MASTERREGISTRYRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) MASTERREGISTRYRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.MASTERREGISTRYRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // MASTERREGISTRYRESOURCE is a free data retrieval call binding the contract method 0x5db2bad0.
 //
 // Solidity: function MASTER_REGISTRY_RESOURCE() view returns(string)
-func (_Main *MainCallerSession) MASTERREGISTRYRESOURCE() (string, error) {
-	return _Main.Contract.MASTERREGISTRYRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) MASTERREGISTRYRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.MASTERREGISTRYRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // MASTERROLE is a free data retrieval call binding the contract method 0xdc224863.
 //
 // Solidity: function MASTER_ROLE() view returns(string)
-func (_Main *MainCaller) MASTERROLE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) MASTERROLE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "MASTER_ROLE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "MASTER_ROLE")
 
 	if err != nil {
 		return *new(string), err
@@ -422,23 +422,23 @@ func (_Main *MainCaller) MASTERROLE(opts *bind.CallOpts) (string, error) {
 // MASTERROLE is a free data retrieval call binding the contract method 0xdc224863.
 //
 // Solidity: function MASTER_ROLE() view returns(string)
-func (_Main *MainSession) MASTERROLE() (string, error) {
-	return _Main.Contract.MASTERROLE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) MASTERROLE() (string, error) {
+	return _MasterAccessManagement.Contract.MASTERROLE(&_MasterAccessManagement.CallOpts)
 }
 
 // MASTERROLE is a free data retrieval call binding the contract method 0xdc224863.
 //
 // Solidity: function MASTER_ROLE() view returns(string)
-func (_Main *MainCallerSession) MASTERROLE() (string, error) {
-	return _Main.Contract.MASTERROLE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) MASTERROLE() (string, error) {
+	return _MasterAccessManagement.Contract.MASTERROLE(&_MasterAccessManagement.CallOpts)
 }
 
 // RBACRESOURCE is a free data retrieval call binding the contract method 0x733352b3.
 //
 // Solidity: function RBAC_RESOURCE() view returns(string)
-func (_Main *MainCaller) RBACRESOURCE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) RBACRESOURCE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "RBAC_RESOURCE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "RBAC_RESOURCE")
 
 	if err != nil {
 		return *new(string), err
@@ -453,23 +453,23 @@ func (_Main *MainCaller) RBACRESOURCE(opts *bind.CallOpts) (string, error) {
 // RBACRESOURCE is a free data retrieval call binding the contract method 0x733352b3.
 //
 // Solidity: function RBAC_RESOURCE() view returns(string)
-func (_Main *MainSession) RBACRESOURCE() (string, error) {
-	return _Main.Contract.RBACRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) RBACRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.RBACRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // RBACRESOURCE is a free data retrieval call binding the contract method 0x733352b3.
 //
 // Solidity: function RBAC_RESOURCE() view returns(string)
-func (_Main *MainCallerSession) RBACRESOURCE() (string, error) {
-	return _Main.Contract.RBACRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) RBACRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.RBACRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // READPERMISSION is a free data retrieval call binding the contract method 0x03bc0b3e.
 //
 // Solidity: function READ_PERMISSION() view returns(string)
-func (_Main *MainCaller) READPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) READPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "READ_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "READ_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -484,23 +484,23 @@ func (_Main *MainCaller) READPERMISSION(opts *bind.CallOpts) (string, error) {
 // READPERMISSION is a free data retrieval call binding the contract method 0x03bc0b3e.
 //
 // Solidity: function READ_PERMISSION() view returns(string)
-func (_Main *MainSession) READPERMISSION() (string, error) {
-	return _Main.Contract.READPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) READPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.READPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // READPERMISSION is a free data retrieval call binding the contract method 0x03bc0b3e.
 //
 // Solidity: function READ_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) READPERMISSION() (string, error) {
-	return _Main.Contract.READPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) READPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.READPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // REVIEWABLEREQUESTSRESOURCE is a free data retrieval call binding the contract method 0xf55303bd.
 //
 // Solidity: function REVIEWABLE_REQUESTS_RESOURCE() view returns(string)
-func (_Main *MainCaller) REVIEWABLEREQUESTSRESOURCE(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) REVIEWABLEREQUESTSRESOURCE(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "REVIEWABLE_REQUESTS_RESOURCE")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "REVIEWABLE_REQUESTS_RESOURCE")
 
 	if err != nil {
 		return *new(string), err
@@ -515,23 +515,23 @@ func (_Main *MainCaller) REVIEWABLEREQUESTSRESOURCE(opts *bind.CallOpts) (string
 // REVIEWABLEREQUESTSRESOURCE is a free data retrieval call binding the contract method 0xf55303bd.
 //
 // Solidity: function REVIEWABLE_REQUESTS_RESOURCE() view returns(string)
-func (_Main *MainSession) REVIEWABLEREQUESTSRESOURCE() (string, error) {
-	return _Main.Contract.REVIEWABLEREQUESTSRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) REVIEWABLEREQUESTSRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.REVIEWABLEREQUESTSRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // REVIEWABLEREQUESTSRESOURCE is a free data retrieval call binding the contract method 0xf55303bd.
 //
 // Solidity: function REVIEWABLE_REQUESTS_RESOURCE() view returns(string)
-func (_Main *MainCallerSession) REVIEWABLEREQUESTSRESOURCE() (string, error) {
-	return _Main.Contract.REVIEWABLEREQUESTSRESOURCE(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) REVIEWABLEREQUESTSRESOURCE() (string, error) {
+	return _MasterAccessManagement.Contract.REVIEWABLEREQUESTSRESOURCE(&_MasterAccessManagement.CallOpts)
 }
 
 // UPDATEPERMISSION is a free data retrieval call binding the contract method 0x0ead6f1e.
 //
 // Solidity: function UPDATE_PERMISSION() view returns(string)
-func (_Main *MainCaller) UPDATEPERMISSION(opts *bind.CallOpts) (string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) UPDATEPERMISSION(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "UPDATE_PERMISSION")
+	err := _MasterAccessManagement.contract.Call(opts, &out, "UPDATE_PERMISSION")
 
 	if err != nil {
 		return *new(string), err
@@ -546,26 +546,26 @@ func (_Main *MainCaller) UPDATEPERMISSION(opts *bind.CallOpts) (string, error) {
 // UPDATEPERMISSION is a free data retrieval call binding the contract method 0x0ead6f1e.
 //
 // Solidity: function UPDATE_PERMISSION() view returns(string)
-func (_Main *MainSession) UPDATEPERMISSION() (string, error) {
-	return _Main.Contract.UPDATEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementSession) UPDATEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.UPDATEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // UPDATEPERMISSION is a free data retrieval call binding the contract method 0x0ead6f1e.
 //
 // Solidity: function UPDATE_PERMISSION() view returns(string)
-func (_Main *MainCallerSession) UPDATEPERMISSION() (string, error) {
-	return _Main.Contract.UPDATEPERMISSION(&_Main.CallOpts)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) UPDATEPERMISSION() (string, error) {
+	return _MasterAccessManagement.Contract.UPDATEPERMISSION(&_MasterAccessManagement.CallOpts)
 }
 
 // GetRolePermissions is a free data retrieval call binding the contract method 0x002f5bc0.
 //
 // Solidity: function getRolePermissions(string role) view returns((string,string[])[] allowed, (string,string[])[] disallowed)
-func (_Main *MainCaller) GetRolePermissions(opts *bind.CallOpts, role string) (struct {
+func (_MasterAccessManagement *MasterAccessManagementCaller) GetRolePermissions(opts *bind.CallOpts, role string) (struct {
 	Allowed    []IRBACResourceWithPermissions
 	Disallowed []IRBACResourceWithPermissions
 }, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getRolePermissions", role)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "getRolePermissions", role)
 
 	outstruct := new(struct {
 		Allowed    []IRBACResourceWithPermissions
@@ -585,29 +585,29 @@ func (_Main *MainCaller) GetRolePermissions(opts *bind.CallOpts, role string) (s
 // GetRolePermissions is a free data retrieval call binding the contract method 0x002f5bc0.
 //
 // Solidity: function getRolePermissions(string role) view returns((string,string[])[] allowed, (string,string[])[] disallowed)
-func (_Main *MainSession) GetRolePermissions(role string) (struct {
+func (_MasterAccessManagement *MasterAccessManagementSession) GetRolePermissions(role string) (struct {
 	Allowed    []IRBACResourceWithPermissions
 	Disallowed []IRBACResourceWithPermissions
 }, error) {
-	return _Main.Contract.GetRolePermissions(&_Main.CallOpts, role)
+	return _MasterAccessManagement.Contract.GetRolePermissions(&_MasterAccessManagement.CallOpts, role)
 }
 
 // GetRolePermissions is a free data retrieval call binding the contract method 0x002f5bc0.
 //
 // Solidity: function getRolePermissions(string role) view returns((string,string[])[] allowed, (string,string[])[] disallowed)
-func (_Main *MainCallerSession) GetRolePermissions(role string) (struct {
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) GetRolePermissions(role string) (struct {
 	Allowed    []IRBACResourceWithPermissions
 	Disallowed []IRBACResourceWithPermissions
 }, error) {
-	return _Main.Contract.GetRolePermissions(&_Main.CallOpts, role)
+	return _MasterAccessManagement.Contract.GetRolePermissions(&_MasterAccessManagement.CallOpts, role)
 }
 
 // GetUserRoles is a free data retrieval call binding the contract method 0x06a36aee.
 //
 // Solidity: function getUserRoles(address who) view returns(string[] roles)
-func (_Main *MainCaller) GetUserRoles(opts *bind.CallOpts, who common.Address) ([]string, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) GetUserRoles(opts *bind.CallOpts, who common.Address) ([]string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getUserRoles", who)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "getUserRoles", who)
 
 	if err != nil {
 		return *new([]string), err
@@ -622,23 +622,23 @@ func (_Main *MainCaller) GetUserRoles(opts *bind.CallOpts, who common.Address) (
 // GetUserRoles is a free data retrieval call binding the contract method 0x06a36aee.
 //
 // Solidity: function getUserRoles(address who) view returns(string[] roles)
-func (_Main *MainSession) GetUserRoles(who common.Address) ([]string, error) {
-	return _Main.Contract.GetUserRoles(&_Main.CallOpts, who)
+func (_MasterAccessManagement *MasterAccessManagementSession) GetUserRoles(who common.Address) ([]string, error) {
+	return _MasterAccessManagement.Contract.GetUserRoles(&_MasterAccessManagement.CallOpts, who)
 }
 
 // GetUserRoles is a free data retrieval call binding the contract method 0x06a36aee.
 //
 // Solidity: function getUserRoles(address who) view returns(string[] roles)
-func (_Main *MainCallerSession) GetUserRoles(who common.Address) ([]string, error) {
-	return _Main.Contract.GetUserRoles(&_Main.CallOpts, who)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) GetUserRoles(who common.Address) ([]string, error) {
+	return _MasterAccessManagement.Contract.GetUserRoles(&_MasterAccessManagement.CallOpts, who)
 }
 
 // HasConstantsRegistryCreatePermission is a free data retrieval call binding the contract method 0x5b44a636.
 //
 // Solidity: function hasConstantsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasConstantsRegistryCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasConstantsRegistryCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasConstantsRegistryCreatePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasConstantsRegistryCreatePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -653,23 +653,23 @@ func (_Main *MainCaller) HasConstantsRegistryCreatePermission(opts *bind.CallOpt
 // HasConstantsRegistryCreatePermission is a free data retrieval call binding the contract method 0x5b44a636.
 //
 // Solidity: function hasConstantsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasConstantsRegistryCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasConstantsRegistryCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasConstantsRegistryCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasConstantsRegistryCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasConstantsRegistryCreatePermission is a free data retrieval call binding the contract method 0x5b44a636.
 //
 // Solidity: function hasConstantsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasConstantsRegistryCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasConstantsRegistryCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasConstantsRegistryCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasConstantsRegistryCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasConstantsRegistryDeletePermission is a free data retrieval call binding the contract method 0x05e10d32.
 //
 // Solidity: function hasConstantsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasConstantsRegistryDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasConstantsRegistryDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasConstantsRegistryDeletePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasConstantsRegistryDeletePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -684,23 +684,23 @@ func (_Main *MainCaller) HasConstantsRegistryDeletePermission(opts *bind.CallOpt
 // HasConstantsRegistryDeletePermission is a free data retrieval call binding the contract method 0x05e10d32.
 //
 // Solidity: function hasConstantsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasConstantsRegistryDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasConstantsRegistryDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasConstantsRegistryDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasConstantsRegistryDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasConstantsRegistryDeletePermission is a free data retrieval call binding the contract method 0x05e10d32.
 //
 // Solidity: function hasConstantsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasConstantsRegistryDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasConstantsRegistryDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasConstantsRegistryDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasConstantsRegistryDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryCreatePermission is a free data retrieval call binding the contract method 0x25536582.
 //
 // Solidity: function hasMasterContractsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasMasterContractsRegistryCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasMasterContractsRegistryCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasMasterContractsRegistryCreatePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasMasterContractsRegistryCreatePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -715,23 +715,23 @@ func (_Main *MainCaller) HasMasterContractsRegistryCreatePermission(opts *bind.C
 // HasMasterContractsRegistryCreatePermission is a free data retrieval call binding the contract method 0x25536582.
 //
 // Solidity: function hasMasterContractsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasMasterContractsRegistryCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasMasterContractsRegistryCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryCreatePermission is a free data retrieval call binding the contract method 0x25536582.
 //
 // Solidity: function hasMasterContractsRegistryCreatePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasMasterContractsRegistryCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasMasterContractsRegistryCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryDeletePermission is a free data retrieval call binding the contract method 0x7043f0d8.
 //
 // Solidity: function hasMasterContractsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasMasterContractsRegistryDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasMasterContractsRegistryDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasMasterContractsRegistryDeletePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasMasterContractsRegistryDeletePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -746,23 +746,23 @@ func (_Main *MainCaller) HasMasterContractsRegistryDeletePermission(opts *bind.C
 // HasMasterContractsRegistryDeletePermission is a free data retrieval call binding the contract method 0x7043f0d8.
 //
 // Solidity: function hasMasterContractsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasMasterContractsRegistryDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasMasterContractsRegistryDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryDeletePermission is a free data retrieval call binding the contract method 0x7043f0d8.
 //
 // Solidity: function hasMasterContractsRegistryDeletePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasMasterContractsRegistryDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasMasterContractsRegistryDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryUpdatePermission is a free data retrieval call binding the contract method 0x0aefca57.
 //
 // Solidity: function hasMasterContractsRegistryUpdatePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasMasterContractsRegistryUpdatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasMasterContractsRegistryUpdatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasMasterContractsRegistryUpdatePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasMasterContractsRegistryUpdatePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -777,23 +777,23 @@ func (_Main *MainCaller) HasMasterContractsRegistryUpdatePermission(opts *bind.C
 // HasMasterContractsRegistryUpdatePermission is a free data retrieval call binding the contract method 0x0aefca57.
 //
 // Solidity: function hasMasterContractsRegistryUpdatePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasMasterContractsRegistryUpdatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryUpdatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasMasterContractsRegistryUpdatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryUpdatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasMasterContractsRegistryUpdatePermission is a free data retrieval call binding the contract method 0x0aefca57.
 //
 // Solidity: function hasMasterContractsRegistryUpdatePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasMasterContractsRegistryUpdatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasMasterContractsRegistryUpdatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasMasterContractsRegistryUpdatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasMasterContractsRegistryUpdatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasPermission is a free data retrieval call binding the contract method 0x7951c6da.
 //
 // Solidity: function hasPermission(address who, string resource, string permission) view returns(bool)
-func (_Main *MainCaller) HasPermission(opts *bind.CallOpts, who common.Address, resource string, permission string) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasPermission(opts *bind.CallOpts, who common.Address, resource string, permission string) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasPermission", who, resource, permission)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasPermission", who, resource, permission)
 
 	if err != nil {
 		return *new(bool), err
@@ -808,23 +808,23 @@ func (_Main *MainCaller) HasPermission(opts *bind.CallOpts, who common.Address, 
 // HasPermission is a free data retrieval call binding the contract method 0x7951c6da.
 //
 // Solidity: function hasPermission(address who, string resource, string permission) view returns(bool)
-func (_Main *MainSession) HasPermission(who common.Address, resource string, permission string) (bool, error) {
-	return _Main.Contract.HasPermission(&_Main.CallOpts, who, resource, permission)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasPermission(who common.Address, resource string, permission string) (bool, error) {
+	return _MasterAccessManagement.Contract.HasPermission(&_MasterAccessManagement.CallOpts, who, resource, permission)
 }
 
 // HasPermission is a free data retrieval call binding the contract method 0x7951c6da.
 //
 // Solidity: function hasPermission(address who, string resource, string permission) view returns(bool)
-func (_Main *MainCallerSession) HasPermission(who common.Address, resource string, permission string) (bool, error) {
-	return _Main.Contract.HasPermission(&_Main.CallOpts, who, resource, permission)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasPermission(who common.Address, resource string, permission string) (bool, error) {
+	return _MasterAccessManagement.Contract.HasPermission(&_MasterAccessManagement.CallOpts, who, resource, permission)
 }
 
 // HasReviewableRequestsCreatePermission is a free data retrieval call binding the contract method 0xe6cdf5d0.
 //
 // Solidity: function hasReviewableRequestsCreatePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasReviewableRequestsCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasReviewableRequestsCreatePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasReviewableRequestsCreatePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasReviewableRequestsCreatePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -839,23 +839,23 @@ func (_Main *MainCaller) HasReviewableRequestsCreatePermission(opts *bind.CallOp
 // HasReviewableRequestsCreatePermission is a free data retrieval call binding the contract method 0xe6cdf5d0.
 //
 // Solidity: function hasReviewableRequestsCreatePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasReviewableRequestsCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasReviewableRequestsCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasReviewableRequestsCreatePermission is a free data retrieval call binding the contract method 0xe6cdf5d0.
 //
 // Solidity: function hasReviewableRequestsCreatePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasReviewableRequestsCreatePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsCreatePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasReviewableRequestsCreatePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsCreatePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasReviewableRequestsDeletePermission is a free data retrieval call binding the contract method 0x6d19225e.
 //
 // Solidity: function hasReviewableRequestsDeletePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasReviewableRequestsDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasReviewableRequestsDeletePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasReviewableRequestsDeletePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasReviewableRequestsDeletePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -870,23 +870,23 @@ func (_Main *MainCaller) HasReviewableRequestsDeletePermission(opts *bind.CallOp
 // HasReviewableRequestsDeletePermission is a free data retrieval call binding the contract method 0x6d19225e.
 //
 // Solidity: function hasReviewableRequestsDeletePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasReviewableRequestsDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasReviewableRequestsDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasReviewableRequestsDeletePermission is a free data retrieval call binding the contract method 0x6d19225e.
 //
 // Solidity: function hasReviewableRequestsDeletePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasReviewableRequestsDeletePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsDeletePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasReviewableRequestsDeletePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsDeletePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasReviewableRequestsExecutePermission is a free data retrieval call binding the contract method 0x20b55d81.
 //
 // Solidity: function hasReviewableRequestsExecutePermission(address account_) view returns(bool)
-func (_Main *MainCaller) HasReviewableRequestsExecutePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
+func (_MasterAccessManagement *MasterAccessManagementCaller) HasReviewableRequestsExecutePermission(opts *bind.CallOpts, account_ common.Address) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasReviewableRequestsExecutePermission", account_)
+	err := _MasterAccessManagement.contract.Call(opts, &out, "hasReviewableRequestsExecutePermission", account_)
 
 	if err != nil {
 		return *new(bool), err
@@ -901,125 +901,125 @@ func (_Main *MainCaller) HasReviewableRequestsExecutePermission(opts *bind.CallO
 // HasReviewableRequestsExecutePermission is a free data retrieval call binding the contract method 0x20b55d81.
 //
 // Solidity: function hasReviewableRequestsExecutePermission(address account_) view returns(bool)
-func (_Main *MainSession) HasReviewableRequestsExecutePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsExecutePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementSession) HasReviewableRequestsExecutePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsExecutePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // HasReviewableRequestsExecutePermission is a free data retrieval call binding the contract method 0x20b55d81.
 //
 // Solidity: function hasReviewableRequestsExecutePermission(address account_) view returns(bool)
-func (_Main *MainCallerSession) HasReviewableRequestsExecutePermission(account_ common.Address) (bool, error) {
-	return _Main.Contract.HasReviewableRequestsExecutePermission(&_Main.CallOpts, account_)
+func (_MasterAccessManagement *MasterAccessManagementCallerSession) HasReviewableRequestsExecutePermission(account_ common.Address) (bool, error) {
+	return _MasterAccessManagement.Contract.HasReviewableRequestsExecutePermission(&_MasterAccessManagement.CallOpts, account_)
 }
 
 // MasterAccessManagementInit is a paid mutator transaction binding the contract method 0x305e4c6c.
 //
 // Solidity: function __MasterAccessManagement_init(address master_) returns()
-func (_Main *MainTransactor) MasterAccessManagementInit(opts *bind.TransactOpts, master_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "__MasterAccessManagement_init", master_)
+func (_MasterAccessManagement *MasterAccessManagementTransactor) MasterAccessManagementInit(opts *bind.TransactOpts, master_ common.Address) (*types.Transaction, error) {
+	return _MasterAccessManagement.contract.Transact(opts, "__MasterAccessManagement_init", master_)
 }
 
 // MasterAccessManagementInit is a paid mutator transaction binding the contract method 0x305e4c6c.
 //
 // Solidity: function __MasterAccessManagement_init(address master_) returns()
-func (_Main *MainSession) MasterAccessManagementInit(master_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.MasterAccessManagementInit(&_Main.TransactOpts, master_)
+func (_MasterAccessManagement *MasterAccessManagementSession) MasterAccessManagementInit(master_ common.Address) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.MasterAccessManagementInit(&_MasterAccessManagement.TransactOpts, master_)
 }
 
 // MasterAccessManagementInit is a paid mutator transaction binding the contract method 0x305e4c6c.
 //
 // Solidity: function __MasterAccessManagement_init(address master_) returns()
-func (_Main *MainTransactorSession) MasterAccessManagementInit(master_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.MasterAccessManagementInit(&_Main.TransactOpts, master_)
+func (_MasterAccessManagement *MasterAccessManagementTransactorSession) MasterAccessManagementInit(master_ common.Address) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.MasterAccessManagementInit(&_MasterAccessManagement.TransactOpts, master_)
 }
 
 // AddPermissionsToRole is a paid mutator transaction binding the contract method 0x37ff630d.
 //
 // Solidity: function addPermissionsToRole(string role, (string,string[])[] permissionsToAdd, bool allowed) returns()
-func (_Main *MainTransactor) AddPermissionsToRole(opts *bind.TransactOpts, role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "addPermissionsToRole", role, permissionsToAdd, allowed)
+func (_MasterAccessManagement *MasterAccessManagementTransactor) AddPermissionsToRole(opts *bind.TransactOpts, role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.contract.Transact(opts, "addPermissionsToRole", role, permissionsToAdd, allowed)
 }
 
 // AddPermissionsToRole is a paid mutator transaction binding the contract method 0x37ff630d.
 //
 // Solidity: function addPermissionsToRole(string role, (string,string[])[] permissionsToAdd, bool allowed) returns()
-func (_Main *MainSession) AddPermissionsToRole(role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.Contract.AddPermissionsToRole(&_Main.TransactOpts, role, permissionsToAdd, allowed)
+func (_MasterAccessManagement *MasterAccessManagementSession) AddPermissionsToRole(role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.AddPermissionsToRole(&_MasterAccessManagement.TransactOpts, role, permissionsToAdd, allowed)
 }
 
 // AddPermissionsToRole is a paid mutator transaction binding the contract method 0x37ff630d.
 //
 // Solidity: function addPermissionsToRole(string role, (string,string[])[] permissionsToAdd, bool allowed) returns()
-func (_Main *MainTransactorSession) AddPermissionsToRole(role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.Contract.AddPermissionsToRole(&_Main.TransactOpts, role, permissionsToAdd, allowed)
+func (_MasterAccessManagement *MasterAccessManagementTransactorSession) AddPermissionsToRole(role string, permissionsToAdd []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.AddPermissionsToRole(&_MasterAccessManagement.TransactOpts, role, permissionsToAdd, allowed)
 }
 
 // GrantRoles is a paid mutator transaction binding the contract method 0xee2f6ce5.
 //
 // Solidity: function grantRoles(address to, string[] rolesToGrant) returns()
-func (_Main *MainTransactor) GrantRoles(opts *bind.TransactOpts, to common.Address, rolesToGrant []string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "grantRoles", to, rolesToGrant)
+func (_MasterAccessManagement *MasterAccessManagementTransactor) GrantRoles(opts *bind.TransactOpts, to common.Address, rolesToGrant []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.contract.Transact(opts, "grantRoles", to, rolesToGrant)
 }
 
 // GrantRoles is a paid mutator transaction binding the contract method 0xee2f6ce5.
 //
 // Solidity: function grantRoles(address to, string[] rolesToGrant) returns()
-func (_Main *MainSession) GrantRoles(to common.Address, rolesToGrant []string) (*types.Transaction, error) {
-	return _Main.Contract.GrantRoles(&_Main.TransactOpts, to, rolesToGrant)
+func (_MasterAccessManagement *MasterAccessManagementSession) GrantRoles(to common.Address, rolesToGrant []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.GrantRoles(&_MasterAccessManagement.TransactOpts, to, rolesToGrant)
 }
 
 // GrantRoles is a paid mutator transaction binding the contract method 0xee2f6ce5.
 //
 // Solidity: function grantRoles(address to, string[] rolesToGrant) returns()
-func (_Main *MainTransactorSession) GrantRoles(to common.Address, rolesToGrant []string) (*types.Transaction, error) {
-	return _Main.Contract.GrantRoles(&_Main.TransactOpts, to, rolesToGrant)
+func (_MasterAccessManagement *MasterAccessManagementTransactorSession) GrantRoles(to common.Address, rolesToGrant []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.GrantRoles(&_MasterAccessManagement.TransactOpts, to, rolesToGrant)
 }
 
 // RemovePermissionsFromRole is a paid mutator transaction binding the contract method 0x75e025e7.
 //
 // Solidity: function removePermissionsFromRole(string role, (string,string[])[] permissionsToRemove, bool allowed) returns()
-func (_Main *MainTransactor) RemovePermissionsFromRole(opts *bind.TransactOpts, role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "removePermissionsFromRole", role, permissionsToRemove, allowed)
+func (_MasterAccessManagement *MasterAccessManagementTransactor) RemovePermissionsFromRole(opts *bind.TransactOpts, role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.contract.Transact(opts, "removePermissionsFromRole", role, permissionsToRemove, allowed)
 }
 
 // RemovePermissionsFromRole is a paid mutator transaction binding the contract method 0x75e025e7.
 //
 // Solidity: function removePermissionsFromRole(string role, (string,string[])[] permissionsToRemove, bool allowed) returns()
-func (_Main *MainSession) RemovePermissionsFromRole(role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.Contract.RemovePermissionsFromRole(&_Main.TransactOpts, role, permissionsToRemove, allowed)
+func (_MasterAccessManagement *MasterAccessManagementSession) RemovePermissionsFromRole(role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.RemovePermissionsFromRole(&_MasterAccessManagement.TransactOpts, role, permissionsToRemove, allowed)
 }
 
 // RemovePermissionsFromRole is a paid mutator transaction binding the contract method 0x75e025e7.
 //
 // Solidity: function removePermissionsFromRole(string role, (string,string[])[] permissionsToRemove, bool allowed) returns()
-func (_Main *MainTransactorSession) RemovePermissionsFromRole(role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
-	return _Main.Contract.RemovePermissionsFromRole(&_Main.TransactOpts, role, permissionsToRemove, allowed)
+func (_MasterAccessManagement *MasterAccessManagementTransactorSession) RemovePermissionsFromRole(role string, permissionsToRemove []IRBACResourceWithPermissions, allowed bool) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.RemovePermissionsFromRole(&_MasterAccessManagement.TransactOpts, role, permissionsToRemove, allowed)
 }
 
 // RevokeRoles is a paid mutator transaction binding the contract method 0x4f0d84e3.
 //
 // Solidity: function revokeRoles(address from, string[] rolesToRevoke) returns()
-func (_Main *MainTransactor) RevokeRoles(opts *bind.TransactOpts, from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "revokeRoles", from, rolesToRevoke)
+func (_MasterAccessManagement *MasterAccessManagementTransactor) RevokeRoles(opts *bind.TransactOpts, from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.contract.Transact(opts, "revokeRoles", from, rolesToRevoke)
 }
 
 // RevokeRoles is a paid mutator transaction binding the contract method 0x4f0d84e3.
 //
 // Solidity: function revokeRoles(address from, string[] rolesToRevoke) returns()
-func (_Main *MainSession) RevokeRoles(from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
-	return _Main.Contract.RevokeRoles(&_Main.TransactOpts, from, rolesToRevoke)
+func (_MasterAccessManagement *MasterAccessManagementSession) RevokeRoles(from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.RevokeRoles(&_MasterAccessManagement.TransactOpts, from, rolesToRevoke)
 }
 
 // RevokeRoles is a paid mutator transaction binding the contract method 0x4f0d84e3.
 //
 // Solidity: function revokeRoles(address from, string[] rolesToRevoke) returns()
-func (_Main *MainTransactorSession) RevokeRoles(from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
-	return _Main.Contract.RevokeRoles(&_Main.TransactOpts, from, rolesToRevoke)
+func (_MasterAccessManagement *MasterAccessManagementTransactorSession) RevokeRoles(from common.Address, rolesToRevoke []string) (*types.Transaction, error) {
+	return _MasterAccessManagement.Contract.RevokeRoles(&_MasterAccessManagement.TransactOpts, from, rolesToRevoke)
 }
 
-// MainAddedPermissionsIterator is returned from FilterAddedPermissions and is used to iterate over the raw logs and unpacked data for AddedPermissions events raised by the Main contract.
-type MainAddedPermissionsIterator struct {
-	Event *MainAddedPermissions // Event containing the contract specifics and raw log
+// MasterAccessManagementAddedPermissionsIterator is returned from FilterAddedPermissions and is used to iterate over the raw logs and unpacked data for AddedPermissions events raised by the MasterAccessManagement contract.
+type MasterAccessManagementAddedPermissionsIterator struct {
+	Event *MasterAccessManagementAddedPermissions // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1033,7 +1033,7 @@ type MainAddedPermissionsIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainAddedPermissionsIterator) Next() bool {
+func (it *MasterAccessManagementAddedPermissionsIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1042,7 +1042,7 @@ func (it *MainAddedPermissionsIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainAddedPermissions)
+			it.Event = new(MasterAccessManagementAddedPermissions)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1057,7 +1057,7 @@ func (it *MainAddedPermissionsIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainAddedPermissions)
+		it.Event = new(MasterAccessManagementAddedPermissions)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1073,19 +1073,19 @@ func (it *MainAddedPermissionsIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainAddedPermissionsIterator) Error() error {
+func (it *MasterAccessManagementAddedPermissionsIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainAddedPermissionsIterator) Close() error {
+func (it *MasterAccessManagementAddedPermissionsIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainAddedPermissions represents a AddedPermissions event raised by the Main contract.
-type MainAddedPermissions struct {
+// MasterAccessManagementAddedPermissions represents a AddedPermissions event raised by the MasterAccessManagement contract.
+type MasterAccessManagementAddedPermissions struct {
 	Role             string
 	Resource         string
 	PermissionsToAdd []string
@@ -1096,21 +1096,21 @@ type MainAddedPermissions struct {
 // FilterAddedPermissions is a free log retrieval operation binding the contract event 0x06ea5bb05be257dd30f31cc76f4077a3df230e09f7e33e9b52fb09c40a8f695e.
 //
 // Solidity: event AddedPermissions(string role, string resource, string[] permissionsToAdd, bool allowed)
-func (_Main *MainFilterer) FilterAddedPermissions(opts *bind.FilterOpts) (*MainAddedPermissionsIterator, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) FilterAddedPermissions(opts *bind.FilterOpts) (*MasterAccessManagementAddedPermissionsIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "AddedPermissions")
+	logs, sub, err := _MasterAccessManagement.contract.FilterLogs(opts, "AddedPermissions")
 	if err != nil {
 		return nil, err
 	}
-	return &MainAddedPermissionsIterator{contract: _Main.contract, event: "AddedPermissions", logs: logs, sub: sub}, nil
+	return &MasterAccessManagementAddedPermissionsIterator{contract: _MasterAccessManagement.contract, event: "AddedPermissions", logs: logs, sub: sub}, nil
 }
 
 // WatchAddedPermissions is a free log subscription operation binding the contract event 0x06ea5bb05be257dd30f31cc76f4077a3df230e09f7e33e9b52fb09c40a8f695e.
 //
 // Solidity: event AddedPermissions(string role, string resource, string[] permissionsToAdd, bool allowed)
-func (_Main *MainFilterer) WatchAddedPermissions(opts *bind.WatchOpts, sink chan<- *MainAddedPermissions) (event.Subscription, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) WatchAddedPermissions(opts *bind.WatchOpts, sink chan<- *MasterAccessManagementAddedPermissions) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "AddedPermissions")
+	logs, sub, err := _MasterAccessManagement.contract.WatchLogs(opts, "AddedPermissions")
 	if err != nil {
 		return nil, err
 	}
@@ -1120,8 +1120,8 @@ func (_Main *MainFilterer) WatchAddedPermissions(opts *bind.WatchOpts, sink chan
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainAddedPermissions)
-				if err := _Main.contract.UnpackLog(event, "AddedPermissions", log); err != nil {
+				event := new(MasterAccessManagementAddedPermissions)
+				if err := _MasterAccessManagement.contract.UnpackLog(event, "AddedPermissions", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1145,18 +1145,18 @@ func (_Main *MainFilterer) WatchAddedPermissions(opts *bind.WatchOpts, sink chan
 // ParseAddedPermissions is a log parse operation binding the contract event 0x06ea5bb05be257dd30f31cc76f4077a3df230e09f7e33e9b52fb09c40a8f695e.
 //
 // Solidity: event AddedPermissions(string role, string resource, string[] permissionsToAdd, bool allowed)
-func (_Main *MainFilterer) ParseAddedPermissions(log types.Log) (*MainAddedPermissions, error) {
-	event := new(MainAddedPermissions)
-	if err := _Main.contract.UnpackLog(event, "AddedPermissions", log); err != nil {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) ParseAddedPermissions(log types.Log) (*MasterAccessManagementAddedPermissions, error) {
+	event := new(MasterAccessManagementAddedPermissions)
+	if err := _MasterAccessManagement.contract.UnpackLog(event, "AddedPermissions", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainGrantedRolesIterator is returned from FilterGrantedRoles and is used to iterate over the raw logs and unpacked data for GrantedRoles events raised by the Main contract.
-type MainGrantedRolesIterator struct {
-	Event *MainGrantedRoles // Event containing the contract specifics and raw log
+// MasterAccessManagementGrantedRolesIterator is returned from FilterGrantedRoles and is used to iterate over the raw logs and unpacked data for GrantedRoles events raised by the MasterAccessManagement contract.
+type MasterAccessManagementGrantedRolesIterator struct {
+	Event *MasterAccessManagementGrantedRoles // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1170,7 +1170,7 @@ type MainGrantedRolesIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainGrantedRolesIterator) Next() bool {
+func (it *MasterAccessManagementGrantedRolesIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1179,7 +1179,7 @@ func (it *MainGrantedRolesIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainGrantedRoles)
+			it.Event = new(MasterAccessManagementGrantedRoles)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1194,7 +1194,7 @@ func (it *MainGrantedRolesIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainGrantedRoles)
+		it.Event = new(MasterAccessManagementGrantedRoles)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1210,19 +1210,19 @@ func (it *MainGrantedRolesIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainGrantedRolesIterator) Error() error {
+func (it *MasterAccessManagementGrantedRolesIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainGrantedRolesIterator) Close() error {
+func (it *MasterAccessManagementGrantedRolesIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainGrantedRoles represents a GrantedRoles event raised by the Main contract.
-type MainGrantedRoles struct {
+// MasterAccessManagementGrantedRoles represents a GrantedRoles event raised by the MasterAccessManagement contract.
+type MasterAccessManagementGrantedRoles struct {
 	To           common.Address
 	RolesToGrant []string
 	Raw          types.Log // Blockchain specific contextual infos
@@ -1231,21 +1231,21 @@ type MainGrantedRoles struct {
 // FilterGrantedRoles is a free log retrieval operation binding the contract event 0x44240f5b60cedf44a65c3717503d91c46a899ef33c5348880e4c29131ac87311.
 //
 // Solidity: event GrantedRoles(address to, string[] rolesToGrant)
-func (_Main *MainFilterer) FilterGrantedRoles(opts *bind.FilterOpts) (*MainGrantedRolesIterator, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) FilterGrantedRoles(opts *bind.FilterOpts) (*MasterAccessManagementGrantedRolesIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "GrantedRoles")
+	logs, sub, err := _MasterAccessManagement.contract.FilterLogs(opts, "GrantedRoles")
 	if err != nil {
 		return nil, err
 	}
-	return &MainGrantedRolesIterator{contract: _Main.contract, event: "GrantedRoles", logs: logs, sub: sub}, nil
+	return &MasterAccessManagementGrantedRolesIterator{contract: _MasterAccessManagement.contract, event: "GrantedRoles", logs: logs, sub: sub}, nil
 }
 
 // WatchGrantedRoles is a free log subscription operation binding the contract event 0x44240f5b60cedf44a65c3717503d91c46a899ef33c5348880e4c29131ac87311.
 //
 // Solidity: event GrantedRoles(address to, string[] rolesToGrant)
-func (_Main *MainFilterer) WatchGrantedRoles(opts *bind.WatchOpts, sink chan<- *MainGrantedRoles) (event.Subscription, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) WatchGrantedRoles(opts *bind.WatchOpts, sink chan<- *MasterAccessManagementGrantedRoles) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "GrantedRoles")
+	logs, sub, err := _MasterAccessManagement.contract.WatchLogs(opts, "GrantedRoles")
 	if err != nil {
 		return nil, err
 	}
@@ -1255,8 +1255,8 @@ func (_Main *MainFilterer) WatchGrantedRoles(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainGrantedRoles)
-				if err := _Main.contract.UnpackLog(event, "GrantedRoles", log); err != nil {
+				event := new(MasterAccessManagementGrantedRoles)
+				if err := _MasterAccessManagement.contract.UnpackLog(event, "GrantedRoles", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1280,18 +1280,18 @@ func (_Main *MainFilterer) WatchGrantedRoles(opts *bind.WatchOpts, sink chan<- *
 // ParseGrantedRoles is a log parse operation binding the contract event 0x44240f5b60cedf44a65c3717503d91c46a899ef33c5348880e4c29131ac87311.
 //
 // Solidity: event GrantedRoles(address to, string[] rolesToGrant)
-func (_Main *MainFilterer) ParseGrantedRoles(log types.Log) (*MainGrantedRoles, error) {
-	event := new(MainGrantedRoles)
-	if err := _Main.contract.UnpackLog(event, "GrantedRoles", log); err != nil {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) ParseGrantedRoles(log types.Log) (*MasterAccessManagementGrantedRoles, error) {
+	event := new(MasterAccessManagementGrantedRoles)
+	if err := _MasterAccessManagement.contract.UnpackLog(event, "GrantedRoles", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRemovedPermissionsIterator is returned from FilterRemovedPermissions and is used to iterate over the raw logs and unpacked data for RemovedPermissions events raised by the Main contract.
-type MainRemovedPermissionsIterator struct {
-	Event *MainRemovedPermissions // Event containing the contract specifics and raw log
+// MasterAccessManagementRemovedPermissionsIterator is returned from FilterRemovedPermissions and is used to iterate over the raw logs and unpacked data for RemovedPermissions events raised by the MasterAccessManagement contract.
+type MasterAccessManagementRemovedPermissionsIterator struct {
+	Event *MasterAccessManagementRemovedPermissions // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1305,7 +1305,7 @@ type MainRemovedPermissionsIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRemovedPermissionsIterator) Next() bool {
+func (it *MasterAccessManagementRemovedPermissionsIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1314,7 +1314,7 @@ func (it *MainRemovedPermissionsIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRemovedPermissions)
+			it.Event = new(MasterAccessManagementRemovedPermissions)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1329,7 +1329,7 @@ func (it *MainRemovedPermissionsIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRemovedPermissions)
+		it.Event = new(MasterAccessManagementRemovedPermissions)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1345,19 +1345,19 @@ func (it *MainRemovedPermissionsIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRemovedPermissionsIterator) Error() error {
+func (it *MasterAccessManagementRemovedPermissionsIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRemovedPermissionsIterator) Close() error {
+func (it *MasterAccessManagementRemovedPermissionsIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRemovedPermissions represents a RemovedPermissions event raised by the Main contract.
-type MainRemovedPermissions struct {
+// MasterAccessManagementRemovedPermissions represents a RemovedPermissions event raised by the MasterAccessManagement contract.
+type MasterAccessManagementRemovedPermissions struct {
 	Role                string
 	Resource            string
 	PermissionsToRemove []string
@@ -1368,21 +1368,21 @@ type MainRemovedPermissions struct {
 // FilterRemovedPermissions is a free log retrieval operation binding the contract event 0x27f963dfdedb973db8acb94be0be26fbd4c55498bc54cfd0733b9da9c0ab8296.
 //
 // Solidity: event RemovedPermissions(string role, string resource, string[] permissionsToRemove, bool allowed)
-func (_Main *MainFilterer) FilterRemovedPermissions(opts *bind.FilterOpts) (*MainRemovedPermissionsIterator, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) FilterRemovedPermissions(opts *bind.FilterOpts) (*MasterAccessManagementRemovedPermissionsIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RemovedPermissions")
+	logs, sub, err := _MasterAccessManagement.contract.FilterLogs(opts, "RemovedPermissions")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRemovedPermissionsIterator{contract: _Main.contract, event: "RemovedPermissions", logs: logs, sub: sub}, nil
+	return &MasterAccessManagementRemovedPermissionsIterator{contract: _MasterAccessManagement.contract, event: "RemovedPermissions", logs: logs, sub: sub}, nil
 }
 
 // WatchRemovedPermissions is a free log subscription operation binding the contract event 0x27f963dfdedb973db8acb94be0be26fbd4c55498bc54cfd0733b9da9c0ab8296.
 //
 // Solidity: event RemovedPermissions(string role, string resource, string[] permissionsToRemove, bool allowed)
-func (_Main *MainFilterer) WatchRemovedPermissions(opts *bind.WatchOpts, sink chan<- *MainRemovedPermissions) (event.Subscription, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) WatchRemovedPermissions(opts *bind.WatchOpts, sink chan<- *MasterAccessManagementRemovedPermissions) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RemovedPermissions")
+	logs, sub, err := _MasterAccessManagement.contract.WatchLogs(opts, "RemovedPermissions")
 	if err != nil {
 		return nil, err
 	}
@@ -1392,8 +1392,8 @@ func (_Main *MainFilterer) WatchRemovedPermissions(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRemovedPermissions)
-				if err := _Main.contract.UnpackLog(event, "RemovedPermissions", log); err != nil {
+				event := new(MasterAccessManagementRemovedPermissions)
+				if err := _MasterAccessManagement.contract.UnpackLog(event, "RemovedPermissions", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1417,18 +1417,18 @@ func (_Main *MainFilterer) WatchRemovedPermissions(opts *bind.WatchOpts, sink ch
 // ParseRemovedPermissions is a log parse operation binding the contract event 0x27f963dfdedb973db8acb94be0be26fbd4c55498bc54cfd0733b9da9c0ab8296.
 //
 // Solidity: event RemovedPermissions(string role, string resource, string[] permissionsToRemove, bool allowed)
-func (_Main *MainFilterer) ParseRemovedPermissions(log types.Log) (*MainRemovedPermissions, error) {
-	event := new(MainRemovedPermissions)
-	if err := _Main.contract.UnpackLog(event, "RemovedPermissions", log); err != nil {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) ParseRemovedPermissions(log types.Log) (*MasterAccessManagementRemovedPermissions, error) {
+	event := new(MasterAccessManagementRemovedPermissions)
+	if err := _MasterAccessManagement.contract.UnpackLog(event, "RemovedPermissions", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRevokedRolesIterator is returned from FilterRevokedRoles and is used to iterate over the raw logs and unpacked data for RevokedRoles events raised by the Main contract.
-type MainRevokedRolesIterator struct {
-	Event *MainRevokedRoles // Event containing the contract specifics and raw log
+// MasterAccessManagementRevokedRolesIterator is returned from FilterRevokedRoles and is used to iterate over the raw logs and unpacked data for RevokedRoles events raised by the MasterAccessManagement contract.
+type MasterAccessManagementRevokedRolesIterator struct {
+	Event *MasterAccessManagementRevokedRoles // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1442,7 +1442,7 @@ type MainRevokedRolesIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRevokedRolesIterator) Next() bool {
+func (it *MasterAccessManagementRevokedRolesIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1451,7 +1451,7 @@ func (it *MainRevokedRolesIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRevokedRoles)
+			it.Event = new(MasterAccessManagementRevokedRoles)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1466,7 +1466,7 @@ func (it *MainRevokedRolesIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRevokedRoles)
+		it.Event = new(MasterAccessManagementRevokedRoles)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1482,19 +1482,19 @@ func (it *MainRevokedRolesIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRevokedRolesIterator) Error() error {
+func (it *MasterAccessManagementRevokedRolesIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRevokedRolesIterator) Close() error {
+func (it *MasterAccessManagementRevokedRolesIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRevokedRoles represents a RevokedRoles event raised by the Main contract.
-type MainRevokedRoles struct {
+// MasterAccessManagementRevokedRoles represents a RevokedRoles event raised by the MasterAccessManagement contract.
+type MasterAccessManagementRevokedRoles struct {
 	From          common.Address
 	RolesToRevoke []string
 	Raw           types.Log // Blockchain specific contextual infos
@@ -1503,21 +1503,21 @@ type MainRevokedRoles struct {
 // FilterRevokedRoles is a free log retrieval operation binding the contract event 0x037c273ac6ee1105154063d4b014a5afeec9981076c152f47a0899c6e2854740.
 //
 // Solidity: event RevokedRoles(address from, string[] rolesToRevoke)
-func (_Main *MainFilterer) FilterRevokedRoles(opts *bind.FilterOpts) (*MainRevokedRolesIterator, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) FilterRevokedRoles(opts *bind.FilterOpts) (*MasterAccessManagementRevokedRolesIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RevokedRoles")
+	logs, sub, err := _MasterAccessManagement.contract.FilterLogs(opts, "RevokedRoles")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRevokedRolesIterator{contract: _Main.contract, event: "RevokedRoles", logs: logs, sub: sub}, nil
+	return &MasterAccessManagementRevokedRolesIterator{contract: _MasterAccessManagement.contract, event: "RevokedRoles", logs: logs, sub: sub}, nil
 }
 
 // WatchRevokedRoles is a free log subscription operation binding the contract event 0x037c273ac6ee1105154063d4b014a5afeec9981076c152f47a0899c6e2854740.
 //
 // Solidity: event RevokedRoles(address from, string[] rolesToRevoke)
-func (_Main *MainFilterer) WatchRevokedRoles(opts *bind.WatchOpts, sink chan<- *MainRevokedRoles) (event.Subscription, error) {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) WatchRevokedRoles(opts *bind.WatchOpts, sink chan<- *MasterAccessManagementRevokedRoles) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RevokedRoles")
+	logs, sub, err := _MasterAccessManagement.contract.WatchLogs(opts, "RevokedRoles")
 	if err != nil {
 		return nil, err
 	}
@@ -1527,8 +1527,8 @@ func (_Main *MainFilterer) WatchRevokedRoles(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRevokedRoles)
-				if err := _Main.contract.UnpackLog(event, "RevokedRoles", log); err != nil {
+				event := new(MasterAccessManagementRevokedRoles)
+				if err := _MasterAccessManagement.contract.UnpackLog(event, "RevokedRoles", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1552,9 +1552,9 @@ func (_Main *MainFilterer) WatchRevokedRoles(opts *bind.WatchOpts, sink chan<- *
 // ParseRevokedRoles is a log parse operation binding the contract event 0x037c273ac6ee1105154063d4b014a5afeec9981076c152f47a0899c6e2854740.
 //
 // Solidity: event RevokedRoles(address from, string[] rolesToRevoke)
-func (_Main *MainFilterer) ParseRevokedRoles(log types.Log) (*MainRevokedRoles, error) {
-	event := new(MainRevokedRoles)
-	if err := _Main.contract.UnpackLog(event, "RevokedRoles", log); err != nil {
+func (_MasterAccessManagement *MasterAccessManagementFilterer) ParseRevokedRoles(log types.Log) (*MasterAccessManagementRevokedRoles, error) {
+	event := new(MasterAccessManagementRevokedRoles)
+	if err := _MasterAccessManagement.contract.UnpackLog(event, "RevokedRoles", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

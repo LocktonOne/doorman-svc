@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package MasterContractsRegistry
+package master_contracts_registry
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// MainMetaData contains all meta data concerning the Main contract.
-var MainMetaData = &bind.MetaData{
+// MasterContractsRegistryMetaData contains all meta data concerning the MasterContractsRegistry contract.
+var MasterContractsRegistryMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isProxy\",\"type\":\"bool\"}],\"name\":\"AddedContract\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"previousAdmin\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"AdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beacon\",\"type\":\"address\"}],\"name\":\"BeaconUpgraded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"RemovedContract\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"}],\"name\":\"Upgraded\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"CONSTANTS_REGISTRY_NAME\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MASTER_ACCESS_MANAGEMENT_NAME\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"REVIEWABLE_REQUESTS_NAME\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"masterAccess_\",\"type\":\"address\"}],\"name\":\"__MasterContractsRegistry_init\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"contractAddress_\",\"type\":\"address\"}],\"name\":\"addContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"contractAddress_\",\"type\":\"address\"}],\"name\":\"addProxyContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getConstantsRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"getContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"getImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMasterAccessManagement\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProxyUpgrader\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getReviewableRequests\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"hasContract\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"}],\"name\":\"injectDependencies\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"contractAddress_\",\"type\":\"address\"}],\"name\":\"justAddProxyContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxiableUUID\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"}],\"name\":\"removeContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"newImplementation_\",\"type\":\"address\"}],\"name\":\"upgradeContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"newImplementation_\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data_\",\"type\":\"bytes\"}],\"name\":\"upgradeContractAndCall\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newImplementation\",\"type\":\"address\"}],\"name\":\"upgradeTo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newImplementation\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"upgradeToAndCall\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}]",
 }
 
-// MainABI is the input ABI used to generate the binding from.
-// Deprecated: Use MainMetaData.ABI instead.
-var MainABI = MainMetaData.ABI
+// MasterContractsRegistryABI is the input ABI used to generate the binding from.
+// Deprecated: Use MasterContractsRegistryMetaData.ABI instead.
+var MasterContractsRegistryABI = MasterContractsRegistryMetaData.ABI
 
-// Main is an auto generated Go binding around an Ethereum contract.
-type Main struct {
-	MainCaller     // Read-only binding to the contract
-	MainTransactor // Write-only binding to the contract
-	MainFilterer   // Log filterer for contract events
+// MasterContractsRegistry is an auto generated Go binding around an Ethereum contract.
+type MasterContractsRegistry struct {
+	MasterContractsRegistryCaller     // Read-only binding to the contract
+	MasterContractsRegistryTransactor // Write-only binding to the contract
+	MasterContractsRegistryFilterer   // Log filterer for contract events
 }
 
-// MainCaller is an auto generated read-only Go binding around an Ethereum contract.
-type MainCaller struct {
+// MasterContractsRegistryCaller is an auto generated read-only Go binding around an Ethereum contract.
+type MasterContractsRegistryCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type MainTransactor struct {
+// MasterContractsRegistryTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type MasterContractsRegistryTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type MainFilterer struct {
+// MasterContractsRegistryFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type MasterContractsRegistryFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MainSession is an auto generated Go binding around an Ethereum contract,
+// MasterContractsRegistrySession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type MainSession struct {
-	Contract     *Main             // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MasterContractsRegistrySession struct {
+	Contract     *MasterContractsRegistry // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts            // Call options to use throughout this session
+	TransactOpts bind.TransactOpts        // Transaction auth options to use throughout this session
 }
 
-// MainCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// MasterContractsRegistryCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type MainCallerSession struct {
-	Contract *MainCaller   // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type MasterContractsRegistryCallerSession struct {
+	Contract *MasterContractsRegistryCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts                  // Call options to use throughout this session
 }
 
-// MainTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// MasterContractsRegistryTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type MainTransactorSession struct {
-	Contract     *MainTransactor   // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MasterContractsRegistryTransactorSession struct {
+	Contract     *MasterContractsRegistryTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts                  // Transaction auth options to use throughout this session
 }
 
-// MainRaw is an auto generated low-level Go binding around an Ethereum contract.
-type MainRaw struct {
-	Contract *Main // Generic contract binding to access the raw methods on
+// MasterContractsRegistryRaw is an auto generated low-level Go binding around an Ethereum contract.
+type MasterContractsRegistryRaw struct {
+	Contract *MasterContractsRegistry // Generic contract binding to access the raw methods on
 }
 
-// MainCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type MainCallerRaw struct {
-	Contract *MainCaller // Generic read-only contract binding to access the raw methods on
+// MasterContractsRegistryCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type MasterContractsRegistryCallerRaw struct {
+	Contract *MasterContractsRegistryCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// MainTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type MainTransactorRaw struct {
-	Contract *MainTransactor // Generic write-only contract binding to access the raw methods on
+// MasterContractsRegistryTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type MasterContractsRegistryTransactorRaw struct {
+	Contract *MasterContractsRegistryTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewMain creates a new instance of Main, bound to a specific deployed contract.
-func NewMain(address common.Address, backend bind.ContractBackend) (*Main, error) {
-	contract, err := bindMain(address, backend, backend, backend)
+// NewMasterContractsRegistry creates a new instance of MasterContractsRegistry, bound to a specific deployed contract.
+func NewMasterContractsRegistry(address common.Address, backend bind.ContractBackend) (*MasterContractsRegistry, error) {
+	contract, err := bindMasterContractsRegistry(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Main{MainCaller: MainCaller{contract: contract}, MainTransactor: MainTransactor{contract: contract}, MainFilterer: MainFilterer{contract: contract}}, nil
+	return &MasterContractsRegistry{MasterContractsRegistryCaller: MasterContractsRegistryCaller{contract: contract}, MasterContractsRegistryTransactor: MasterContractsRegistryTransactor{contract: contract}, MasterContractsRegistryFilterer: MasterContractsRegistryFilterer{contract: contract}}, nil
 }
 
-// NewMainCaller creates a new read-only instance of Main, bound to a specific deployed contract.
-func NewMainCaller(address common.Address, caller bind.ContractCaller) (*MainCaller, error) {
-	contract, err := bindMain(address, caller, nil, nil)
+// NewMasterContractsRegistryCaller creates a new read-only instance of MasterContractsRegistry, bound to a specific deployed contract.
+func NewMasterContractsRegistryCaller(address common.Address, caller bind.ContractCaller) (*MasterContractsRegistryCaller, error) {
+	contract, err := bindMasterContractsRegistry(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainCaller{contract: contract}, nil
+	return &MasterContractsRegistryCaller{contract: contract}, nil
 }
 
-// NewMainTransactor creates a new write-only instance of Main, bound to a specific deployed contract.
-func NewMainTransactor(address common.Address, transactor bind.ContractTransactor) (*MainTransactor, error) {
-	contract, err := bindMain(address, nil, transactor, nil)
+// NewMasterContractsRegistryTransactor creates a new write-only instance of MasterContractsRegistry, bound to a specific deployed contract.
+func NewMasterContractsRegistryTransactor(address common.Address, transactor bind.ContractTransactor) (*MasterContractsRegistryTransactor, error) {
+	contract, err := bindMasterContractsRegistry(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MainTransactor{contract: contract}, nil
+	return &MasterContractsRegistryTransactor{contract: contract}, nil
 }
 
-// NewMainFilterer creates a new log filterer instance of Main, bound to a specific deployed contract.
-func NewMainFilterer(address common.Address, filterer bind.ContractFilterer) (*MainFilterer, error) {
-	contract, err := bindMain(address, nil, nil, filterer)
+// NewMasterContractsRegistryFilterer creates a new log filterer instance of MasterContractsRegistry, bound to a specific deployed contract.
+func NewMasterContractsRegistryFilterer(address common.Address, filterer bind.ContractFilterer) (*MasterContractsRegistryFilterer, error) {
+	contract, err := bindMasterContractsRegistry(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &MainFilterer{contract: contract}, nil
+	return &MasterContractsRegistryFilterer{contract: contract}, nil
 }
 
-// bindMain binds a generic wrapper to an already deployed contract.
-func bindMain(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(MainABI))
+// bindMasterContractsRegistry binds a generic wrapper to an already deployed contract.
+func bindMasterContractsRegistry(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(MasterContractsRegistryABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindMain(address common.Address, caller bind.ContractCaller, transactor bin
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.MainCaller.contract.Call(opts, result, method, params...)
+func (_MasterContractsRegistry *MasterContractsRegistryRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MasterContractsRegistry.Contract.MasterContractsRegistryCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transfer(opts)
+func (_MasterContractsRegistry *MasterContractsRegistryRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.MasterContractsRegistryTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.MainTransactor.contract.Transact(opts, method, params...)
+func (_MasterContractsRegistry *MasterContractsRegistryRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.MasterContractsRegistryTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Main *MainCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Main.Contract.contract.Call(opts, result, method, params...)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MasterContractsRegistry.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Main *MainTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transfer(opts)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Main *MainTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Main.Contract.contract.Transact(opts, method, params...)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.contract.Transact(opts, method, params...)
 }
 
 // CONSTANTSREGISTRYNAME is a free data retrieval call binding the contract method 0x26a31c6b.
 //
 // Solidity: function CONSTANTS_REGISTRY_NAME() view returns(string)
-func (_Main *MainCaller) CONSTANTSREGISTRYNAME(opts *bind.CallOpts) (string, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) CONSTANTSREGISTRYNAME(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "CONSTANTS_REGISTRY_NAME")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "CONSTANTS_REGISTRY_NAME")
 
 	if err != nil {
 		return *new(string), err
@@ -199,23 +199,23 @@ func (_Main *MainCaller) CONSTANTSREGISTRYNAME(opts *bind.CallOpts) (string, err
 // CONSTANTSREGISTRYNAME is a free data retrieval call binding the contract method 0x26a31c6b.
 //
 // Solidity: function CONSTANTS_REGISTRY_NAME() view returns(string)
-func (_Main *MainSession) CONSTANTSREGISTRYNAME() (string, error) {
-	return _Main.Contract.CONSTANTSREGISTRYNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) CONSTANTSREGISTRYNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.CONSTANTSREGISTRYNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // CONSTANTSREGISTRYNAME is a free data retrieval call binding the contract method 0x26a31c6b.
 //
 // Solidity: function CONSTANTS_REGISTRY_NAME() view returns(string)
-func (_Main *MainCallerSession) CONSTANTSREGISTRYNAME() (string, error) {
-	return _Main.Contract.CONSTANTSREGISTRYNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) CONSTANTSREGISTRYNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.CONSTANTSREGISTRYNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // MASTERACCESSMANAGEMENTNAME is a free data retrieval call binding the contract method 0xa4ce3439.
 //
 // Solidity: function MASTER_ACCESS_MANAGEMENT_NAME() view returns(string)
-func (_Main *MainCaller) MASTERACCESSMANAGEMENTNAME(opts *bind.CallOpts) (string, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) MASTERACCESSMANAGEMENTNAME(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "MASTER_ACCESS_MANAGEMENT_NAME")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "MASTER_ACCESS_MANAGEMENT_NAME")
 
 	if err != nil {
 		return *new(string), err
@@ -230,23 +230,23 @@ func (_Main *MainCaller) MASTERACCESSMANAGEMENTNAME(opts *bind.CallOpts) (string
 // MASTERACCESSMANAGEMENTNAME is a free data retrieval call binding the contract method 0xa4ce3439.
 //
 // Solidity: function MASTER_ACCESS_MANAGEMENT_NAME() view returns(string)
-func (_Main *MainSession) MASTERACCESSMANAGEMENTNAME() (string, error) {
-	return _Main.Contract.MASTERACCESSMANAGEMENTNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) MASTERACCESSMANAGEMENTNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.MASTERACCESSMANAGEMENTNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // MASTERACCESSMANAGEMENTNAME is a free data retrieval call binding the contract method 0xa4ce3439.
 //
 // Solidity: function MASTER_ACCESS_MANAGEMENT_NAME() view returns(string)
-func (_Main *MainCallerSession) MASTERACCESSMANAGEMENTNAME() (string, error) {
-	return _Main.Contract.MASTERACCESSMANAGEMENTNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) MASTERACCESSMANAGEMENTNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.MASTERACCESSMANAGEMENTNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // REVIEWABLEREQUESTSNAME is a free data retrieval call binding the contract method 0x1b236de3.
 //
 // Solidity: function REVIEWABLE_REQUESTS_NAME() view returns(string)
-func (_Main *MainCaller) REVIEWABLEREQUESTSNAME(opts *bind.CallOpts) (string, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) REVIEWABLEREQUESTSNAME(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "REVIEWABLE_REQUESTS_NAME")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "REVIEWABLE_REQUESTS_NAME")
 
 	if err != nil {
 		return *new(string), err
@@ -261,23 +261,23 @@ func (_Main *MainCaller) REVIEWABLEREQUESTSNAME(opts *bind.CallOpts) (string, er
 // REVIEWABLEREQUESTSNAME is a free data retrieval call binding the contract method 0x1b236de3.
 //
 // Solidity: function REVIEWABLE_REQUESTS_NAME() view returns(string)
-func (_Main *MainSession) REVIEWABLEREQUESTSNAME() (string, error) {
-	return _Main.Contract.REVIEWABLEREQUESTSNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) REVIEWABLEREQUESTSNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.REVIEWABLEREQUESTSNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // REVIEWABLEREQUESTSNAME is a free data retrieval call binding the contract method 0x1b236de3.
 //
 // Solidity: function REVIEWABLE_REQUESTS_NAME() view returns(string)
-func (_Main *MainCallerSession) REVIEWABLEREQUESTSNAME() (string, error) {
-	return _Main.Contract.REVIEWABLEREQUESTSNAME(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) REVIEWABLEREQUESTSNAME() (string, error) {
+	return _MasterContractsRegistry.Contract.REVIEWABLEREQUESTSNAME(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetConstantsRegistry is a free data retrieval call binding the contract method 0xf448f730.
 //
 // Solidity: function getConstantsRegistry() view returns(address)
-func (_Main *MainCaller) GetConstantsRegistry(opts *bind.CallOpts) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetConstantsRegistry(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getConstantsRegistry")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getConstantsRegistry")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -292,23 +292,23 @@ func (_Main *MainCaller) GetConstantsRegistry(opts *bind.CallOpts) (common.Addre
 // GetConstantsRegistry is a free data retrieval call binding the contract method 0xf448f730.
 //
 // Solidity: function getConstantsRegistry() view returns(address)
-func (_Main *MainSession) GetConstantsRegistry() (common.Address, error) {
-	return _Main.Contract.GetConstantsRegistry(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetConstantsRegistry() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetConstantsRegistry(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetConstantsRegistry is a free data retrieval call binding the contract method 0xf448f730.
 //
 // Solidity: function getConstantsRegistry() view returns(address)
-func (_Main *MainCallerSession) GetConstantsRegistry() (common.Address, error) {
-	return _Main.Contract.GetConstantsRegistry(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetConstantsRegistry() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetConstantsRegistry(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetContract is a free data retrieval call binding the contract method 0x35817773.
 //
 // Solidity: function getContract(string name) view returns(address)
-func (_Main *MainCaller) GetContract(opts *bind.CallOpts, name string) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetContract(opts *bind.CallOpts, name string) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getContract", name)
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getContract", name)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -323,23 +323,23 @@ func (_Main *MainCaller) GetContract(opts *bind.CallOpts, name string) (common.A
 // GetContract is a free data retrieval call binding the contract method 0x35817773.
 //
 // Solidity: function getContract(string name) view returns(address)
-func (_Main *MainSession) GetContract(name string) (common.Address, error) {
-	return _Main.Contract.GetContract(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetContract(name string) (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetContract(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // GetContract is a free data retrieval call binding the contract method 0x35817773.
 //
 // Solidity: function getContract(string name) view returns(address)
-func (_Main *MainCallerSession) GetContract(name string) (common.Address, error) {
-	return _Main.Contract.GetContract(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetContract(name string) (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetContract(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // GetImplementation is a free data retrieval call binding the contract method 0x6b683896.
 //
 // Solidity: function getImplementation(string name) view returns(address)
-func (_Main *MainCaller) GetImplementation(opts *bind.CallOpts, name string) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetImplementation(opts *bind.CallOpts, name string) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getImplementation", name)
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getImplementation", name)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -354,23 +354,23 @@ func (_Main *MainCaller) GetImplementation(opts *bind.CallOpts, name string) (co
 // GetImplementation is a free data retrieval call binding the contract method 0x6b683896.
 //
 // Solidity: function getImplementation(string name) view returns(address)
-func (_Main *MainSession) GetImplementation(name string) (common.Address, error) {
-	return _Main.Contract.GetImplementation(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetImplementation(name string) (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetImplementation(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // GetImplementation is a free data retrieval call binding the contract method 0x6b683896.
 //
 // Solidity: function getImplementation(string name) view returns(address)
-func (_Main *MainCallerSession) GetImplementation(name string) (common.Address, error) {
-	return _Main.Contract.GetImplementation(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetImplementation(name string) (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetImplementation(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // GetMasterAccessManagement is a free data retrieval call binding the contract method 0x085ec297.
 //
 // Solidity: function getMasterAccessManagement() view returns(address)
-func (_Main *MainCaller) GetMasterAccessManagement(opts *bind.CallOpts) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetMasterAccessManagement(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getMasterAccessManagement")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getMasterAccessManagement")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -385,23 +385,23 @@ func (_Main *MainCaller) GetMasterAccessManagement(opts *bind.CallOpts) (common.
 // GetMasterAccessManagement is a free data retrieval call binding the contract method 0x085ec297.
 //
 // Solidity: function getMasterAccessManagement() view returns(address)
-func (_Main *MainSession) GetMasterAccessManagement() (common.Address, error) {
-	return _Main.Contract.GetMasterAccessManagement(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetMasterAccessManagement() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetMasterAccessManagement(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetMasterAccessManagement is a free data retrieval call binding the contract method 0x085ec297.
 //
 // Solidity: function getMasterAccessManagement() view returns(address)
-func (_Main *MainCallerSession) GetMasterAccessManagement() (common.Address, error) {
-	return _Main.Contract.GetMasterAccessManagement(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetMasterAccessManagement() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetMasterAccessManagement(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetProxyUpgrader is a free data retrieval call binding the contract method 0xd10611fc.
 //
 // Solidity: function getProxyUpgrader() view returns(address)
-func (_Main *MainCaller) GetProxyUpgrader(opts *bind.CallOpts) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetProxyUpgrader(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getProxyUpgrader")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getProxyUpgrader")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -416,23 +416,23 @@ func (_Main *MainCaller) GetProxyUpgrader(opts *bind.CallOpts) (common.Address, 
 // GetProxyUpgrader is a free data retrieval call binding the contract method 0xd10611fc.
 //
 // Solidity: function getProxyUpgrader() view returns(address)
-func (_Main *MainSession) GetProxyUpgrader() (common.Address, error) {
-	return _Main.Contract.GetProxyUpgrader(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetProxyUpgrader() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetProxyUpgrader(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetProxyUpgrader is a free data retrieval call binding the contract method 0xd10611fc.
 //
 // Solidity: function getProxyUpgrader() view returns(address)
-func (_Main *MainCallerSession) GetProxyUpgrader() (common.Address, error) {
-	return _Main.Contract.GetProxyUpgrader(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetProxyUpgrader() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetProxyUpgrader(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetReviewableRequests is a free data retrieval call binding the contract method 0x70371abb.
 //
 // Solidity: function getReviewableRequests() view returns(address)
-func (_Main *MainCaller) GetReviewableRequests(opts *bind.CallOpts) (common.Address, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) GetReviewableRequests(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "getReviewableRequests")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "getReviewableRequests")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -447,23 +447,23 @@ func (_Main *MainCaller) GetReviewableRequests(opts *bind.CallOpts) (common.Addr
 // GetReviewableRequests is a free data retrieval call binding the contract method 0x70371abb.
 //
 // Solidity: function getReviewableRequests() view returns(address)
-func (_Main *MainSession) GetReviewableRequests() (common.Address, error) {
-	return _Main.Contract.GetReviewableRequests(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) GetReviewableRequests() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetReviewableRequests(&_MasterContractsRegistry.CallOpts)
 }
 
 // GetReviewableRequests is a free data retrieval call binding the contract method 0x70371abb.
 //
 // Solidity: function getReviewableRequests() view returns(address)
-func (_Main *MainCallerSession) GetReviewableRequests() (common.Address, error) {
-	return _Main.Contract.GetReviewableRequests(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) GetReviewableRequests() (common.Address, error) {
+	return _MasterContractsRegistry.Contract.GetReviewableRequests(&_MasterContractsRegistry.CallOpts)
 }
 
 // HasContract is a free data retrieval call binding the contract method 0x8c223601.
 //
 // Solidity: function hasContract(string name) view returns(bool)
-func (_Main *MainCaller) HasContract(opts *bind.CallOpts, name string) (bool, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) HasContract(opts *bind.CallOpts, name string) (bool, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "hasContract", name)
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "hasContract", name)
 
 	if err != nil {
 		return *new(bool), err
@@ -478,23 +478,23 @@ func (_Main *MainCaller) HasContract(opts *bind.CallOpts, name string) (bool, er
 // HasContract is a free data retrieval call binding the contract method 0x8c223601.
 //
 // Solidity: function hasContract(string name) view returns(bool)
-func (_Main *MainSession) HasContract(name string) (bool, error) {
-	return _Main.Contract.HasContract(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) HasContract(name string) (bool, error) {
+	return _MasterContractsRegistry.Contract.HasContract(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // HasContract is a free data retrieval call binding the contract method 0x8c223601.
 //
 // Solidity: function hasContract(string name) view returns(bool)
-func (_Main *MainCallerSession) HasContract(name string) (bool, error) {
-	return _Main.Contract.HasContract(&_Main.CallOpts, name)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) HasContract(name string) (bool, error) {
+	return _MasterContractsRegistry.Contract.HasContract(&_MasterContractsRegistry.CallOpts, name)
 }
 
 // ProxiableUUID is a free data retrieval call binding the contract method 0x52d1902d.
 //
 // Solidity: function proxiableUUID() view returns(bytes32)
-func (_Main *MainCaller) ProxiableUUID(opts *bind.CallOpts) ([32]byte, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryCaller) ProxiableUUID(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Main.contract.Call(opts, &out, "proxiableUUID")
+	err := _MasterContractsRegistry.contract.Call(opts, &out, "proxiableUUID")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -509,230 +509,230 @@ func (_Main *MainCaller) ProxiableUUID(opts *bind.CallOpts) ([32]byte, error) {
 // ProxiableUUID is a free data retrieval call binding the contract method 0x52d1902d.
 //
 // Solidity: function proxiableUUID() view returns(bytes32)
-func (_Main *MainSession) ProxiableUUID() ([32]byte, error) {
-	return _Main.Contract.ProxiableUUID(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) ProxiableUUID() ([32]byte, error) {
+	return _MasterContractsRegistry.Contract.ProxiableUUID(&_MasterContractsRegistry.CallOpts)
 }
 
 // ProxiableUUID is a free data retrieval call binding the contract method 0x52d1902d.
 //
 // Solidity: function proxiableUUID() view returns(bytes32)
-func (_Main *MainCallerSession) ProxiableUUID() ([32]byte, error) {
-	return _Main.Contract.ProxiableUUID(&_Main.CallOpts)
+func (_MasterContractsRegistry *MasterContractsRegistryCallerSession) ProxiableUUID() ([32]byte, error) {
+	return _MasterContractsRegistry.Contract.ProxiableUUID(&_MasterContractsRegistry.CallOpts)
 }
 
 // MasterContractsRegistryInit is a paid mutator transaction binding the contract method 0x3e6decde.
 //
 // Solidity: function __MasterContractsRegistry_init(address masterAccess_) returns()
-func (_Main *MainTransactor) MasterContractsRegistryInit(opts *bind.TransactOpts, masterAccess_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "__MasterContractsRegistry_init", masterAccess_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) MasterContractsRegistryInit(opts *bind.TransactOpts, masterAccess_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "__MasterContractsRegistry_init", masterAccess_)
 }
 
 // MasterContractsRegistryInit is a paid mutator transaction binding the contract method 0x3e6decde.
 //
 // Solidity: function __MasterContractsRegistry_init(address masterAccess_) returns()
-func (_Main *MainSession) MasterContractsRegistryInit(masterAccess_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.MasterContractsRegistryInit(&_Main.TransactOpts, masterAccess_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) MasterContractsRegistryInit(masterAccess_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.MasterContractsRegistryInit(&_MasterContractsRegistry.TransactOpts, masterAccess_)
 }
 
 // MasterContractsRegistryInit is a paid mutator transaction binding the contract method 0x3e6decde.
 //
 // Solidity: function __MasterContractsRegistry_init(address masterAccess_) returns()
-func (_Main *MainTransactorSession) MasterContractsRegistryInit(masterAccess_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.MasterContractsRegistryInit(&_Main.TransactOpts, masterAccess_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) MasterContractsRegistryInit(masterAccess_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.MasterContractsRegistryInit(&_MasterContractsRegistry.TransactOpts, masterAccess_)
 }
 
 // AddContract is a paid mutator transaction binding the contract method 0xbf5b6016.
 //
 // Solidity: function addContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactor) AddContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "addContract", name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) AddContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "addContract", name_, contractAddress_)
 }
 
 // AddContract is a paid mutator transaction binding the contract method 0xbf5b6016.
 //
 // Solidity: function addContract(string name_, address contractAddress_) returns()
-func (_Main *MainSession) AddContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.AddContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) AddContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.AddContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // AddContract is a paid mutator transaction binding the contract method 0xbf5b6016.
 //
 // Solidity: function addContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactorSession) AddContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.AddContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) AddContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.AddContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // AddProxyContract is a paid mutator transaction binding the contract method 0xe0e084f8.
 //
 // Solidity: function addProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactor) AddProxyContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "addProxyContract", name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) AddProxyContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "addProxyContract", name_, contractAddress_)
 }
 
 // AddProxyContract is a paid mutator transaction binding the contract method 0xe0e084f8.
 //
 // Solidity: function addProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainSession) AddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.AddProxyContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) AddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.AddProxyContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // AddProxyContract is a paid mutator transaction binding the contract method 0xe0e084f8.
 //
 // Solidity: function addProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactorSession) AddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.AddProxyContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) AddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.AddProxyContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // InjectDependencies is a paid mutator transaction binding the contract method 0x1adad8cf.
 //
 // Solidity: function injectDependencies(string name_) returns()
-func (_Main *MainTransactor) InjectDependencies(opts *bind.TransactOpts, name_ string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "injectDependencies", name_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) InjectDependencies(opts *bind.TransactOpts, name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "injectDependencies", name_)
 }
 
 // InjectDependencies is a paid mutator transaction binding the contract method 0x1adad8cf.
 //
 // Solidity: function injectDependencies(string name_) returns()
-func (_Main *MainSession) InjectDependencies(name_ string) (*types.Transaction, error) {
-	return _Main.Contract.InjectDependencies(&_Main.TransactOpts, name_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) InjectDependencies(name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.InjectDependencies(&_MasterContractsRegistry.TransactOpts, name_)
 }
 
 // InjectDependencies is a paid mutator transaction binding the contract method 0x1adad8cf.
 //
 // Solidity: function injectDependencies(string name_) returns()
-func (_Main *MainTransactorSession) InjectDependencies(name_ string) (*types.Transaction, error) {
-	return _Main.Contract.InjectDependencies(&_Main.TransactOpts, name_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) InjectDependencies(name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.InjectDependencies(&_MasterContractsRegistry.TransactOpts, name_)
 }
 
 // JustAddProxyContract is a paid mutator transaction binding the contract method 0x51dad82c.
 //
 // Solidity: function justAddProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactor) JustAddProxyContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "justAddProxyContract", name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) JustAddProxyContract(opts *bind.TransactOpts, name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "justAddProxyContract", name_, contractAddress_)
 }
 
 // JustAddProxyContract is a paid mutator transaction binding the contract method 0x51dad82c.
 //
 // Solidity: function justAddProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainSession) JustAddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.JustAddProxyContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) JustAddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.JustAddProxyContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // JustAddProxyContract is a paid mutator transaction binding the contract method 0x51dad82c.
 //
 // Solidity: function justAddProxyContract(string name_, address contractAddress_) returns()
-func (_Main *MainTransactorSession) JustAddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.JustAddProxyContract(&_Main.TransactOpts, name_, contractAddress_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) JustAddProxyContract(name_ string, contractAddress_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.JustAddProxyContract(&_MasterContractsRegistry.TransactOpts, name_, contractAddress_)
 }
 
 // RemoveContract is a paid mutator transaction binding the contract method 0x97623b58.
 //
 // Solidity: function removeContract(string name_) returns()
-func (_Main *MainTransactor) RemoveContract(opts *bind.TransactOpts, name_ string) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "removeContract", name_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) RemoveContract(opts *bind.TransactOpts, name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "removeContract", name_)
 }
 
 // RemoveContract is a paid mutator transaction binding the contract method 0x97623b58.
 //
 // Solidity: function removeContract(string name_) returns()
-func (_Main *MainSession) RemoveContract(name_ string) (*types.Transaction, error) {
-	return _Main.Contract.RemoveContract(&_Main.TransactOpts, name_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) RemoveContract(name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.RemoveContract(&_MasterContractsRegistry.TransactOpts, name_)
 }
 
 // RemoveContract is a paid mutator transaction binding the contract method 0x97623b58.
 //
 // Solidity: function removeContract(string name_) returns()
-func (_Main *MainTransactorSession) RemoveContract(name_ string) (*types.Transaction, error) {
-	return _Main.Contract.RemoveContract(&_Main.TransactOpts, name_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) RemoveContract(name_ string) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.RemoveContract(&_MasterContractsRegistry.TransactOpts, name_)
 }
 
 // UpgradeContract is a paid mutator transaction binding the contract method 0x1271bd53.
 //
 // Solidity: function upgradeContract(string name_, address newImplementation_) returns()
-func (_Main *MainTransactor) UpgradeContract(opts *bind.TransactOpts, name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "upgradeContract", name_, newImplementation_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) UpgradeContract(opts *bind.TransactOpts, name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "upgradeContract", name_, newImplementation_)
 }
 
 // UpgradeContract is a paid mutator transaction binding the contract method 0x1271bd53.
 //
 // Solidity: function upgradeContract(string name_, address newImplementation_) returns()
-func (_Main *MainSession) UpgradeContract(name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeContract(&_Main.TransactOpts, name_, newImplementation_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) UpgradeContract(name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeContract(&_MasterContractsRegistry.TransactOpts, name_, newImplementation_)
 }
 
 // UpgradeContract is a paid mutator transaction binding the contract method 0x1271bd53.
 //
 // Solidity: function upgradeContract(string name_, address newImplementation_) returns()
-func (_Main *MainTransactorSession) UpgradeContract(name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeContract(&_Main.TransactOpts, name_, newImplementation_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) UpgradeContract(name_ string, newImplementation_ common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeContract(&_MasterContractsRegistry.TransactOpts, name_, newImplementation_)
 }
 
 // UpgradeContractAndCall is a paid mutator transaction binding the contract method 0x6bbe8694.
 //
 // Solidity: function upgradeContractAndCall(string name_, address newImplementation_, bytes data_) returns()
-func (_Main *MainTransactor) UpgradeContractAndCall(opts *bind.TransactOpts, name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "upgradeContractAndCall", name_, newImplementation_, data_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) UpgradeContractAndCall(opts *bind.TransactOpts, name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "upgradeContractAndCall", name_, newImplementation_, data_)
 }
 
 // UpgradeContractAndCall is a paid mutator transaction binding the contract method 0x6bbe8694.
 //
 // Solidity: function upgradeContractAndCall(string name_, address newImplementation_, bytes data_) returns()
-func (_Main *MainSession) UpgradeContractAndCall(name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeContractAndCall(&_Main.TransactOpts, name_, newImplementation_, data_)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) UpgradeContractAndCall(name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeContractAndCall(&_MasterContractsRegistry.TransactOpts, name_, newImplementation_, data_)
 }
 
 // UpgradeContractAndCall is a paid mutator transaction binding the contract method 0x6bbe8694.
 //
 // Solidity: function upgradeContractAndCall(string name_, address newImplementation_, bytes data_) returns()
-func (_Main *MainTransactorSession) UpgradeContractAndCall(name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeContractAndCall(&_Main.TransactOpts, name_, newImplementation_, data_)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) UpgradeContractAndCall(name_ string, newImplementation_ common.Address, data_ []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeContractAndCall(&_MasterContractsRegistry.TransactOpts, name_, newImplementation_, data_)
 }
 
 // UpgradeTo is a paid mutator transaction binding the contract method 0x3659cfe6.
 //
 // Solidity: function upgradeTo(address newImplementation) returns()
-func (_Main *MainTransactor) UpgradeTo(opts *bind.TransactOpts, newImplementation common.Address) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "upgradeTo", newImplementation)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) UpgradeTo(opts *bind.TransactOpts, newImplementation common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "upgradeTo", newImplementation)
 }
 
 // UpgradeTo is a paid mutator transaction binding the contract method 0x3659cfe6.
 //
 // Solidity: function upgradeTo(address newImplementation) returns()
-func (_Main *MainSession) UpgradeTo(newImplementation common.Address) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeTo(&_Main.TransactOpts, newImplementation)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) UpgradeTo(newImplementation common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeTo(&_MasterContractsRegistry.TransactOpts, newImplementation)
 }
 
 // UpgradeTo is a paid mutator transaction binding the contract method 0x3659cfe6.
 //
 // Solidity: function upgradeTo(address newImplementation) returns()
-func (_Main *MainTransactorSession) UpgradeTo(newImplementation common.Address) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeTo(&_Main.TransactOpts, newImplementation)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) UpgradeTo(newImplementation common.Address) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeTo(&_MasterContractsRegistry.TransactOpts, newImplementation)
 }
 
 // UpgradeToAndCall is a paid mutator transaction binding the contract method 0x4f1ef286.
 //
 // Solidity: function upgradeToAndCall(address newImplementation, bytes data) payable returns()
-func (_Main *MainTransactor) UpgradeToAndCall(opts *bind.TransactOpts, newImplementation common.Address, data []byte) (*types.Transaction, error) {
-	return _Main.contract.Transact(opts, "upgradeToAndCall", newImplementation, data)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactor) UpgradeToAndCall(opts *bind.TransactOpts, newImplementation common.Address, data []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.contract.Transact(opts, "upgradeToAndCall", newImplementation, data)
 }
 
 // UpgradeToAndCall is a paid mutator transaction binding the contract method 0x4f1ef286.
 //
 // Solidity: function upgradeToAndCall(address newImplementation, bytes data) payable returns()
-func (_Main *MainSession) UpgradeToAndCall(newImplementation common.Address, data []byte) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeToAndCall(&_Main.TransactOpts, newImplementation, data)
+func (_MasterContractsRegistry *MasterContractsRegistrySession) UpgradeToAndCall(newImplementation common.Address, data []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeToAndCall(&_MasterContractsRegistry.TransactOpts, newImplementation, data)
 }
 
 // UpgradeToAndCall is a paid mutator transaction binding the contract method 0x4f1ef286.
 //
 // Solidity: function upgradeToAndCall(address newImplementation, bytes data) payable returns()
-func (_Main *MainTransactorSession) UpgradeToAndCall(newImplementation common.Address, data []byte) (*types.Transaction, error) {
-	return _Main.Contract.UpgradeToAndCall(&_Main.TransactOpts, newImplementation, data)
+func (_MasterContractsRegistry *MasterContractsRegistryTransactorSession) UpgradeToAndCall(newImplementation common.Address, data []byte) (*types.Transaction, error) {
+	return _MasterContractsRegistry.Contract.UpgradeToAndCall(&_MasterContractsRegistry.TransactOpts, newImplementation, data)
 }
 
-// MainAddedContractIterator is returned from FilterAddedContract and is used to iterate over the raw logs and unpacked data for AddedContract events raised by the Main contract.
-type MainAddedContractIterator struct {
-	Event *MainAddedContract // Event containing the contract specifics and raw log
+// MasterContractsRegistryAddedContractIterator is returned from FilterAddedContract and is used to iterate over the raw logs and unpacked data for AddedContract events raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryAddedContractIterator struct {
+	Event *MasterContractsRegistryAddedContract // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -746,7 +746,7 @@ type MainAddedContractIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainAddedContractIterator) Next() bool {
+func (it *MasterContractsRegistryAddedContractIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -755,7 +755,7 @@ func (it *MainAddedContractIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainAddedContract)
+			it.Event = new(MasterContractsRegistryAddedContract)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -770,7 +770,7 @@ func (it *MainAddedContractIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainAddedContract)
+		it.Event = new(MasterContractsRegistryAddedContract)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -786,19 +786,19 @@ func (it *MainAddedContractIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainAddedContractIterator) Error() error {
+func (it *MasterContractsRegistryAddedContractIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainAddedContractIterator) Close() error {
+func (it *MasterContractsRegistryAddedContractIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainAddedContract represents a AddedContract event raised by the Main contract.
-type MainAddedContract struct {
+// MasterContractsRegistryAddedContract represents a AddedContract event raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryAddedContract struct {
 	Name            string
 	ContractAddress common.Address
 	IsProxy         bool
@@ -808,21 +808,21 @@ type MainAddedContract struct {
 // FilterAddedContract is a free log retrieval operation binding the contract event 0xd8607592920f7ac4d1e9d198396c7f7cdaee8e675bc3ffb12924a71979867625.
 //
 // Solidity: event AddedContract(string name, address contractAddress, bool isProxy)
-func (_Main *MainFilterer) FilterAddedContract(opts *bind.FilterOpts) (*MainAddedContractIterator, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) FilterAddedContract(opts *bind.FilterOpts) (*MasterContractsRegistryAddedContractIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "AddedContract")
+	logs, sub, err := _MasterContractsRegistry.contract.FilterLogs(opts, "AddedContract")
 	if err != nil {
 		return nil, err
 	}
-	return &MainAddedContractIterator{contract: _Main.contract, event: "AddedContract", logs: logs, sub: sub}, nil
+	return &MasterContractsRegistryAddedContractIterator{contract: _MasterContractsRegistry.contract, event: "AddedContract", logs: logs, sub: sub}, nil
 }
 
 // WatchAddedContract is a free log subscription operation binding the contract event 0xd8607592920f7ac4d1e9d198396c7f7cdaee8e675bc3ffb12924a71979867625.
 //
 // Solidity: event AddedContract(string name, address contractAddress, bool isProxy)
-func (_Main *MainFilterer) WatchAddedContract(opts *bind.WatchOpts, sink chan<- *MainAddedContract) (event.Subscription, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) WatchAddedContract(opts *bind.WatchOpts, sink chan<- *MasterContractsRegistryAddedContract) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "AddedContract")
+	logs, sub, err := _MasterContractsRegistry.contract.WatchLogs(opts, "AddedContract")
 	if err != nil {
 		return nil, err
 	}
@@ -832,8 +832,8 @@ func (_Main *MainFilterer) WatchAddedContract(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainAddedContract)
-				if err := _Main.contract.UnpackLog(event, "AddedContract", log); err != nil {
+				event := new(MasterContractsRegistryAddedContract)
+				if err := _MasterContractsRegistry.contract.UnpackLog(event, "AddedContract", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -857,18 +857,18 @@ func (_Main *MainFilterer) WatchAddedContract(opts *bind.WatchOpts, sink chan<- 
 // ParseAddedContract is a log parse operation binding the contract event 0xd8607592920f7ac4d1e9d198396c7f7cdaee8e675bc3ffb12924a71979867625.
 //
 // Solidity: event AddedContract(string name, address contractAddress, bool isProxy)
-func (_Main *MainFilterer) ParseAddedContract(log types.Log) (*MainAddedContract, error) {
-	event := new(MainAddedContract)
-	if err := _Main.contract.UnpackLog(event, "AddedContract", log); err != nil {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) ParseAddedContract(log types.Log) (*MasterContractsRegistryAddedContract, error) {
+	event := new(MasterContractsRegistryAddedContract)
+	if err := _MasterContractsRegistry.contract.UnpackLog(event, "AddedContract", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainAdminChangedIterator is returned from FilterAdminChanged and is used to iterate over the raw logs and unpacked data for AdminChanged events raised by the Main contract.
-type MainAdminChangedIterator struct {
-	Event *MainAdminChanged // Event containing the contract specifics and raw log
+// MasterContractsRegistryAdminChangedIterator is returned from FilterAdminChanged and is used to iterate over the raw logs and unpacked data for AdminChanged events raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryAdminChangedIterator struct {
+	Event *MasterContractsRegistryAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -882,7 +882,7 @@ type MainAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainAdminChangedIterator) Next() bool {
+func (it *MasterContractsRegistryAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -891,7 +891,7 @@ func (it *MainAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainAdminChanged)
+			it.Event = new(MasterContractsRegistryAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -906,7 +906,7 @@ func (it *MainAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainAdminChanged)
+		it.Event = new(MasterContractsRegistryAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -922,19 +922,19 @@ func (it *MainAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainAdminChangedIterator) Error() error {
+func (it *MasterContractsRegistryAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainAdminChangedIterator) Close() error {
+func (it *MasterContractsRegistryAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainAdminChanged represents a AdminChanged event raised by the Main contract.
-type MainAdminChanged struct {
+// MasterContractsRegistryAdminChanged represents a AdminChanged event raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryAdminChanged struct {
 	PreviousAdmin common.Address
 	NewAdmin      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -943,21 +943,21 @@ type MainAdminChanged struct {
 // FilterAdminChanged is a free log retrieval operation binding the contract event 0x7e644d79422f17c01e4894b5f4f588d331ebfa28653d42ae832dc59e38c9798f.
 //
 // Solidity: event AdminChanged(address previousAdmin, address newAdmin)
-func (_Main *MainFilterer) FilterAdminChanged(opts *bind.FilterOpts) (*MainAdminChangedIterator, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) FilterAdminChanged(opts *bind.FilterOpts) (*MasterContractsRegistryAdminChangedIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "AdminChanged")
+	logs, sub, err := _MasterContractsRegistry.contract.FilterLogs(opts, "AdminChanged")
 	if err != nil {
 		return nil, err
 	}
-	return &MainAdminChangedIterator{contract: _Main.contract, event: "AdminChanged", logs: logs, sub: sub}, nil
+	return &MasterContractsRegistryAdminChangedIterator{contract: _MasterContractsRegistry.contract, event: "AdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchAdminChanged is a free log subscription operation binding the contract event 0x7e644d79422f17c01e4894b5f4f588d331ebfa28653d42ae832dc59e38c9798f.
 //
 // Solidity: event AdminChanged(address previousAdmin, address newAdmin)
-func (_Main *MainFilterer) WatchAdminChanged(opts *bind.WatchOpts, sink chan<- *MainAdminChanged) (event.Subscription, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) WatchAdminChanged(opts *bind.WatchOpts, sink chan<- *MasterContractsRegistryAdminChanged) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "AdminChanged")
+	logs, sub, err := _MasterContractsRegistry.contract.WatchLogs(opts, "AdminChanged")
 	if err != nil {
 		return nil, err
 	}
@@ -967,8 +967,8 @@ func (_Main *MainFilterer) WatchAdminChanged(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainAdminChanged)
-				if err := _Main.contract.UnpackLog(event, "AdminChanged", log); err != nil {
+				event := new(MasterContractsRegistryAdminChanged)
+				if err := _MasterContractsRegistry.contract.UnpackLog(event, "AdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -992,18 +992,18 @@ func (_Main *MainFilterer) WatchAdminChanged(opts *bind.WatchOpts, sink chan<- *
 // ParseAdminChanged is a log parse operation binding the contract event 0x7e644d79422f17c01e4894b5f4f588d331ebfa28653d42ae832dc59e38c9798f.
 //
 // Solidity: event AdminChanged(address previousAdmin, address newAdmin)
-func (_Main *MainFilterer) ParseAdminChanged(log types.Log) (*MainAdminChanged, error) {
-	event := new(MainAdminChanged)
-	if err := _Main.contract.UnpackLog(event, "AdminChanged", log); err != nil {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) ParseAdminChanged(log types.Log) (*MasterContractsRegistryAdminChanged, error) {
+	event := new(MasterContractsRegistryAdminChanged)
+	if err := _MasterContractsRegistry.contract.UnpackLog(event, "AdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainBeaconUpgradedIterator is returned from FilterBeaconUpgraded and is used to iterate over the raw logs and unpacked data for BeaconUpgraded events raised by the Main contract.
-type MainBeaconUpgradedIterator struct {
-	Event *MainBeaconUpgraded // Event containing the contract specifics and raw log
+// MasterContractsRegistryBeaconUpgradedIterator is returned from FilterBeaconUpgraded and is used to iterate over the raw logs and unpacked data for BeaconUpgraded events raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryBeaconUpgradedIterator struct {
+	Event *MasterContractsRegistryBeaconUpgraded // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1017,7 +1017,7 @@ type MainBeaconUpgradedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainBeaconUpgradedIterator) Next() bool {
+func (it *MasterContractsRegistryBeaconUpgradedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1026,7 +1026,7 @@ func (it *MainBeaconUpgradedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainBeaconUpgraded)
+			it.Event = new(MasterContractsRegistryBeaconUpgraded)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1041,7 +1041,7 @@ func (it *MainBeaconUpgradedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainBeaconUpgraded)
+		it.Event = new(MasterContractsRegistryBeaconUpgraded)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1057,19 +1057,19 @@ func (it *MainBeaconUpgradedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainBeaconUpgradedIterator) Error() error {
+func (it *MasterContractsRegistryBeaconUpgradedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainBeaconUpgradedIterator) Close() error {
+func (it *MasterContractsRegistryBeaconUpgradedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainBeaconUpgraded represents a BeaconUpgraded event raised by the Main contract.
-type MainBeaconUpgraded struct {
+// MasterContractsRegistryBeaconUpgraded represents a BeaconUpgraded event raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryBeaconUpgraded struct {
 	Beacon common.Address
 	Raw    types.Log // Blockchain specific contextual infos
 }
@@ -1077,31 +1077,31 @@ type MainBeaconUpgraded struct {
 // FilterBeaconUpgraded is a free log retrieval operation binding the contract event 0x1cf3b03a6cf19fa2baba4df148e9dcabedea7f8a5c07840e207e5c089be95d3e.
 //
 // Solidity: event BeaconUpgraded(address indexed beacon)
-func (_Main *MainFilterer) FilterBeaconUpgraded(opts *bind.FilterOpts, beacon []common.Address) (*MainBeaconUpgradedIterator, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) FilterBeaconUpgraded(opts *bind.FilterOpts, beacon []common.Address) (*MasterContractsRegistryBeaconUpgradedIterator, error) {
 
 	var beaconRule []interface{}
 	for _, beaconItem := range beacon {
 		beaconRule = append(beaconRule, beaconItem)
 	}
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "BeaconUpgraded", beaconRule)
+	logs, sub, err := _MasterContractsRegistry.contract.FilterLogs(opts, "BeaconUpgraded", beaconRule)
 	if err != nil {
 		return nil, err
 	}
-	return &MainBeaconUpgradedIterator{contract: _Main.contract, event: "BeaconUpgraded", logs: logs, sub: sub}, nil
+	return &MasterContractsRegistryBeaconUpgradedIterator{contract: _MasterContractsRegistry.contract, event: "BeaconUpgraded", logs: logs, sub: sub}, nil
 }
 
 // WatchBeaconUpgraded is a free log subscription operation binding the contract event 0x1cf3b03a6cf19fa2baba4df148e9dcabedea7f8a5c07840e207e5c089be95d3e.
 //
 // Solidity: event BeaconUpgraded(address indexed beacon)
-func (_Main *MainFilterer) WatchBeaconUpgraded(opts *bind.WatchOpts, sink chan<- *MainBeaconUpgraded, beacon []common.Address) (event.Subscription, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) WatchBeaconUpgraded(opts *bind.WatchOpts, sink chan<- *MasterContractsRegistryBeaconUpgraded, beacon []common.Address) (event.Subscription, error) {
 
 	var beaconRule []interface{}
 	for _, beaconItem := range beacon {
 		beaconRule = append(beaconRule, beaconItem)
 	}
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "BeaconUpgraded", beaconRule)
+	logs, sub, err := _MasterContractsRegistry.contract.WatchLogs(opts, "BeaconUpgraded", beaconRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1111,8 +1111,8 @@ func (_Main *MainFilterer) WatchBeaconUpgraded(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainBeaconUpgraded)
-				if err := _Main.contract.UnpackLog(event, "BeaconUpgraded", log); err != nil {
+				event := new(MasterContractsRegistryBeaconUpgraded)
+				if err := _MasterContractsRegistry.contract.UnpackLog(event, "BeaconUpgraded", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1136,18 +1136,18 @@ func (_Main *MainFilterer) WatchBeaconUpgraded(opts *bind.WatchOpts, sink chan<-
 // ParseBeaconUpgraded is a log parse operation binding the contract event 0x1cf3b03a6cf19fa2baba4df148e9dcabedea7f8a5c07840e207e5c089be95d3e.
 //
 // Solidity: event BeaconUpgraded(address indexed beacon)
-func (_Main *MainFilterer) ParseBeaconUpgraded(log types.Log) (*MainBeaconUpgraded, error) {
-	event := new(MainBeaconUpgraded)
-	if err := _Main.contract.UnpackLog(event, "BeaconUpgraded", log); err != nil {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) ParseBeaconUpgraded(log types.Log) (*MasterContractsRegistryBeaconUpgraded, error) {
+	event := new(MasterContractsRegistryBeaconUpgraded)
+	if err := _MasterContractsRegistry.contract.UnpackLog(event, "BeaconUpgraded", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainRemovedContractIterator is returned from FilterRemovedContract and is used to iterate over the raw logs and unpacked data for RemovedContract events raised by the Main contract.
-type MainRemovedContractIterator struct {
-	Event *MainRemovedContract // Event containing the contract specifics and raw log
+// MasterContractsRegistryRemovedContractIterator is returned from FilterRemovedContract and is used to iterate over the raw logs and unpacked data for RemovedContract events raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryRemovedContractIterator struct {
+	Event *MasterContractsRegistryRemovedContract // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1161,7 +1161,7 @@ type MainRemovedContractIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainRemovedContractIterator) Next() bool {
+func (it *MasterContractsRegistryRemovedContractIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1170,7 +1170,7 @@ func (it *MainRemovedContractIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainRemovedContract)
+			it.Event = new(MasterContractsRegistryRemovedContract)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1185,7 +1185,7 @@ func (it *MainRemovedContractIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainRemovedContract)
+		it.Event = new(MasterContractsRegistryRemovedContract)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1201,19 +1201,19 @@ func (it *MainRemovedContractIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainRemovedContractIterator) Error() error {
+func (it *MasterContractsRegistryRemovedContractIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainRemovedContractIterator) Close() error {
+func (it *MasterContractsRegistryRemovedContractIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainRemovedContract represents a RemovedContract event raised by the Main contract.
-type MainRemovedContract struct {
+// MasterContractsRegistryRemovedContract represents a RemovedContract event raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryRemovedContract struct {
 	Name string
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1221,21 +1221,21 @@ type MainRemovedContract struct {
 // FilterRemovedContract is a free log retrieval operation binding the contract event 0x2216f135d7c337bc5b25f8bf96227730d40241c50adf6fde4d180deca4b25664.
 //
 // Solidity: event RemovedContract(string name)
-func (_Main *MainFilterer) FilterRemovedContract(opts *bind.FilterOpts) (*MainRemovedContractIterator, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) FilterRemovedContract(opts *bind.FilterOpts) (*MasterContractsRegistryRemovedContractIterator, error) {
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "RemovedContract")
+	logs, sub, err := _MasterContractsRegistry.contract.FilterLogs(opts, "RemovedContract")
 	if err != nil {
 		return nil, err
 	}
-	return &MainRemovedContractIterator{contract: _Main.contract, event: "RemovedContract", logs: logs, sub: sub}, nil
+	return &MasterContractsRegistryRemovedContractIterator{contract: _MasterContractsRegistry.contract, event: "RemovedContract", logs: logs, sub: sub}, nil
 }
 
 // WatchRemovedContract is a free log subscription operation binding the contract event 0x2216f135d7c337bc5b25f8bf96227730d40241c50adf6fde4d180deca4b25664.
 //
 // Solidity: event RemovedContract(string name)
-func (_Main *MainFilterer) WatchRemovedContract(opts *bind.WatchOpts, sink chan<- *MainRemovedContract) (event.Subscription, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) WatchRemovedContract(opts *bind.WatchOpts, sink chan<- *MasterContractsRegistryRemovedContract) (event.Subscription, error) {
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "RemovedContract")
+	logs, sub, err := _MasterContractsRegistry.contract.WatchLogs(opts, "RemovedContract")
 	if err != nil {
 		return nil, err
 	}
@@ -1245,8 +1245,8 @@ func (_Main *MainFilterer) WatchRemovedContract(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainRemovedContract)
-				if err := _Main.contract.UnpackLog(event, "RemovedContract", log); err != nil {
+				event := new(MasterContractsRegistryRemovedContract)
+				if err := _MasterContractsRegistry.contract.UnpackLog(event, "RemovedContract", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1270,18 +1270,18 @@ func (_Main *MainFilterer) WatchRemovedContract(opts *bind.WatchOpts, sink chan<
 // ParseRemovedContract is a log parse operation binding the contract event 0x2216f135d7c337bc5b25f8bf96227730d40241c50adf6fde4d180deca4b25664.
 //
 // Solidity: event RemovedContract(string name)
-func (_Main *MainFilterer) ParseRemovedContract(log types.Log) (*MainRemovedContract, error) {
-	event := new(MainRemovedContract)
-	if err := _Main.contract.UnpackLog(event, "RemovedContract", log); err != nil {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) ParseRemovedContract(log types.Log) (*MasterContractsRegistryRemovedContract, error) {
+	event := new(MasterContractsRegistryRemovedContract)
+	if err := _MasterContractsRegistry.contract.UnpackLog(event, "RemovedContract", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MainUpgradedIterator is returned from FilterUpgraded and is used to iterate over the raw logs and unpacked data for Upgraded events raised by the Main contract.
-type MainUpgradedIterator struct {
-	Event *MainUpgraded // Event containing the contract specifics and raw log
+// MasterContractsRegistryUpgradedIterator is returned from FilterUpgraded and is used to iterate over the raw logs and unpacked data for Upgraded events raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryUpgradedIterator struct {
+	Event *MasterContractsRegistryUpgraded // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1295,7 +1295,7 @@ type MainUpgradedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MainUpgradedIterator) Next() bool {
+func (it *MasterContractsRegistryUpgradedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1304,7 +1304,7 @@ func (it *MainUpgradedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MainUpgraded)
+			it.Event = new(MasterContractsRegistryUpgraded)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1319,7 +1319,7 @@ func (it *MainUpgradedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MainUpgraded)
+		it.Event = new(MasterContractsRegistryUpgraded)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1335,19 +1335,19 @@ func (it *MainUpgradedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MainUpgradedIterator) Error() error {
+func (it *MasterContractsRegistryUpgradedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MainUpgradedIterator) Close() error {
+func (it *MasterContractsRegistryUpgradedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MainUpgraded represents a Upgraded event raised by the Main contract.
-type MainUpgraded struct {
+// MasterContractsRegistryUpgraded represents a Upgraded event raised by the MasterContractsRegistry contract.
+type MasterContractsRegistryUpgraded struct {
 	Implementation common.Address
 	Raw            types.Log // Blockchain specific contextual infos
 }
@@ -1355,31 +1355,31 @@ type MainUpgraded struct {
 // FilterUpgraded is a free log retrieval operation binding the contract event 0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b.
 //
 // Solidity: event Upgraded(address indexed implementation)
-func (_Main *MainFilterer) FilterUpgraded(opts *bind.FilterOpts, implementation []common.Address) (*MainUpgradedIterator, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) FilterUpgraded(opts *bind.FilterOpts, implementation []common.Address) (*MasterContractsRegistryUpgradedIterator, error) {
 
 	var implementationRule []interface{}
 	for _, implementationItem := range implementation {
 		implementationRule = append(implementationRule, implementationItem)
 	}
 
-	logs, sub, err := _Main.contract.FilterLogs(opts, "Upgraded", implementationRule)
+	logs, sub, err := _MasterContractsRegistry.contract.FilterLogs(opts, "Upgraded", implementationRule)
 	if err != nil {
 		return nil, err
 	}
-	return &MainUpgradedIterator{contract: _Main.contract, event: "Upgraded", logs: logs, sub: sub}, nil
+	return &MasterContractsRegistryUpgradedIterator{contract: _MasterContractsRegistry.contract, event: "Upgraded", logs: logs, sub: sub}, nil
 }
 
 // WatchUpgraded is a free log subscription operation binding the contract event 0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b.
 //
 // Solidity: event Upgraded(address indexed implementation)
-func (_Main *MainFilterer) WatchUpgraded(opts *bind.WatchOpts, sink chan<- *MainUpgraded, implementation []common.Address) (event.Subscription, error) {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) WatchUpgraded(opts *bind.WatchOpts, sink chan<- *MasterContractsRegistryUpgraded, implementation []common.Address) (event.Subscription, error) {
 
 	var implementationRule []interface{}
 	for _, implementationItem := range implementation {
 		implementationRule = append(implementationRule, implementationItem)
 	}
 
-	logs, sub, err := _Main.contract.WatchLogs(opts, "Upgraded", implementationRule)
+	logs, sub, err := _MasterContractsRegistry.contract.WatchLogs(opts, "Upgraded", implementationRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1389,8 +1389,8 @@ func (_Main *MainFilterer) WatchUpgraded(opts *bind.WatchOpts, sink chan<- *Main
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MainUpgraded)
-				if err := _Main.contract.UnpackLog(event, "Upgraded", log); err != nil {
+				event := new(MasterContractsRegistryUpgraded)
+				if err := _MasterContractsRegistry.contract.UnpackLog(event, "Upgraded", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1414,9 +1414,9 @@ func (_Main *MainFilterer) WatchUpgraded(opts *bind.WatchOpts, sink chan<- *Main
 // ParseUpgraded is a log parse operation binding the contract event 0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b.
 //
 // Solidity: event Upgraded(address indexed implementation)
-func (_Main *MainFilterer) ParseUpgraded(log types.Log) (*MainUpgraded, error) {
-	event := new(MainUpgraded)
-	if err := _Main.contract.UnpackLog(event, "Upgraded", log); err != nil {
+func (_MasterContractsRegistry *MasterContractsRegistryFilterer) ParseUpgraded(log types.Log) (*MasterContractsRegistryUpgraded, error) {
+	event := new(MasterContractsRegistryUpgraded)
+	if err := _MasterContractsRegistry.contract.UnpackLog(event, "Upgraded", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

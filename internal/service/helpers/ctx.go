@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"gitlab.com/tokene/doorman/contracts/MasterAccessManagement"
 	"net/http"
 
 	"github.com/ethereum/go-ethereum/ethclient"
