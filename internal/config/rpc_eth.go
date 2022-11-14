@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/distributed_lab/figure"
 	"gitlab.com/distributed_lab/kit/comfig"
 	"gitlab.com/distributed_lab/kit/kv"
@@ -10,7 +11,6 @@ import (
 
 type EthRPCConfiger interface {
 	EthRPCConfig() *EthRPCConfig
-	EthRPCURL() *url.URL
 }
 
 type EthRPCConfig struct {
@@ -41,10 +41,14 @@ func (c *ethRPCConfig) EthRPCConfig() *EthRPCConfig {
 	}).(*EthRPCConfig)
 }
 
-func (c *ethRPCConfig) EthRPCURL() *url.URL {
-	u, err := url.Parse(c.EthRPCConfig().Endpoint)
+func (c *EthRPCConfig) EthRPCURL() *url.URL {
+	u, err := url.Parse(c.Endpoint)
 	if err != nil {
 		panic(err)
 	}
 	return u
+}
+
+func (c *EthRPCConfig) EthClient() (*ethclient.Client, error) {
+	return ethclient.Dial(c.Endpoint)
 }

@@ -26,9 +26,14 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		ape.RenderErr(w, problems.Unauthorized())
 		return
 	}
-
+	client, err := helpers.EthRPCConfig(r).EthClient()
+	if err != nil {
+		logger.WithError(err).Debug("failed connection to eth ")
+		ape.RenderErr(w, problems.InternalError())
+		return
+	}
 	if address != strings.ToLower(owner) {
-		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address), helpers.EthRPCConfig(r).Endpoint)
+		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address), client)
 		if err != nil {
 			logger.WithError(err).Debug("Internal error")
 			ape.RenderErr(w, problems.InternalError())

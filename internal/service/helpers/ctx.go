@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"gitlab.com/tokene/doorman/contracts/master_access_management"
 	"net/http"
 
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -68,13 +69,13 @@ func EthRPCConfig(r *http.Request) *config.EthRPCConfig {
 	return r.Context().Value(ethrpcConfigCtxKey).(*config.EthRPCConfig)
 }
 
-func CheckPermissionsByAddress(contractAddress, userAddress common.Address, coreEndpoint string) (bool, error) {
-	client, err := ethclient.Dial(coreEndpoint)
-	contract, err := MasterAccessManagement.NewMain(contractAddress, client)
+func CheckPermissionsByAddress(contractAddress, userAddress common.Address, client *ethclient.Client) (bool, error) {
+
+	contract, err := master_access_management.NewMasterAccessManagement(contractAddress, client)
 	if err != nil {
 		return false, err
 	}
-	_, err = contract.MainCaller.HasPermission(&bind.CallOpts{}, userAddress, "", "") //todo Add resource and permission
+	_, err = contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, "", "") //todo Add resource and permission
 	if err != nil {
 		return false, err
 	}
