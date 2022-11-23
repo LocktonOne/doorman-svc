@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"gitlab.com/distributed_lab/logan/v3/errors"
 	"gitlab.com/tokene/doorman/contracts/master_access_management"
 	"net/http"
 
@@ -70,7 +71,9 @@ func EthRPCConfig(r *http.Request) *config.EthRPCConfig {
 }
 
 func CheckPermissionsByAddress(contractAddress, userAddress common.Address, client *ethclient.Client) (bool, error) {
-
+	if client == nil {
+		return false, errors.New("Cant connect to node")
+	}
 	contract, err := master_access_management.NewMasterAccessManagement(contractAddress, client)
 	if err != nil {
 		return false, err
@@ -82,3 +85,5 @@ func CheckPermissionsByAddress(contractAddress, userAddress common.Address, clie
 	//return success, err
 	return true, nil
 }
+
+var Cfg config.Config

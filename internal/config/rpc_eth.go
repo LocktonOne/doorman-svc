@@ -49,6 +49,14 @@ func (c *EthRPCConfig) EthRPCURL() *url.URL {
 	return u
 }
 
-func (c *EthRPCConfig) EthClient() (*ethclient.Client, error) {
-	return ethclient.Dial(c.Endpoint)
+func (c *EthRPCConfig) EthClient() *ethclient.Client {
+	client, err := ethclient.Dial(c.Endpoint)
+	if err != nil {
+		return nil
+	}
+	return client
+}
+
+func (c config) GetClient() *ethclient.Client {
+	return c.EthClient
 }

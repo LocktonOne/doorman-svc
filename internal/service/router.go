@@ -10,15 +10,16 @@ import (
 
 func (s *service) router(cfg config.Config) chi.Router {
 	r := chi.NewRouter()
-
+	helpers.Cfg = cfg
 	r.Use(
 		ape.RecoverMiddleware(s.log),
 		ape.LoganMiddleware(s.log),
 		ape.CtxMiddleware(
 			helpers.CtxLog(s.log),
 			helpers.CtxServiceConfig(cfg.ServiceConfig()),
-			helpers.CtxRegistryConfig(cfg.RegistryConfig()),
+			//	helpers.CtxRegistryConfig(cfg.RegistryConfig()),
 			helpers.CtxEthRPCConfig(cfg.EthRPCConfig()),
+
 			//TODO change when admin's contracts added
 			//helpers.CtxNodeAdmins(gosdk.NewNodeAdminsMock(common.HexToAddress("0x750Bd531CEA1f68418DDF2373193CfbD86A69058"))),
 		),
