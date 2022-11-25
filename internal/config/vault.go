@@ -51,8 +51,9 @@ func (c *vaultConfig) VaultConfig() *VaultConfig {
 }
 
 func (c *vaultConfig) RegistryConfig() *RegistryConfig {
-	c.RegistryConfig().Address = c.getContractAddress()
-	return c.RegistryConfig()
+	rg := RegistryConfig{}
+	rg.Address = c.getContractAddress()
+	return &rg
 }
 
 const (
