@@ -24,6 +24,11 @@ const (
 	ethrpcConfigCtxKey
 )
 
+const (
+	viewPermission = "VIEWER"
+	viewResource   = "REVIEWABLE_REQUESTS_RESOURCE"
+)
+
 func CtxLog(entry *logan.Entry) func(context.Context) context.Context {
 	return func(ctx context.Context) context.Context {
 		return context.WithValue(ctx, logCtxKey, entry)
@@ -78,12 +83,7 @@ func CheckPermissionsByAddress(contractAddress, userAddress common.Address, clie
 	if err != nil {
 		return false, err
 	}
-	_, err = contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, "", "") //todo Add resource and permission
-	if err != nil {
-		return false, err
-	}
-
-	return true, nil
+	return contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, viewResource, viewPermission)
 }
 
 var Cfg config.Config
