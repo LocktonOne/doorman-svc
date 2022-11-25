@@ -82,7 +82,7 @@ func CheckPermissionsByAddress(contractAddress, userAddress common.Address, clie
 	if err != nil {
 		return false, err
 	}
-	//return success, err
+
 	return true, nil
 }
 

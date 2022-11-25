@@ -28,7 +28,13 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if address != strings.ToLower(owner) {
-		success, err := helpers.CheckPermissionsByAddress(helpers.RegistryConfig(r).Address, common.HexToAddress(address), helpers.Cfg.GetClient())
+		accManager, err := helpers.GetAddressAccManagement(r)
+		if err != nil {
+			logger.WithError(err).Debug("Incorrect address ")
+			ape.RenderErr(w, problems.BadRequest(err)...)
+			return
+		}
+		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.Cfg.GetClient())
 		if err != nil {
 			logger.WithError(err).Debug("Internal error")
 			ape.RenderErr(w, problems.InternalError())
