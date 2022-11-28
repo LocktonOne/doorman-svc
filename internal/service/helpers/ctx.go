@@ -2,13 +2,8 @@ package helpers
 
 import (
 	"context"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"gitlab.com/distributed_lab/logan/v3/errors"
-	"gitlab.com/tokene/doorman/contracts/master_access_management"
 	"net/http"
 
-	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/tokene/doorman/internal/config"
 	gosdk "gitlab.com/tokene/go-sdk"
@@ -73,17 +68,6 @@ func CtxEthRPCConfig(entry *config.EthRPCConfig) func(context.Context) context.C
 
 func EthRPCConfig(r *http.Request) *config.EthRPCConfig {
 	return r.Context().Value(ethrpcConfigCtxKey).(*config.EthRPCConfig)
-}
-
-func CheckPermissionsByAddress(contractAddress, userAddress common.Address, client *ethclient.Client) (bool, error) {
-	if client == nil {
-		return false, errors.New("Cant connect to node")
-	}
-	contract, err := master_access_management.NewMasterAccessManagement(contractAddress, client)
-	if err != nil {
-		return false, err
-	}
-	return contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, viewResource, viewPermission)
 }
 
 var Cfg config.Config
