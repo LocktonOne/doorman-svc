@@ -18,7 +18,11 @@ type VaultConfiger interface {
 }
 
 type VaultConfig struct {
-	Endpoint string `json:"endpoint"`
+	Endpoint        string `json:"endpoint"`
+	Token           string `json:"token"`
+	MountPath       string `json:"mount_path"`
+	PrivateKeyPath  string `json:"private_key_path"`
+	AddressRegistry string `json:"address_registry"`
 }
 
 type RegistryConfig struct {
@@ -56,18 +60,12 @@ func (c *vaultConfig) RegistryConfig() *RegistryConfig {
 	return &rg
 }
 
-const (
-	vaultMountPath       = "secret"
-	vaultPrivateKeyPath  = "key"
-	vaultAddressRegistry = "address"
-)
-
 func (c *vaultConfig) getContractAddress() common.Address {
 	config := struct {
 		Address string `fig:"address,required"` //todo change when will be created vault file
 	}{}
 
-	err := c.getVaultSecret(vaultAddressRegistry, &config)
+	err := c.getVaultSecret(c.VaultConfig().AddressRegistry, &config)
 	if err != nil {
 		panic(err)
 	}
@@ -79,7 +77,7 @@ func (c *vaultConfig) getContractAddress() common.Address {
 
 func (c *vaultConfig) getVaultSecret(key string, out interface{}) error {
 	vaultClient := c.vaultClient()
-	secret, err := vaultClient.KVv2(vaultMountPath).Get(context.Background(), key)
+	secret, err := vaultClient.KVv2(c.VaultConfig().MountPath).Get(context.Background(), key)
 	if err != nil {
 		return errors.Wrap(err, "failed to get secret data")
 	}
@@ -99,7 +97,7 @@ func (c *vaultConfig) vaultClient() *vault.Client {
 		if err != nil {
 			log.Panicf("unable to initialize Vault client: %v", err)
 		}
-		client.SetToken(os.Getenv("VAULTTOKEN"))
+		client.SetToken(os.Getenv(c.VaultConfig().Token))
 		return client
 	}).(*vault.Client)
 }

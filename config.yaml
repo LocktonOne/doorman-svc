@@ -15,6 +15,11 @@ cop:
 
 vault:
   endpoint: ""
+  token: ""
+  mount_path: ""
+  private_key_path: ""
+  address_registry: ""
+
 
 eth_rpc:
   endpoint: "http://localhost:8543"
