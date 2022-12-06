@@ -1,4 +1,3 @@
-object: type
 required:
   - type
 properties:
