@@ -9,7 +9,6 @@ import (
 	"gitlab.com/distributed_lab/logan/v3/errors"
 	"golang.org/x/net/context"
 	"log"
-	"os"
 )
 
 type VaultConfiger interface {
@@ -65,7 +64,7 @@ func (c *vaultConfig) getContractAddress() common.Address {
 		Address string `fig:"address,required"` //todo change when will be created vault file
 	}{}
 
-	err := c.getVaultSecret(c.VaultConfig().AddressRegistry, &config)
+	err := c.getVaultSecret(c.VaultConfig().MountPath, &config)
 	if err != nil {
 		panic(err)
 	}
@@ -97,7 +96,9 @@ func (c *vaultConfig) vaultClient() *vault.Client {
 		if err != nil {
 			log.Panicf("unable to initialize Vault client: %v", err)
 		}
-		client.SetToken(os.Getenv(c.VaultConfig().Token))
+		token := c.VaultConfig().Token
+		//client.SetToken(os.Getenv(token))
+		client.SetToken(token)
 		return client
 	}).(*vault.Client)
 }

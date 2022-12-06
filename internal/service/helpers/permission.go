@@ -8,7 +8,7 @@ import (
 	"gitlab.com/tokene/doorman/contracts/master_access_management"
 )
 
-func CheckPermissionsByAddress(contractAddress, userAddress common.Address, client *ethclient.Client) (bool, error) {
+func CheckPermissionsByAddress(contractAddress, userAddress common.Address, client *ethclient.Client, permission, resource string) (bool, error) {
 	if client == nil {
 		return false, errors.New("Cant connect to node")
 	}
@@ -16,5 +16,5 @@ func CheckPermissionsByAddress(contractAddress, userAddress common.Address, clie
 	if err != nil {
 		return false, err
 	}
-	return contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, viewResource, viewPermission)
+	return contract.MasterAccessManagementCaller.HasPermission(&bind.CallOpts{}, userAddress, resource, permission)
 }

@@ -20,8 +20,8 @@ const (
 )
 
 const (
-	viewPermission = "VIEWER"
-	viewResource   = "REVIEWABLE_REQUESTS_RESOURCE"
+	ViewPermission = "READ"
+	AllResource    = "*"
 )
 
 func CtxLog(entry *logan.Entry) func(context.Context) context.Context {

@@ -14,11 +14,11 @@ cop:
   service_port: 80
 
 vault:
-  endpoint: ""
-  token: ""
-  mount_path: ""
-  private_key_path: ""
-  address_registry: ""
+  endpoint: "http://143.244.197.187:8200"
+  token: "hvs.H3l9B1yFUfewDGxMgl7WO60O"
+  mount_path: "/core/"
+  private_key_path: "ea15fcfd7ea1b2d04042341e7463a3b7fceab157a923b7a8ad3ea12242a4cf0e"
+  address_registry: "0x02f35683c4834A389c1B7EA8a8b1Da4d4dD940bF"
 
 
 eth_rpc:
@@ -27,4 +27,4 @@ eth_rpc:
 service:
   token_expire_time: 1h
   token_key:  "0xa781b36ba9b393e67b0b50d6255637f28353409d8e390645beb408cc64b108db"
-  refresh_token_expire_time: 8h
+  refresh_token_expire_time: 8hd

@@ -17,7 +17,7 @@ func (s *service) router(cfg config.Config) chi.Router {
 		ape.CtxMiddleware(
 			helpers.CtxLog(s.log),
 			helpers.CtxServiceConfig(cfg.ServiceConfig()),
-			//	helpers.CtxRegistryConfig(cfg.RegistryConfig()),
+			helpers.CtxRegistryConfig(cfg.RegistryConfig()),
 			helpers.CtxEthRPCConfig(cfg.EthRPCConfig()),
 
 			//TODO change when admin's contracts added
@@ -29,7 +29,9 @@ func (s *service) router(cfg config.Config) chi.Router {
 		r.Get("/refresh_token", handlers.RefreshJwt)
 		r.Post("/get_token_pair", handlers.GenerateJwtPair)
 		r.Get("/check_permission/{owner}", handlers.CheckResourcePermission)
+		r.Get("/check_permission", handlers.CheckPermission)
 		r.Get("/check_purpose", handlers.CheckPurpose)
+
 	})
 
 	return r
