@@ -10,14 +10,18 @@ import (
 	"gitlab.com/tokene/doorman/resources"
 )
 
+type Claims struct {
+	resources.JwtClaims
+}
+
 func NewGenerateJwt(r *http.Request) (resources.JwtClaimsAttributes, error) {
-	var request resources.JwtClaims
+	var request Claims
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
 		return request.Attributes, errors.Wrap(err, "failed to unmarshal")
 	}
 	return request.Attributes, validateClaims(request)
 }
-func validateClaims(r resources.JwtClaims) error {
+func validateClaims(r Claims) error {
 	return validation.Errors{
 		"/attributes/eth_address": validation.Validate(&r.Attributes.EthAddress, validation.Required, validation.Match(helpers.AddressRegexp)),
 		"/attributes/purpose": validation.Validate(string(r.Attributes.Purpose.Type),

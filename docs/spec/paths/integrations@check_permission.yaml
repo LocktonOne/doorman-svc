@@ -1,16 +1,9 @@
-parameters:
-  - name: owner
-    in: path
-    description: Owner's address
-    required: true
-    schema:
-      type: string
 get:
   tags:
     - JWT
   summary: Check Resourse permission
   description: Use Bearer authorization for making request. Check if owner of JWT can get access for resource.
-  operationId: checkPermission    
+  operationId: checkPermissionID
   parameters:
     - in: header
       name: Authorization
