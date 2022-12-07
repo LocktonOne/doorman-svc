@@ -7,24 +7,29 @@ import (
 )
 
 type GetPermissionRequest struct {
-	Id string
+	Id       string
+	Resource string
 }
 
 func NewGetPermissionRequest(r *http.Request) (GetPermissionRequest, error) {
 	request := GetPermissionRequest{}
 	request.Id = strings.ToUpper(r.URL.Query().Get("id"))
-	err := validate(request.Id)
+	request.Resource = strings.ToUpper(r.URL.Query().Get("resource"))
+	if request.Resource == "" {
+		request.Resource = "*"
+	}
+	err := request.validate(request.Id)
 	if err != nil {
 		return GetPermissionRequest{}, err
 	}
 	return request, nil
 }
 
-var permissions = []string{ //todo make better
-	"CREATE", "VIEW", "READ",
-}
+func (p GetPermissionRequest) validate(id string) error {
+	var permissions = []string{ //todo make better
+		"CREATE", "VIEW", "READ",
+	}
 
-func validate(id string) error {
 	for _, permission := range permissions {
 		if permission == id {
 			return nil

@@ -32,7 +32,7 @@ func CheckPermission(w http.ResponseWriter, r *http.Request) {
 			ape.RenderErr(w, problems.InternalError())
 			return
 		}
-		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.Cfg.GetClient(), permission.Id, helpers.AllResource)
+		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.EthRPCConfig(r).EthClient(), permission.Id, permission.Resource)
 		if err != nil {
 			logger.WithError(err).Debug("failed to check account permissions")
 			ape.RenderErr(w, problems.InternalError())

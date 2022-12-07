@@ -10,7 +10,7 @@ import (
 
 func (s *service) router(cfg config.Config) chi.Router {
 	r := chi.NewRouter()
-	helpers.Cfg = cfg
+
 	r.Use(
 		ape.RecoverMiddleware(s.log),
 		ape.LoganMiddleware(s.log),
