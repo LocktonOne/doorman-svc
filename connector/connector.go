@@ -81,7 +81,7 @@ func (c Connector) GetAuthToken(r *http.Request) (string, error) {
 	return helpers.Authenticate(r)
 }
 
-func (c Connector) CheckResourcePermission(owner string, token string) error {
+func (c Connector) CheckPermission(owner string, token string) error {
 	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission/"+owner, token, nil, http.StatusNoContent)
 	if err != nil {
 		return err
@@ -90,7 +90,7 @@ func (c Connector) CheckResourcePermission(owner string, token string) error {
 	return nil
 }
 
-func (c Connector) CheckPermission(id string, token string) error {
+func (c Connector) CheckPermissionID(id string, token string) error {
 	response, err := c.DoAuthRequest("GET", c.ServiceUrl+"/check_permission?id="+id, token, nil, http.StatusNoContent)
 	if err != nil {
 		return err
