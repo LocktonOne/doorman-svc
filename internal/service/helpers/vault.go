@@ -10,7 +10,7 @@ import (
 func GetAddressAccManagement(r *http.Request) (common.Address, error) {
 	address := RegistryConfig(r).Address
 
-	accessM, err := master_contracts_registry.NewMasterContractsRegistry(address, EthRPCConfig(r).EthClient())
+	accessM, err := master_contracts_registry.NewMasterContractsRegistry(address, EthRPCConfig(r).GetEthClient())
 	if err != nil {
 		return common.Address{}, err
 	}

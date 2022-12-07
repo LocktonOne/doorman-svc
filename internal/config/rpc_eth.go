@@ -1,12 +1,13 @@
 package config
 
 import (
+	"fmt"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/distributed_lab/figure/v3"
 	"gitlab.com/distributed_lab/kit/comfig"
 	"gitlab.com/distributed_lab/kit/kv"
 	"gitlab.com/distributed_lab/logan/v3/errors"
-	"net/url"
+	"reflect"
 )
 
 type EthRPCConfiger interface {
@@ -14,7 +15,7 @@ type EthRPCConfiger interface {
 }
 
 type EthRPCConfig struct {
-	Endpoint string `fig:"endpoint"`
+	EthClient *ethclient.Client `fig:"client"`
 }
 
 func NewEthRPCConfiger(getter kv.Getter) EthRPCConfiger {
@@ -32,7 +33,7 @@ func (c *ethRPCConfig) EthRPCConfig() *EthRPCConfig {
 	return c.once.Do(func() interface{} {
 		raw := kv.MustGetStringMap(c.getter, "eth_rpc")
 		config := EthRPCConfig{}
-		err := figure.Out(&config).From(raw).Please()
+		err := figure.Out(&config).With(figure.BaseHooks, GethHook).From(raw).Please()
 		if err != nil {
 			panic(errors.Wrap(err, "failed to figure out"))
 		}
@@ -41,18 +42,23 @@ func (c *ethRPCConfig) EthRPCConfig() *EthRPCConfig {
 	}).(*EthRPCConfig)
 }
 
-func (c *EthRPCConfig) EthRPCURL() *url.URL {
-	u, err := url.Parse(c.Endpoint)
-	if err != nil {
-		panic(err)
+var (
+	GethHook = figure.Hooks{
+		"*ethclient.Client": func(value interface{}) (reflect.Value, error) {
+			switch v := value.(type) {
+			case string:
+				client, err := ethclient.Dial(v)
+				if err != nil {
+					return reflect.Value{}, err
+				}
+				return reflect.ValueOf(client), nil
+			default:
+				return reflect.Value{}, fmt.Errorf("unsupported conversion from %T", value)
+			}
+		},
 	}
-	return u
-}
+)
 
-func (c *EthRPCConfig) EthClient() *ethclient.Client {
-	client, err := ethclient.Dial(c.Endpoint)
-	if err != nil {
-		return nil
-	}
-	return client
+func (c EthRPCConfig) GetEthClient() *ethclient.Client {
+	return c.EthClient
 }
