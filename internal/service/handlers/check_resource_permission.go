@@ -34,7 +34,7 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 			ape.RenderErr(w, problems.InternalError())
 			return
 		}
-		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.EthRPCConfig(r).GetEthClient(), helpers.ViewPermission, helpers.AllResource)
+		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.EthRPCConfig(r).EthClient(), helpers.ViewPermission, helpers.AllResource)
 		if err != nil {
 			logger.WithError(err).Debug("failed to check account permissions")
 			ape.RenderErr(w, problems.InternalError())

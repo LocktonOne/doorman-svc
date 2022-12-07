@@ -15,7 +15,7 @@ type EthRPCConfiger interface {
 }
 
 type EthRPCConfig struct {
-	EthClient *ethclient.Client `fig:"client"`
+	Client *ethclient.Client `fig:"client"`
 }
 
 func NewEthRPCConfiger(getter kv.Getter) EthRPCConfiger {
@@ -59,6 +59,6 @@ var (
 	}
 )
 
-func (c EthRPCConfig) GetEthClient() *ethclient.Client {
-	return c.EthClient
+func (c EthRPCConfig) EthClient() *ethclient.Client {
+	return c.Client
 }

@@ -18,12 +18,11 @@ vault:
   token: ""
   mount_path: ""
   secret_path: ""
-  private_key_path: ""
-  address_registry: ""
+
 
 
 eth_rpc:
-  endpoint: ""
+  client: ""
 
 service:
   token_expire_time: 1h
