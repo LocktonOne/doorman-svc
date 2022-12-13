@@ -1,4 +1,4 @@
-object: type
+type: object
 required:
   - type
 properties:

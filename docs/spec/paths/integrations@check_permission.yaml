@@ -1,0 +1,22 @@
+get:
+  tags:
+    - JWT
+  summary: Check Resourse permission
+  description: Use Bearer authorization for making request. Check if owner of JWT can get access for resource.
+  operationId: checkPermissionID
+  parameters:
+    - in: header
+      name: Authorization
+      schema:
+        type: string
+        format: Bearer {token}
+        example: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+  responses:
+    '204':
+      description: Success
+    '400':
+      description: Bad Request
+    '401':
+      $ref: "#/components/responses/Unauthorized"
+    '500':
+      $ref: "#/components/responses/InternalError"

@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"github.com/ethereum/go-ethereum/common"
 	"net/http"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
 	"gitlab.com/tokene/doorman/internal/service/helpers"
@@ -27,10 +27,25 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if address != strings.ToLower(owner) && !helpers.NodeAdmins(r).CheckAdmin(common.HexToAddress(address)) {
-		logger.WithError(err).Debug("user has no rights to get resource")
-		ape.RenderErr(w, problems.Forbidden())
-		return
+	if address != strings.ToLower(owner) {
+		accManager, err := helpers.GetAddressAccManagement(r)
+		if err != nil {
+			logger.WithError(err).Debug("can't get contract address")
+			ape.RenderErr(w, problems.InternalError())
+			return
+		}
+		success, err := helpers.CheckPermissionsByAddress(accManager, common.HexToAddress(address), helpers.EthRPCConfig(r).EthClient(), helpers.ViewPermission, helpers.AllResource)
+		if err != nil {
+			logger.WithError(err).Debug("failed to check account permissions")
+			ape.RenderErr(w, problems.InternalError())
+			return
+		}
+		if !success {
+			logger.WithError(err).Debug("user has no rights to get resource")
+			ape.RenderErr(w, problems.Forbidden())
+			return
+		}
+		w.WriteHeader(http.StatusOK)
 	}
 
 	w.WriteHeader(http.StatusNoContent)
