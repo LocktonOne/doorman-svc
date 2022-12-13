@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/distributed_lab/figure/v3"
 	"gitlab.com/distributed_lab/kit/comfig"
@@ -53,7 +52,7 @@ var (
 				}
 				return reflect.ValueOf(client), nil
 			default:
-				return reflect.Value{}, fmt.Errorf("unsupported conversion from %T", value)
+				return reflect.Value{}, errors.Errorf("unsupported conversion from %T", value)
 			}
 		},
 	}
