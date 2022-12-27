@@ -2,12 +2,12 @@ configVersion: 1
 project: 'backend'
 ---
 image: builder
-from: golang:1.16.2-stretch
+from: golang:1.18-alpine
 docker:
-  WORKDIR: /go/src/doorman
+  WORKDIR: /go/src/gitlab.com/tokene/doorman
 git:
 - add: /
-  to: /go/src/doorman
+  to: /go/src/gitlab.com/tokene/doorman
   stageDependencies:
     setup:
     - "**/*"
@@ -23,7 +23,7 @@ shell:
   - cd /go/src/gitlab.com/tokene/doorman
   - go mod tidy
   - go mod vendor
-  - go build  -o /usr/local/bin/doorman  /go/src/doorman
+  - go build  -o /usr/local/bin/doorman  /go/src/gitlab.com/tokene/doorman
 
 ---
 image: service
