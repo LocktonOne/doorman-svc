@@ -45,7 +45,7 @@ func CheckResourcePermission(w http.ResponseWriter, r *http.Request) {
 			ape.RenderErr(w, problems.Forbidden())
 			return
 		}
-		w.WriteHeader(http.StatusOK)
+		w.WriteHeader(http.StatusNoContent)
 	}
 
 	w.WriteHeader(http.StatusNoContent)
